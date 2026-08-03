@@ -1,65 +1,100 @@
-import Image from "next/image";
+import { ButtonLink } from "@/components/ui/Button";
+import { EXAMS, SUBSCRIPTION_PRICE_GBP } from "@/lib/constants";
+import { Brain } from "@phosphor-icons/react/dist/ssr/Brain";
+import { Target } from "@phosphor-icons/react/dist/ssr/Target";
+import { ChartLineUp } from "@phosphor-icons/react/dist/ssr/ChartLineUp";
+import { RepeatOnce } from "@phosphor-icons/react/dist/ssr/RepeatOnce";
+
+const FEATURES = [
+  {
+    icon: Target,
+    title: "State your confidence first",
+    body: "Guessing, fairly sure, or certain — before you see if you're right. That's what makes the calibration curve on your dashboard meaningful.",
+  },
+  {
+    icon: Brain,
+    title: "Every wrong option, ruled out",
+    body: "Not just “wrong” — a one-line reason each distractor is ruled out, plus the 2–3 discriminators that separate the real diagnosis from its mimics.",
+  },
+  {
+    icon: ChartLineUp,
+    title: "Know why you got it wrong",
+    body: "Didn’t know the fact, reasoned wrong, misread the stem, or a careless slip — tag every mistake so patterns show up on your dashboard, not just a score.",
+  },
+  {
+    icon: RepeatOnce,
+    title: "Spaced repetition that adapts",
+    body: "An FSRS-powered review queue reschedules questions based on how you actually performed — not a fixed interval.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="flex flex-col flex-1">
+      <section className="bg-gradient-to-b from-(--color-navy-50) to-white">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 py-16 sm:py-24 text-center">
+          <p className="inline-flex items-center gap-2 rounded-full bg-(--color-teal-50) text-(--color-teal-700) text-sm font-semibold px-4 py-1.5">
+            UKMLA &middot; MRCP Part 1
           </p>
+          <h1 className="font-display text-4xl sm:text-6xl font-extrabold text-(--color-navy-900) mt-6 leading-[1.05]">
+            Learn to think like a doctor,
+            <br className="hidden sm:block" /> not just answer like one.
+          </h1>
+          <p className="text-lg text-(--color-ink-500) mt-6 max-w-xl mx-auto">
+            MediRound is a question bank built around clinical reasoning: state your confidence,
+            answer, and see exactly why every option was right or wrong.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
+            <ButtonLink href="/signup" variant="accent" size="lg">
+              Start free &mdash; 5 questions
+            </ButtonLink>
+            <ButtonLink href="/login" variant="outline" size="lg">
+              Sign in
+            </ButtonLink>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-4 sm:px-6 py-16 sm:py-24 w-full">
+        <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-(--color-ink-900) text-center max-w-2xl mx-auto">
+          Built to teach reasoning, not just mark answers
+        </h2>
+        <div className="grid sm:grid-cols-2 gap-5 mt-10">
+          {FEATURES.map((feature) => (
+            <div
+              key={feature.title}
+              className="rounded-3xl border border-(--color-ink-100) p-6 sm:p-7"
+            >
+              <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-(--color-navy-50) text-(--color-navy-900)">
+                <feature.icon size={22} weight="bold" aria-hidden="true" />
+              </span>
+              <h3 className="font-display text-lg font-bold text-(--color-ink-900) mt-4">
+                {feature.title}
+              </h3>
+              <p className="text-(--color-ink-500) mt-1.5 leading-relaxed">{feature.body}</p>
+            </div>
+          ))}
         </div>
-      </main>
+      </section>
+
+      <section className="bg-(--color-navy-900)">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 py-16 sm:py-20 text-center">
+          <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-white">
+            One subscription, every exam
+          </h2>
+          <p className="text-white/70 mt-3 max-w-md mx-auto">
+            Unlimited practice across {EXAMS.map((e) => e.name).join(", ")}, your progress
+            dashboard and the spaced-repetition review queue.
+          </p>
+          <p className="font-display text-5xl font-extrabold text-white mt-6">
+            &pound;{SUBSCRIPTION_PRICE_GBP}
+            <span className="text-lg font-semibold text-white/60">/month</span>
+          </p>
+          <ButtonLink href="/signup" variant="accent" size="lg" className="mt-8">
+            Start free &mdash; no card required
+          </ButtonLink>
+        </div>
+      </section>
     </div>
   );
 }

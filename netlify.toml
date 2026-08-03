@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# The Stripe webhook needs the raw request body for signature verification —
+# make sure no other Netlify config (e.g. a redirect rewriting this path)
+# intercepts it before it reaches the Next.js route handler.
+[[headers]]
+  for = "/api/stripe/webhook"
+  [headers.values]
+    Cache-Control = "no-store"

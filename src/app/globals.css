@@ -1,26 +1,156 @@
 @import "tailwindcss";
 
 :root {
+  /* Brand — sampled from the MediRound logo */
+  --color-navy-950: #001433;
+  --color-navy-900: #00285c;
+  --color-navy-800: #0a3570;
+  --color-navy-700: #16478f;
+  --color-navy-600: #2557a8;
+  --color-navy-100: #e7edf7;
+  --color-navy-50: #f2f5fb;
+
+  --color-teal-800: #005f5f;
+  --color-teal-700: #007575;
+  --color-teal-600: #00918f;
+  --color-teal-500: #00a8a8;
+  --color-teal-400: #2fc1bd;
+  --color-teal-100: #dcf5f3;
+  --color-teal-50: #eefbfa;
+
+  /* Semantic feedback colors */
+  --color-success-700: #15803d;
+  --color-success-600: #17994a;
+  --color-success-100: #dcfce7;
+  --color-success-50: #f0fdf4;
+
+  --color-danger-700: #b91c1c;
+  --color-danger-600: #dc2626;
+  --color-danger-100: #fee2e2;
+  --color-danger-50: #fef2f2;
+
+  --color-warning-700: #b45309;
+  --color-warning-600: #d97706;
+  --color-warning-100: #fef3c7;
+  --color-warning-50: #fffbeb;
+
+  /* Neutrals */
+  --color-ink-900: #101826;
+  --color-ink-800: #1d2836;
+  --color-ink-700: #33404f;
+  --color-ink-600: #465666;
+  --color-ink-500: #5b6b7c;
+  --color-ink-400: #8592a0;
+  --color-ink-300: #aab6c2;
+  --color-ink-200: #cdd6de;
+  --color-ink-100: #e7ecf1;
+  --color-ink-50: #f6f8fa;
+
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: var(--color-ink-900);
+
+  /* User text-size setting multiplier; toggled via data-text-size on <html> */
+  --text-scale: 1;
+}
+
+:root[data-text-size="lg"] {
+  --text-scale: 1.125;
+}
+:root[data-text-size="xl"] {
+  --text-scale: 1.25;
+}
+
+html {
+  font-size: calc(16px * var(--text-scale));
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-navy-950: var(--color-navy-950);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-800: var(--color-navy-800);
+  --color-navy-700: var(--color-navy-700);
+  --color-navy-600: var(--color-navy-600);
+  --color-navy-100: var(--color-navy-100);
+  --color-navy-50: var(--color-navy-50);
+
+  --color-teal-800: var(--color-teal-800);
+  --color-teal-700: var(--color-teal-700);
+  --color-teal-600: var(--color-teal-600);
+  --color-teal-500: var(--color-teal-500);
+  --color-teal-400: var(--color-teal-400);
+  --color-teal-100: var(--color-teal-100);
+  --color-teal-50: var(--color-teal-50);
+
+  --color-success-700: var(--color-success-700);
+  --color-success-600: var(--color-success-600);
+  --color-success-100: var(--color-success-100);
+  --color-success-50: var(--color-success-50);
+
+  --color-danger-700: var(--color-danger-700);
+  --color-danger-600: var(--color-danger-600);
+  --color-danger-100: var(--color-danger-100);
+  --color-danger-50: var(--color-danger-50);
+
+  --color-warning-700: var(--color-warning-700);
+  --color-warning-600: var(--color-warning-600);
+  --color-warning-100: var(--color-warning-100);
+  --color-warning-50: var(--color-warning-50);
+
+  --color-ink-900: var(--color-ink-900);
+  --color-ink-800: var(--color-ink-800);
+  --color-ink-700: var(--color-ink-700);
+  --color-ink-600: var(--color-ink-600);
+  --color-ink-500: var(--color-ink-500);
+  --color-ink-400: var(--color-ink-400);
+  --color-ink-300: var(--color-ink-300);
+  --color-ink-200: var(--color-ink-200);
+  --color-ink-100: var(--color-ink-100);
+  --color-ink-50: var(--color-ink-50);
+
+  --font-display: var(--font-figtree);
+  --font-sans: var(--font-inter);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Visible, high-contrast focus ring for keyboard navigation everywhere */
+:focus-visible {
+  outline: 3px solid var(--color-teal-600);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Respect reduced-motion preference globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--color-navy-900);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 0;
 }

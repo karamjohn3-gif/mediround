@@ -12,7 +12,7 @@ import { NextResponse, type NextRequest } from "next/server";
 //    that needs a real authorization decision (e.g. "is this user an
 //    admin?") is re-checked server-side in that route's own layout/page.
 
-const PROTECTED_PREFIXES = ["/practice", "/dashboard", "/review", "/admin", "/settings"];
+const PROTECTED_PREFIXES = ["/practice", "/dashboard", "/review", "/admin", "/settings", "/learn"];
 
 export async function proxy(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });

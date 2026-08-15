@@ -23,6 +23,17 @@ export type SubscriptionStatus =
   | "past_due"
   | "canceled";
 
+export interface ChapterSection {
+  heading: string;
+  body_html: string;
+}
+
+export interface ChapterRef {
+  label: string;
+  source: string;
+  url: string;
+}
+
 export interface Database {
   public: {
     Tables: {
@@ -63,6 +74,43 @@ export interface Database {
         };
         Update: Partial<Database["public"]["Tables"]["topics"]["Row"]>;
         Relationships: [];
+      };
+      chapters: {
+        Row: {
+          id: string;
+          exam: ExamType;
+          topic_id: string;
+          status: QuestionStatus;
+          title: string;
+          slug: string;
+          dek: string;
+          tag: string;
+          sections: ChapterSection[];
+          pearls: string[];
+          refs: ChapterRef[];
+          related_presentations: string[];
+          sort_order: number;
+          created_by: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: Partial<Database["public"]["Tables"]["chapters"]["Row"]> & {
+          exam: ExamType;
+          topic_id: string;
+          title: string;
+          slug: string;
+          dek: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["chapters"]["Row"]>;
+        Relationships: [
+          {
+            foreignKeyName: "chapters_topic_id_fkey";
+            columns: ["topic_id"];
+            isOneToOne: false;
+            referencedRelation: "topics";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       questions: {
         Row: {

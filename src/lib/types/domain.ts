@@ -1,6 +1,7 @@
 import type { Database } from "@/lib/types/database";
 
 export type QuestionRow = Database["public"]["Tables"]["questions"]["Row"];
+export type ChapterRow = Database["public"]["Tables"]["chapters"]["Row"];
 export type QuestionOptionRow =
   Database["public"]["Tables"]["question_options"]["Row"];
 export type QuestionDiscriminatorRow =

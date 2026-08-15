@@ -8,6 +8,7 @@ import { signOutAction } from "@/lib/actions/auth";
 const NAV_LINKS = [
   { href: "/practice", label: "Practice" },
   { href: "/review", label: "Review" },
+  { href: "/learn", label: "Learn" },
   { href: "/dashboard", label: "Dashboard" },
 ];
 

@@ -1,409 +1,730 @@
--- MRCP Part 1 — Respiratory medicine batch 1 (14 questions, matching the
--- blueprint's allocation).
+-- MRCP Part 1 -- Respiratory medicine batch 2 (50 questions), replacing
+-- batch 1 (14 questions), which has been deleted -- the original batch was
+-- thin (matching only the blueprint minimum) and had bare, minimal-context
+-- stems for several questions. This batch brings Respiratory medicine to the
+-- same 50-question depth and full-vignette stem style (age, specific
+-- diagnosis, care context) as the other specialty batches. Covers all 7
+-- sub-topics: airways disease (8), respiratory infection (7), pulmonary
+-- embolism & vascular disease (7), interstitial lung disease (7), pleural
+-- disease (7), lung cancer (7), and sleep & ventilatory disorders (7).
 --
--- STATUS: status='draft' — will NOT appear to students until reviewed and
--- published via /admin. Not reviewed by a clinician or MRCP-specific
--- medical educator. See mrcp1-cardiology-batch1.sql for the same note in
--- full.
+-- STATUS: status='draft' -- pending review before publishing via /admin. This
+-- content has NOT been individually reviewed by a clinician or MRCP-specific
+-- medical educator; it has been checked by the writing model against standard
+-- reference material (Oxford Handbook of Clinical Medicine, Kumar & Clark's
+-- Clinical Medicine, standard respiratory medicine teaching) to a solid
+-- standard, but has not been checked by a human with relevant clinical
+-- expertise.
+--
+-- Format: 5 options A-E per question with exactly one correct answer,
+-- "Ruled out because..." wrong-answer rationales tied to specifics in the
+-- stem, 2-3 discriminators per question. Correct-answer label balanced
+-- across A-E.
 
 insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, tags) values
-
--- 1. Life-threatening asthma
-(
-  'd0000000-0000-0000-0000-000000000001', 'mrcp1', '30000000-0000-0000-0000-000000000002',
+('f9000000-0000-0000-0000-000000000001', 'mrcp1', 'd062b02e-f4f3-4b4d-b246-2b804b694ef3',
   'draft', 'advanced',
-  $stem$A 24-year-old woman with known asthma presents with acute breathlessness and wheeze. She is unable to complete full sentences. On auscultation her chest is silent.
-
-Observations: HR 128 bpm, RR 32/min, SpO2 89% on 15L oxygen, PEFR 40% predicted.
-
-ABG: PaCO2 6.1 kPa.$stem$,
-  'Which feature indicates this is a life-threatening (rather than simply severe) asthma attack?',
-  array['asthma','life-threatening features']
+  'A 24-year-old woman with a longstanding diagnosis of asthma, usually well controlled on a low-dose inhaled corticosteroid and as-needed salbutamol, presents to the emergency department acutely breathless after running out of her preventer inhaler two weeks ago. She is unable to complete full sentences and looks exhausted. Observations: heart rate 128 bpm, respiratory rate 32/min, SpO2 89% on 15L oxygen via non-rebreathe mask, peak expiratory flow 38% of her predicted best. Auscultation reveals a silent chest.',
+  'Which single feature most strongly indicates that this is a life-threatening, rather than simply acute severe, asthma attack?',
+  array['life-threatening asthma','silent chest','asthma severity classification']
 ),
-
--- 2. COPD controlled oxygen
-(
-  'd0000000-0000-0000-0000-000000000002', 'mrcp1', '30000000-0000-0000-0000-000000000002',
-  'draft', 'advanced',
-  $stem$A 68-year-old man with known severe COPD (FEV1 35% predicted) is brought in with an infective exacerbation, breathless and drowsy. He was given high-flow 15L oxygen by the ambulance crew.
-
-ABG on arrival: pH 7.22, PaCO2 9.8 kPa, PaO2 18 kPa, bicarbonate 28 mmol/L.$stem$,
-  'What is the most appropriate immediate management of his oxygenation?',
-  array['COPD','controlled oxygen','hypercapnia']
+('f9000000-0000-0000-0000-000000000002', 'mrcp1', 'd062b02e-f4f3-4b4d-b246-2b804b694ef3',
+  'draft', 'core',
+  'A 68-year-old man with known severe COPD (FEV1 34% predicted, on home oxygen for chronic hypoxaemia) is brought to the emergency department with a three-day history of increasing breathlessness, purulent sputum and drowsiness following an infective exacerbation. Ambulance crew gave him high-flow 15L oxygen en route. On arrival his GCS is 13 and he is visibly using accessory muscles. Arterial blood gas on this oxygen: pH 7.21, PaCO2 10.2 kPa, PaO2 19.8 kPa, bicarbonate 29 mmol/L.',
+  'What is the most appropriate immediate action regarding his oxygen therapy?',
+  array['COPD exacerbation','controlled oxygen therapy','type 2 respiratory failure']
 ),
-
--- 3. CAP CURB-65
-(
-  'd0000000-0000-0000-0000-000000000003', 'mrcp1', '30000000-0000-0000-0000-000000000002',
-  'draft', 'advanced',
-  $stem$An 82-year-old man presents with fever, cough and confusion. He is unable to state today's date correctly.
-
-Observations: RR 32/min, BP 88/56 mmHg.
-
-Bloods: urea 9.2 mmol/L.$stem$,
-  'What is his CURB-65 score, and what does this indicate?',
-  array['pneumonia','CURB-65']
+('f9000000-0000-0000-0000-000000000003', 'mrcp1', 'd062b02e-f4f3-4b4d-b246-2b804b694ef3',
+  'draft', 'core',
+  'A 45-year-old man with poorly controlled asthma, despite a low-dose inhaled corticosteroid and as-needed salbutamol, describes daytime symptoms most days and waking at night with wheeze twice a week. Inhaler technique and adherence have been checked and confirmed to be good.',
+  'According to standard stepwise asthma management, what is the most appropriate next step in his treatment?',
+  array['asthma stepwise management','add-on therapy','inhaled corticosteroid inadequate control']
 ),
-
--- 4. Legionella
-(
-  'd0000000-0000-0000-0000-000000000004', 'mrcp1', '30000000-0000-0000-0000-000000000002',
-  'draft', 'advanced',
-  $stem$A 54-year-old man returns from a hotel stay abroad and develops fever, dry cough, confusion and diarrhoea over 3 days.
-
-Bloods: sodium 126 mmol/L, deranged liver function tests.
-
-Chest X-ray: patchy consolidation.$stem$,
+('f9000000-0000-0000-0000-000000000004', 'mrcp1', 'd062b02e-f4f3-4b4d-b246-2b804b694ef3',
+  'draft', 'core',
+  'A 58-year-old lifelong smoker (42 pack-years) presents with a two-year history of progressive exertional breathlessness and a chronic productive cough, worse in winter months. Spirometry shows an FEV1/FVC ratio of 0.62 with an FEV1 58% predicted, which does not significantly improve after bronchodilator administration.',
+  'What is the most likely diagnosis?',
+  array['COPD','spirometry','irreversible airflow obstruction']
+),
+('f9000000-0000-0000-0000-000000000005', 'mrcp1', 'd062b02e-f4f3-4b4d-b246-2b804b694ef3',
+  'draft', 'core',
+  'A 71-year-old man with known COPD (FEV1 45% predicted) has had three exacerbations requiring antibiotics in the past year despite optimal inhaled therapy with a long-acting muscarinic antagonist and long-acting beta-agonist combination, and has an eosinophil count of 420 cells/microlitre.',
+  'What is the most appropriate next addition to his regular inhaled therapy?',
+  array['COPD exacerbation prevention','inhaled corticosteroid add-on','blood eosinophil count']
+),
+('f9000000-0000-0000-0000-000000000006', 'mrcp1', 'd062b02e-f4f3-4b4d-b246-2b804b694ef3',
+  'draft', 'foundation',
+  $x$A 34-year-old woman with a long history of daily productive cough, producing copious purulent sputum, and recurrent chest infections since childhood, has finger clubbing on examination. High-resolution CT chest shows dilated, thick-walled bronchi with a 'signet ring' appearance.$x$,
+  'What is the most likely diagnosis?',
+  array['bronchiectasis','signet ring sign','chronic purulent sputum']
+),
+('f9000000-0000-0000-0000-000000000007', 'mrcp1', 'd062b02e-f4f3-4b4d-b246-2b804b694ef3',
+  'draft', 'core',
+  'A 26-year-old woman with known asthma, previously well controlled, presents with a two-week history of worsening wheeze and cough productive of brown mucus plugs. Blood tests show marked peripheral eosinophilia, and skin prick testing is strongly positive to Aspergillus fumigatus, with a markedly raised total IgE.',
+  'What is the most likely diagnosis?',
+  array['allergic bronchopulmonary aspergillosis','Aspergillus hypersensitivity','eosinophilia with asthma']
+),
+('f9000000-0000-0000-0000-000000000008', 'mrcp1', 'd062b02e-f4f3-4b4d-b246-2b804b694ef3',
+  'draft', 'core',
+  $x$A 19-year-old man with known asthma reports that his symptoms are consistently much worse when he visits his grandmother's house, which has cats, and improve within a day of leaving. He also notices seasonal worsening during high pollen counts in early summer.$x$,
+  'What is the most appropriate initial approach to help confirm and manage his likely allergic asthma triggers?',
+  array['allergic asthma','trigger identification','allergen avoidance']
+),
+('f9000000-0000-0000-0000-000000000009', 'mrcp1', '2483a794-e93b-4ff7-a8ce-5dd1037e63cb',
+  'draft', 'core',
+  'An 82-year-old man from a residential care home presents with a three-day history of fever, cough and new confusion, his family reporting he does not usually know what day it is but is otherwise more muddled than his baseline. Observations: respiratory rate 32/min, blood pressure 88/54 mmHg, temperature 38.7C. Blood tests show urea 9.4 mmol/L.',
+  'What does his CURB-65 score indicate about the severity of his pneumonia and the appropriate management setting?',
+  array['CURB-65','severe community-acquired pneumonia','new confusion']
+),
+('f9000000-0000-0000-0000-000000000010', 'mrcp1', '2483a794-e93b-4ff7-a8ce-5dd1037e63cb',
+  'draft', 'core',
+  'A 56-year-old man returns from a hotel stay in Spain and develops fever, dry cough, confusion and watery diarrhoea over three days. Blood tests show hyponatraemia (sodium 126 mmol/L) and deranged liver function tests. Chest X-ray shows patchy bilateral consolidation, and urinary antigen testing is positive.',
   'What is the most likely causative organism?',
-  array['atypical pneumonia','Legionella']
+  array['Legionella pneumonia','atypical pneumonia','travel-associated infection']
 ),
-
--- 5. PE Wells/CTPA
-(
-  'd0000000-0000-0000-0000-000000000005', 'mrcp1', '30000000-0000-0000-0000-000000000002',
+('f9000000-0000-0000-0000-000000000011', 'mrcp1', '2483a794-e93b-4ff7-a8ce-5dd1037e63cb',
   'draft', 'advanced',
-  $stem$A 45-year-old woman on the combined oral contraceptive pill presents with sudden-onset pleuritic chest pain and breathlessness after a long-haul flight. Examination reveals a swollen, tender left calf.
-
-Her Wells score indicates a high clinical probability of pulmonary embolism.$stem$,
-  'What is the most appropriate next investigation?',
-  array['pulmonary embolism','Wells score','CTPA']
+  'A 34-year-old man with newly diagnosed, untreated HIV (CD4 count 90 cells/microlitre) presents with a two-week history of progressive dry cough and breathlessness, worse on exertion. Chest X-ray shows bilateral perihilar interstitial infiltrates, and his oxygen saturation drops from 96% to 84% on a short walk test.',
+  'What is the most likely diagnosis?',
+  array['Pneumocystis jirovecii pneumonia','advanced HIV','exertional desaturation']
 ),
-
--- 6. Tension pneumothorax
-(
-  'd0000000-0000-0000-0000-000000000006', 'mrcp1', '30000000-0000-0000-0000-000000000002',
+('f9000000-0000-0000-0000-000000000012', 'mrcp1', '2483a794-e93b-4ff7-a8ce-5dd1037e63cb',
+  'draft', 'core',
+  'A 45-year-old man with poorly controlled type 2 diabetes presents with cough, fever and haemoptysis over several weeks, along with night sweats and unintentional weight loss of 6kg. He recently emigrated from a country with a high tuberculosis burden. Chest X-ray shows a cavitating lesion in the right upper lobe.',
+  'What is the most appropriate initial investigation to confirm the likely diagnosis?',
+  array['pulmonary tuberculosis','sputum microscopy and culture','cavitating upper lobe lesion']
+),
+('f9000000-0000-0000-0000-000000000013', 'mrcp1', '2483a794-e93b-4ff7-a8ce-5dd1037e63cb',
+  'draft', 'core',
+  'A 28-year-old previously fit and well man develops fever, dry cough, headache and myalgia over five days, with only mild breathlessness. Chest X-ray shows patchy bilateral infiltrates, disproportionately mild compared with his examination findings. Cold agglutinins are positive, and he has a mild haemolytic anaemia.',
+  'What is the most likely causative organism?',
+  array['Mycoplasma pneumoniae','cold agglutinins','walking pneumonia']
+),
+('f9000000-0000-0000-0000-000000000014', 'mrcp1', '2483a794-e93b-4ff7-a8ce-5dd1037e63cb',
+  'draft', 'core',
+  'A 70-year-old man with COPD is admitted with an infective exacerbation five days after being discharged from a two-week hospital admission for a hip fracture. Sputum culture grows Pseudomonas aeruginosa.',
+  'What is the most important implication of this specific organism for his antibiotic management?',
+  array['Pseudomonas aeruginosa','healthcare-associated infection','antipseudomonal antibiotic']
+),
+('f9000000-0000-0000-0000-000000000015', 'mrcp1', '2483a794-e93b-4ff7-a8ce-5dd1037e63cb',
   'draft', 'advanced',
-  $stem$A 26-year-old man sustains a stab wound to the chest. He rapidly develops severe breathlessness and is found to have tracheal deviation away from the affected side, absent breath sounds on that side, and a hyper-resonant hemithorax.
-
-Observations: HR 130 bpm, BP 78/50 mmHg.$stem$,
+  'A 62-year-old man with alcohol use disorder is admitted with fever, foul-smelling purulent sputum and pleuritic chest pain, two weeks after an episode of reduced consciousness from heavy alcohol intake. Chest X-ray shows a cavitating lesion with an air-fluid level in the right lower lobe (a dependent segment when supine).',
+  'What is the most likely diagnosis, and what is the most likely underlying mechanism?',
+  array['lung abscess','aspiration pneumonia','anaerobic organisms']
+),
+('f9000000-0000-0000-0000-000000000016', 'mrcp1', 'e4700d9f-8a59-43e6-aead-0e878641448a',
+  'draft', 'core',
+  'A 38-year-old woman on the combined oral contraceptive pill presents with sudden-onset pleuritic chest pain and breathlessness that began during a long-haul flight home three days ago. Examination reveals a swollen, tender, warm left calf. Her Wells score for pulmonary embolism is calculated as 7.5 (high clinical probability).',
+  'What is the most appropriate immediate investigation?',
+  array['pulmonary embolism','Wells score','CT pulmonary angiogram']
+),
+('f9000000-0000-0000-0000-000000000017', 'mrcp1', 'e4700d9f-8a59-43e6-aead-0e878641448a',
+  'draft', 'advanced',
+  'A 55-year-old man with a confirmed large pulmonary embolism on CT pulmonary angiogram develops sudden hypotension (blood pressure 78/48 mmHg) and worsening breathlessness shortly after the scan, with a new right ventricular strain pattern on ECG.',
   'What is the most appropriate immediate management?',
-  array['tension pneumothorax','needle decompression']
+  array['massive pulmonary embolism','thrombolysis','haemodynamic instability']
 ),
-
--- 7. Pleural effusion Light's criteria
-(
-  'd0000000-0000-0000-0000-000000000007', 'mrcp1', '30000000-0000-0000-0000-000000000002',
-  'draft', 'advanced',
-  $stem$A 62-year-old man with a history of heart failure presents with progressive breathlessness. Chest X-ray shows a large right-sided pleural effusion. Pleural fluid aspiration is performed.
-
-Pleural fluid protein: 28 g/L (serum protein 65 g/L). Pleural fluid LDH: 90 U/L (serum LDH 250 U/L, upper limit of normal 200 U/L).$stem$,
-  $q$According to Light's criteria, is this effusion a transudate or an exudate?$q$,
-  array['pleural effusion', $t$Light's criteria$t$]
+('f9000000-0000-0000-0000-000000000018', 'mrcp1', 'e4700d9f-8a59-43e6-aead-0e878641448a',
+  'draft', 'core',
+  'A 60-year-old woman is diagnosed with an unprovoked pulmonary embolism, with no identifiable precipitating risk factor after standard clinical assessment.',
+  'What is the most appropriate approach to further investigation and anticoagulation duration?',
+  array['unprovoked pulmonary embolism','occult malignancy screening','extended anticoagulation']
 ),
-
--- 8. IPF
-(
-  'd0000000-0000-0000-0000-000000000008', 'mrcp1', '30000000-0000-0000-0000-000000000002',
-  'draft', 'advanced',
-  $stem$A 70-year-old man presents with a 12-month history of progressive breathlessness and a dry cough. Examination reveals bilateral fine end-inspiratory crackles at the lung bases and finger clubbing.
-
-HRCT: bilateral subpleural, basal reticulation with honeycombing, no ground-glass predominance.$stem$,
+('f9000000-0000-0000-0000-000000000019', 'mrcp1', 'e4700d9f-8a59-43e6-aead-0e878641448a',
+  'draft', 'core',
+  'A 48-year-old man with longstanding, worsening exertional breathlessness over two years, without an identifiable cause on standard chest imaging or spirometry, is found on echocardiography to have significantly raised right ventricular systolic pressure and right ventricular hypertrophy, with normal left heart function.',
   'What is the most likely diagnosis?',
-  array['pulmonary fibrosis','IPF','HRCT']
+  array['pulmonary hypertension','right ventricular strain','unexplained breathlessness']
 ),
-
--- 9. Sarcoidosis
-(
-  'd0000000-0000-0000-0000-000000000009', 'mrcp1', '30000000-0000-0000-0000-000000000002',
+('f9000000-0000-0000-0000-000000000020', 'mrcp1', 'e4700d9f-8a59-43e6-aead-0e878641448a',
   'draft', 'advanced',
-  $stem$A 32-year-old woman of Afro-Caribbean descent presents with dry cough, mild breathlessness and tender red nodules on her shins. Chest X-ray shows bilateral hilar lymphadenopathy.
-
-Bloods: raised serum ACE.$stem$,
+  'A 52-year-old woman with a confirmed pulmonary embolism eighteen months ago, treated with a standard course of anticoagulation which was then stopped, now presents with progressive exertional breathlessness over the past year. Echocardiography shows raised pulmonary artery pressure, and ventilation-perfusion scanning shows multiple mismatched perfusion defects.',
   'What is the most likely diagnosis?',
-  array['sarcoidosis','hilar lymphadenopathy']
+  array['chronic thromboembolic pulmonary hypertension','CTEPH','unresolved PE']
 ),
-
--- 10. Bronchiectasis
-(
-  'd0000000-0000-0000-0000-000000000010', 'mrcp1', '30000000-0000-0000-0000-000000000002',
-  'draft', 'advanced',
-  $stem$A 45-year-old woman reports a lifelong history of daily productive cough with copious purulent sputum and recurrent chest infections since childhood.
-
-HRCT: dilated, thick-walled bronchi with a "signet ring" sign.$stem$,
+('f9000000-0000-0000-0000-000000000021', 'mrcp1', 'e4700d9f-8a59-43e6-aead-0e878641448a',
+  'draft', 'core',
+  'A 45-year-old man is diagnosed with a first, provoked pulmonary embolism following major orthopaedic surgery three weeks ago, with no other risk factors identified.',
+  'What is the most appropriate standard duration of anticoagulation for this presentation?',
+  array['provoked pulmonary embolism','anticoagulation duration','transient risk factor']
+),
+('f9000000-0000-0000-0000-000000000022', 'mrcp1', 'e4700d9f-8a59-43e6-aead-0e878641448a',
+  'draft', 'core',
+  'A 34-year-old pregnant woman at 28 weeks gestation presents with sudden pleuritic chest pain and breathlessness. Her Wells score suggests a moderate clinical probability of pulmonary embolism, and leg Doppler ultrasound (performed first, given her pregnancy) is negative for deep vein thrombosis.',
+  'What is the most appropriate next investigation?',
+  array['pulmonary embolism in pregnancy','imaging choice','radiation exposure considerations']
+),
+('f9000000-0000-0000-0000-000000000023', 'mrcp1', 'eb0cb2e7-2143-4d3b-b209-10cf5e486fd8',
+  'draft', 'core',
+  'A 71-year-old retired carpenter presents with a 14-month history of gradually worsening exertional breathlessness and a persistent dry cough. Examination reveals bilateral fine end-inspiratory crackles at both lung bases and finger clubbing. High-resolution CT chest shows bilateral, subpleural, basal-predominant reticular changes with honeycombing, without significant ground-glass change.',
   'What is the most likely diagnosis?',
-  array['bronchiectasis','HRCT']
+  array['idiopathic pulmonary fibrosis','usual interstitial pneumonia pattern','honeycombing']
 ),
-
--- 11. Lung cancer SIADH
-(
-  'd0000000-0000-0000-0000-000000000011', 'mrcp1', '30000000-0000-0000-0000-000000000002',
-  'draft', 'advanced',
-  $stem$A 66-year-old man with a 40 pack-year smoking history presents with confusion and lethargy.
-
-Bloods: sodium 118 mmol/L, low plasma osmolality, inappropriately concentrated urine.
-
-Chest X-ray: central lung mass.$stem$,
-  'What is the most likely underlying mechanism?',
-  array['lung cancer','SIADH','paraneoplastic']
-),
-
--- 12. OSA
-(
-  'd0000000-0000-0000-0000-000000000012', 'mrcp1', '30000000-0000-0000-0000-000000000002',
-  'draft', 'advanced',
-  $stem$A 52-year-old man with obesity presents with excessive daytime sleepiness and loud snoring, witnessed by his partner to include episodes of apnoea during sleep. He scores highly on the Epworth Sleepiness Scale.$stem$,
-  'What is the most appropriate investigation to confirm the diagnosis?',
-  array['obstructive sleep apnoea','polysomnography']
-),
-
--- 13. Pulmonary hypertension
-(
-  'd0000000-0000-0000-0000-000000000013', 'mrcp1', '30000000-0000-0000-0000-000000000002',
-  'draft', 'advanced',
-  $stem$A 38-year-old woman with a history of systemic sclerosis presents with progressive exertional breathlessness. Examination reveals a loud second heart sound (P2), a raised JVP, and peripheral oedema.
-
-Echocardiogram: raised estimated pulmonary artery pressure with right ventricular hypertrophy.$stem$,
+('f9000000-0000-0000-0000-000000000024', 'mrcp1', 'eb0cb2e7-2143-4d3b-b209-10cf5e486fd8',
+  'draft', 'core',
+  'A 33-year-old woman of Afro-Caribbean descent presents with a dry cough, mild breathlessness, fatigue and tender red nodules over both her shins. Chest X-ray shows bilateral hilar lymphadenopathy without significant parenchymal infiltrate. Blood tests show a raised serum ACE level and mild hypercalcaemia.',
   'What is the most likely diagnosis?',
-  array['pulmonary hypertension','systemic sclerosis']
+  array['sarcoidosis','bilateral hilar lymphadenopathy','erythema nodosum']
 ),
-
--- 14. Hypersensitivity pneumonitis
-(
-  'd0000000-0000-0000-0000-000000000014', 'mrcp1', '30000000-0000-0000-0000-000000000002',
-  'draft', 'advanced',
-  $stem$A 55-year-old pigeon breeder presents with several months of progressive breathlessness, dry cough and weight loss, worse a few hours after time spent in his pigeon loft. Examination reveals fine bibasal crackles.
-
-HRCT: upper-zone predominant ground-glass change and mosaic attenuation.$stem$,
+('f9000000-0000-0000-0000-000000000025', 'mrcp1', 'eb0cb2e7-2143-4d3b-b209-10cf5e486fd8',
+  'draft', 'core',
+  $x$A 58-year-old man who has worked for 30 years in a foundry presents with progressive breathlessness and a chronic cough. Chest X-ray shows multiple small, rounded nodular opacities predominantly in the upper zones, with some calcified hilar lymph nodes showing an 'eggshell' pattern of calcification.$x$,
   'What is the most likely diagnosis?',
-  array['hypersensitivity pneumonitis','occupational lung disease']
+  array['silicosis','eggshell calcification','occupational lung disease']
+),
+('f9000000-0000-0000-0000-000000000026', 'mrcp1', 'eb0cb2e7-2143-4d3b-b209-10cf5e486fd8',
+  'draft', 'core',
+  'A 52-year-old pigeon fancier presents with recurrent episodes of fever, dry cough and breathlessness occurring several hours after cleaning his pigeon loft, improving over the following days once he avoids the loft. HRCT during a symptomatic episode shows diffuse ground-glass change with mosaic attenuation, predominantly in the mid-to-upper zones.',
+  'What is the most likely diagnosis?',
+  array['hypersensitivity pneumonitis',$x$bird fancier's lung$x$,'antigen avoidance']
+),
+('f9000000-0000-0000-0000-000000000027', 'mrcp1', 'eb0cb2e7-2143-4d3b-b209-10cf5e486fd8',
+  'draft', 'core',
+  $x$A 62-year-old woman with a 15-year history of diffuse cutaneous systemic sclerosis, including Raynaud's phenomenon and skin thickening of her hands, forearms and trunk, develops progressive exertional breathlessness and a dry cough over the past year. HRCT shows bilateral basal ground-glass change with fine reticulation.$x$,
+  'What is the most likely explanation for her respiratory symptoms?',
+  array['connective tissue disease-associated interstitial lung disease','systemic sclerosis','pulmonary fibrosis']
+),
+('f9000000-0000-0000-0000-000000000028', 'mrcp1', 'eb0cb2e7-2143-4d3b-b209-10cf5e486fd8',
+  'draft', 'core',
+  'A 68-year-old man taking amiodarone for atrial fibrillation for the past 18 months develops a new dry cough and progressive breathlessness. HRCT shows bilateral, patchy areas of consolidation and ground-glass change, with no evidence of infection or heart failure on further assessment.',
+  'What is the most likely explanation for his respiratory symptoms?',
+  array['amiodarone-induced pulmonary toxicity','drug-induced interstitial lung disease']
+),
+('f9000000-0000-0000-0000-000000000029', 'mrcp1', 'eb0cb2e7-2143-4d3b-b209-10cf5e486fd8',
+  'draft', 'advanced',
+  'A 69-year-old man with confirmed idiopathic pulmonary fibrosis (FVC 68% predicted, DLCO 52% predicted) is reviewed in clinic to discuss treatment options aimed at slowing disease progression.',
+  'What is the most appropriate class of pharmacological treatment to discuss with him?',
+  array['antifibrotic therapy','pirfenidone or nintedanib','IPF disease-modifying treatment']
+),
+('f9000000-0000-0000-0000-000000000030', 'mrcp1', 'ab86e543-ff82-418a-b6ed-ef000cb8f936',
+  'draft', 'core',
+  'A 23-year-old tall, thin man with no significant past medical history develops sudden-onset right-sided pleuritic chest pain and breathlessness while playing football. Examination reveals reduced breath sounds and hyperresonance on the right side. Chest X-ray confirms a right-sided pneumothorax with a 2.5cm rim of air visible at the level of the hilum, with no mediastinal shift and stable observations.',
+  'What is the most appropriate initial management approach?',
+  array['primary spontaneous pneumothorax','conservative management','pneumothorax sizing']
+),
+('f9000000-0000-0000-0000-000000000031', 'mrcp1', 'ab86e543-ff82-418a-b6ed-ef000cb8f936',
+  'draft', 'core',
+  'A 45-year-old man is stabbed in the left chest during an altercation. On arrival in the emergency department he is severely breathless with tracheal deviation to the right, absent breath sounds on the left, and a hyper-resonant left hemithorax. Observations: heart rate 135 bpm, blood pressure 76/48 mmHg, with distended neck veins.',
+  'What is the most appropriate immediate management?',
+  array['tension pneumothorax','needle decompression','traumatic chest emergency']
+),
+('f9000000-0000-0000-0000-000000000032', 'mrcp1', 'ab86e543-ff82-418a-b6ed-ef000cb8f936',
+  'draft', 'core',
+  'A 66-year-old man with chronic heart failure (ejection fraction 30%) presents with worsening breathlessness. Chest X-ray shows a large right-sided pleural effusion. Diagnostic pleural fluid aspiration shows a pleural fluid protein of 22g/L (serum protein 68g/L) and pleural fluid LDH of 110 U/L (serum LDH 220 U/L, upper limit of normal for serum LDH 200 U/L).',
+  $x$According to Light's criteria, is this effusion a transudate or an exudate?$x$,
+  array[$x$Light's criteria$x$,'transudative pleural effusion','heart failure']
+),
+('f9000000-0000-0000-0000-000000000033', 'mrcp1', 'ab86e543-ff82-418a-b6ed-ef000cb8f936',
+  'draft', 'core',
+  'A 72-year-old man with a 45 pack-year smoking history presents with progressive breathlessness and weight loss. Chest X-ray shows a large right-sided pleural effusion. Diagnostic aspiration yields blood-stained fluid, with a pleural:serum protein ratio of 0.7, and cytology confirms malignant cells.',
+  'What is the most appropriate approach to managing his recurrent, symptomatic malignant pleural effusion?',
+  array['malignant pleural effusion','pleurodesis','indwelling pleural catheter']
+),
+('f9000000-0000-0000-0000-000000000034', 'mrcp1', 'ab86e543-ff82-418a-b6ed-ef000cb8f936',
+  'draft', 'advanced',
+  'A 58-year-old man with community-acquired pneumonia, treated with antibiotics for five days, develops persistent fever and a worsening right-sided pleural effusion. Repeat pleural fluid aspiration shows a pH of 7.10, glucose of 1.8 mmol/L, and frank pus is aspirated.',
+  'What is the most appropriate management of this complication?',
+  array['empyema','chest drain insertion','complicated parapneumonic effusion']
+),
+('f9000000-0000-0000-0000-000000000035', 'mrcp1', 'ab86e543-ff82-418a-b6ed-ef000cb8f936',
+  'draft', 'core',
+  'A 68-year-old man with a 35-year occupational history working in shipbuilding, with significant asbestos exposure, is found incidentally on chest X-ray to have bilateral, well-demarcated pleural plaques with some areas of calcification. He is asymptomatic, with normal spirometry.',
+  'What is the most appropriate explanation and approach to this finding?',
+  array['benign pleural plaques','asbestos exposure','incidental finding']
+),
+('f9000000-0000-0000-0000-000000000036', 'mrcp1', 'ab86e543-ff82-418a-b6ed-ef000cb8f936',
+  'draft', 'core',
+  'A 30-year-old man, previously well, has a first episode of primary spontaneous pneumothorax managed successfully with observation. Eight months later he presents with a second, ipsilateral spontaneous pneumothorax.',
+  'What is the most appropriate next step in his management?',
+  array['recurrent pneumothorax','pleurodesis','surgical referral']
+),
+('f9000000-0000-0000-0000-000000000037', 'mrcp1', 'abf0c3f8-5d55-4c5b-8439-9adc3533909e',
+  'draft', 'core',
+  'A 67-year-old man with a 50 pack-year smoking history presents with a six-week history of haemoptysis, weight loss of 5kg, and a persistent cough. Chest X-ray shows a 3cm spiculated mass in the right upper lobe. CT-guided biopsy confirms squamous cell carcinoma.',
+  'Which paraneoplastic biochemical abnormality is most classically associated with this specific histological subtype?',
+  array['squamous cell lung cancer','PTHrP','humoral hypercalcaemia of malignancy']
+),
+('f9000000-0000-0000-0000-000000000038', 'mrcp1', 'abf0c3f8-5d55-4c5b-8439-9adc3533909e',
+  'draft', 'advanced',
+  'A 71-year-old man with small cell lung cancer, recently started on chemotherapy, develops progressive confusion and lethargy over several days. Blood tests show sodium 116 mmol/L, low plasma osmolality, and inappropriately concentrated urine, with normal renal, adrenal and thyroid function.',
+  'What is the most likely mechanism underlying his hyponatraemia?',
+  array['SIADH','small cell lung cancer','ectopic ADH']
+),
+('f9000000-0000-0000-0000-000000000039', 'mrcp1', 'abf0c3f8-5d55-4c5b-8439-9adc3533909e',
+  'draft', 'core',
+  'A 58-year-old woman with a large right-sided lung mass on chest X-ray develops progressive right-sided ptosis, miosis and anhidrosis of the right side of her face, along with severe right shoulder and arm pain radiating down the inner aspect of her arm.',
+  'What is the most likely diagnosis?',
+  array['Pancoast tumour','Horner syndrome','brachial plexus invasion']
+),
+('f9000000-0000-0000-0000-000000000040', 'mrcp1', 'abf0c3f8-5d55-4c5b-8439-9adc3533909e',
+  'draft', 'core',
+  'A 65-year-old man with a 40 pack-year smoking history is found to have a 1.2cm solitary pulmonary nodule on a chest X-ray performed for an unrelated reason. He is otherwise asymptomatic, and this is his first imaging showing the nodule.',
+  'What is the most appropriate initial approach to further assessment?',
+  array['solitary pulmonary nodule','risk stratification','CT characterisation']
+),
+('f9000000-0000-0000-0000-000000000041', 'mrcp1', 'abf0c3f8-5d55-4c5b-8439-9adc3533909e',
+  'draft', 'core',
+  'A 63-year-old woman with confirmed non-small-cell lung cancer undergoes molecular testing of her tumour as part of routine staging workup, identifying an EGFR mutation.',
+  'What is the significance of this finding for her treatment options?',
+  array['EGFR mutation','targeted therapy','tyrosine kinase inhibitor']
+),
+('f9000000-0000-0000-0000-000000000042', 'mrcp1', 'abf0c3f8-5d55-4c5b-8439-9adc3533909e',
+  'draft', 'advanced',
+  'A 60-year-old man with small cell lung cancer develops progressive proximal muscle weakness over several weeks, particularly affecting his legs, along with dry mouth and mild erectile dysfunction. On examination, his reflexes, initially reduced, become transiently brisker after 10 seconds of sustained voluntary contraction.',
+  'What is the most likely diagnosis?',
+  array['Lambert-Eaton myasthenic syndrome','paraneoplastic syndrome','post-tetanic potentiation']
+),
+('f9000000-0000-0000-0000-000000000043', 'mrcp1', 'abf0c3f8-5d55-4c5b-8439-9adc3533909e',
+  'draft', 'core',
+  'A 55-year-old man with newly diagnosed non-small-cell lung cancer undergoes staging investigations, including CT chest/abdomen/pelvis and PET-CT, to determine whether the disease is confined to the chest or has spread beyond it.',
+  'What is the primary purpose of this staging workup?',
+  array['lung cancer staging','TNM classification','treatment planning']
+),
+('f9000000-0000-0000-0000-000000000044', 'mrcp1', 'd9d773f2-60f4-48fa-bce9-13fcef31774e',
+  'draft', 'core',
+  'A 52-year-old man with obesity (BMI 38 kg/m2) is brought by his wife, who reports loud snoring, witnessed episodes of breathing pauses during sleep, and choking/gasping arousals. He reports excessive daytime sleepiness, having fallen asleep twice while driving in the past month. Overnight polysomnography confirms an apnoea-hypopnoea index of 42 events per hour.',
+  'What is the most likely diagnosis?',
+  array['obstructive sleep apnoea','apnoea-hypopnoea index','excessive daytime somnolence']
+),
+('f9000000-0000-0000-0000-000000000045', 'mrcp1', 'd9d773f2-60f4-48fa-bce9-13fcef31774e',
+  'draft', 'core',
+  'A 58-year-old man with confirmed severe obstructive sleep apnoea (apnoea-hypopnoea index 48/hour) and significant daytime sleepiness is reviewed in clinic to discuss treatment options.',
+  'What is the most appropriate first-line treatment?',
+  array['continuous positive airway pressure','CPAP therapy','OSA management']
+),
+('f9000000-0000-0000-0000-000000000046', 'mrcp1', 'd9d773f2-60f4-48fa-bce9-13fcef31774e',
+  'draft', 'core',
+  'A 62-year-old man with severe COPD and daytime hypercapnia (PaCO2 7.8 kPa on stable outpatient blood gas testing) is reviewed for consideration of home ventilatory support, in addition to his standard inhaled COPD therapy.',
+  'What is the most appropriate additional treatment to consider in this context?',
+  array['home non-invasive ventilation','chronic hypercapnic respiratory failure','domiciliary NIV']
+),
+('f9000000-0000-0000-0000-000000000047', 'mrcp1', 'd9d773f2-60f4-48fa-bce9-13fcef31774e',
+  'draft', 'advanced',
+  'A 34-year-old man with severe obesity (BMI 46 kg/m2) presents with progressive breathlessness, ankle swelling and daytime sleepiness. Arterial blood gas on room air shows a PaCO2 of 7.2 kPa and PaO2 of 8.1 kPa. Overnight polysomnography also confirms coexisting severe obstructive sleep apnoea.',
+  'What is the most likely diagnosis explaining his daytime hypercapnia and hypoxaemia?',
+  array['obesity hypoventilation syndrome','Pickwickian syndrome','chronic respiratory failure']
+),
+('f9000000-0000-0000-0000-000000000048', 'mrcp1', 'd9d773f2-60f4-48fa-bce9-13fcef31774e',
+  'draft', 'core',
+  'A 45-year-old woman with known heart failure with reduced ejection fraction describes her husband noticing a cyclical pattern to her breathing during sleep, with periods of gradually increasing then decreasing breath depth, followed by brief pauses, repeating throughout the night.',
+  'What is the most likely explanation for this breathing pattern?',
+  array['Cheyne-Stokes respiration','central sleep apnoea','heart failure']
+),
+('f9000000-0000-0000-0000-000000000049', 'mrcp1', 'd9d773f2-60f4-48fa-bce9-13fcef31774e',
+  'draft', 'core',
+  'A 39-year-old man reports sudden episodes of complete loss of muscle tone triggered by laughter or strong emotion, during which he remains fully conscious and falls to the ground, recovering within a minute or two. He also describes overwhelming, irresistible daytime sleepiness and vivid, dream-like hallucinations just as he is falling asleep.',
+  'What is the most likely diagnosis?',
+  array['narcolepsy','cataplexy','hypnagogic hallucinations']
+),
+('f9000000-0000-0000-0000-000000000050', 'mrcp1', 'd9d773f2-60f4-48fa-bce9-13fcef31774e',
+  'draft', 'core',
+  'A 61-year-old lorry driver with newly diagnosed moderate obstructive sleep apnoea, confirmed on polysomnography with significant daytime sleepiness, asks his respiratory physician about the implications for his ability to continue driving for work.',
+  'What is the most appropriate advice regarding his driving?',
+  array['OSA and driving regulations','DVLA notification','occupational safety']
 )
-
 on conflict (id) do nothing;
 
--- ---------------------------------------------------------------------------
--- Options
--- ---------------------------------------------------------------------------
-
 insert into question_options (question_id, label, option_text, is_correct, rationale, sort_order) values
-
--- Q1 Life-threatening asthma
-('d0000000-0000-0000-0000-000000000001', 'A', 'A silent chest with a normal PaCO2', true,
- $r$Correct. A silent chest reflects minimal air entry from severe bronchoconstriction, and a normal (rather than the expected low) PaCO2 in a tachypnoeic patient indicates she is tiring and failing to compensate — both are specific life-threatening features.$r$, 1),
-('d0000000-0000-0000-0000-000000000001', 'B', 'Inability to complete full sentences', false,
- $r$Ruled out because this is a marker of at least severe (or even moderate) asthma, not specific to the life-threatening category.$r$, 2),
-('d0000000-0000-0000-0000-000000000001', 'C', 'Respiratory rate 32/min', false,
- $r$Ruled out because a respiratory rate 25/min or above defines severe asthma; life-threatening asthma is defined by different specific features such as a silent chest.$r$, 3),
-('d0000000-0000-0000-0000-000000000001', 'D', 'Heart rate 128 bpm', false,
- $r$Ruled out because a heart rate of 110/min or above defines severe asthma; life-threatening asthma is more specifically associated with bradycardia, arrhythmia or hypotension.$r$, 4),
-('d0000000-0000-0000-0000-000000000001', 'E', 'PEFR 40% predicted', false,
- $r$Ruled out because a PEFR of 33-50% predicted defines severe asthma; the life-threatening threshold is below 33% or unrecordable.$r$, 5),
-
--- Q2 COPD oxygen
-('d0000000-0000-0000-0000-000000000002', 'A', 'Reduce to controlled oxygen therapy (e.g. 24-28% via Venturi mask) titrated to target SpO2 88-92%', true,
- $r$Correct. In COPD patients at risk of hypercapnic respiratory failure, high-flow oxygen can worsen hypercapnia; controlled oxygen titrated to a lower target saturation prevents this while maintaining adequate oxygenation.$r$, 1),
-('d0000000-0000-0000-0000-000000000002', 'B', 'Continue high-flow 15L oxygen', false,
- $r$Ruled out because this has precipitated significant hypercapnic acidosis and worsening consciousness; it should be reduced, not continued.$r$, 2),
-('d0000000-0000-0000-0000-000000000002', 'C', 'Discontinue all supplemental oxygen', false,
- $r$Ruled out because the patient remains at risk of significant hypoxia and needs oxygen, just at a controlled, titrated rate rather than complete withdrawal.$r$, 3),
-('d0000000-0000-0000-0000-000000000002', 'D', 'Immediate intubation and mechanical ventilation', false,
- $r$Ruled out because the first step is to correct oxygen delivery and reassess with NIV if the acidosis persists; not every hypercapnic COPD patient requires immediate invasive ventilation.$r$, 4),
-('d0000000-0000-0000-0000-000000000002', 'E', 'Nebulised oxygen-driven bronchodilators only', false,
- $r$Ruled out because this does not address the excess oxygen delivery that is driving the hypercapnia, the primary issue here.$r$, 5),
-
--- Q3 CURB-65
-('d0000000-0000-0000-0000-000000000003', 'A', 'CURB-65 score of 5, indicating very high mortality risk requiring hospital admission and consideration of ICU/HDU care', true,
- $r$Correct. He scores 1 point each for confusion, urea >7 mmol/L, RR 30 or above, blood pressure below threshold, and age 65 or above, totalling 5 — the maximum score, indicating very high mortality risk.$r$, 1),
-('d0000000-0000-0000-0000-000000000003', 'B', 'CURB-65 score of 2, indicating outpatient management is appropriate', false,
- $r$Ruled out because this significantly underestimates his risk; he meets all 5 criteria, not 2.$r$, 2),
-('d0000000-0000-0000-0000-000000000003', 'C', 'CURB-65 score of 5, indicating outpatient antibiotics are sufficient', false,
- $r$Ruled out because a score of 5 indicates very high mortality risk requiring admission, not outpatient management.$r$, 3),
-('d0000000-0000-0000-0000-000000000003', 'D', 'CURB-65 does not apply because his confusion may be from another cause', false,
- $r$Ruled out because CURB-65 is calculated on the clinical findings present regardless of aetiological uncertainty about the confusion.$r$, 4),
-('d0000000-0000-0000-0000-000000000003', 'E', 'CURB-65 score of 3, indicating hospital admission without need for critical care assessment', false,
- $r$Ruled out because this underestimates his actual score of 5 and its associated very high mortality risk, which should prompt consideration of critical care input.$r$, 5),
-
--- Q4 Legionella
-('d0000000-0000-0000-0000-000000000004', 'A', 'Legionella pneumophila', true,
- $r$Correct. Travel/hotel exposure, atypical features (confusion, GI symptoms), hyponatraemia and deranged LFTs together are classic for Legionella pneumonia.$r$, 1),
-('d0000000-0000-0000-0000-000000000004', 'B', 'Streptococcus pneumoniae', false,
- $r$Ruled out because typical pneumococcal pneumonia presents with a more acute lobar pattern and does not typically cause this combination of hyponatraemia, deranged LFTs and prominent GI symptoms.$r$, 2),
-('d0000000-0000-0000-0000-000000000004', 'C', 'Mycoplasma pneumoniae', false,
- $r$Ruled out because while also atypical, Mycoplasma more classically affects younger patients and is associated with erythema multiforme or cold agglutinin haemolysis, not this hotel-exposure/hyponatraemia picture.$r$, 3),
-('d0000000-0000-0000-0000-000000000004', 'D', 'Haemophilus influenzae', false,
- $r$Ruled out because this typically causes pneumonia in patients with underlying COPD, not this systemic atypical picture with hyponatraemia.$r$, 4),
-('d0000000-0000-0000-0000-000000000004', 'E', 'Chlamydia psittaci', false,
- $r$Ruled out because this is specifically associated with bird exposure, not hotel/travel exposure.$r$, 5),
-
--- Q5 PE
-('d0000000-0000-0000-0000-000000000005', 'A', 'CT pulmonary angiography', true,
- $r$Correct. In a patient with a high clinical probability of PE, CTPA is the most appropriate first-line definitive imaging investigation, without the need for a D-dimer.$r$, 1),
-('d0000000-0000-0000-0000-000000000005', 'B', 'D-dimer testing', false,
- $r$Ruled out because D-dimer is used to help exclude PE only in patients with a low clinical probability; in high-probability patients it should not delay definitive imaging.$r$, 2),
-('d0000000-0000-0000-0000-000000000005', 'C', 'Ventilation-perfusion (V/Q) scan as first-line', false,
- $r$Ruled out because CTPA is preferred first-line in most patients; V/Q scanning is reserved for situations such as significant renal impairment or contrast allergy.$r$, 3),
-('d0000000-0000-0000-0000-000000000005', 'D', 'Doppler ultrasound of the leg only, without chest imaging', false,
- $r$Ruled out because this does not confirm or exclude PE itself, and definitive chest imaging is needed given the respiratory symptoms and high clinical probability.$r$, 4),
-('d0000000-0000-0000-0000-000000000005', 'E', 'Await outpatient echocardiography', false,
- $r$Ruled out because this is not the appropriate next step for suspected acute PE, which requires urgent definitive imaging.$r$, 5),
-
--- Q6 Tension pneumothorax
-('d0000000-0000-0000-0000-000000000006', 'A', 'Immediate needle decompression of the affected hemithorax', true,
- $r$Correct. Tracheal deviation, absent breath sounds, hyper-resonance and haemodynamic compromise are diagnostic of tension pneumothorax, requiring immediate needle decompression before any imaging.$r$, 1),
-('d0000000-0000-0000-0000-000000000006', 'B', 'Urgent chest X-ray to confirm the diagnosis', false,
- $r$Ruled out because tension pneumothorax is a clinical diagnosis requiring immediate treatment; waiting for imaging in a haemodynamically unstable patient risks cardiac arrest.$r$, 2),
-('d0000000-0000-0000-0000-000000000006', 'C', 'IV fluid resuscitation alone', false,
- $r$Ruled out because this does not address the underlying mechanical cause of the shock, which requires decompression.$r$, 3),
-('d0000000-0000-0000-0000-000000000006', 'D', 'Insertion of a chest drain as the first step', false,
- $r$Ruled out because immediate needle decompression takes priority to rapidly relieve the tension physiology; a formal chest drain follows afterwards.$r$, 4),
-('d0000000-0000-0000-0000-000000000006', 'E', 'Urgent CT chest', false,
- $r$Ruled out because CT is far too slow for this immediately life-threatening diagnosis, which should be treated clinically without delay.$r$, 5),
-
--- Q7 Pleural effusion
-('d0000000-0000-0000-0000-000000000007', 'A', 'Transudate', true,
- $r$Correct. None of Light's criteria for an exudate are met (protein ratio 0.43, LDH ratio 0.36, pleural LDH below two-thirds the upper limit of normal serum LDH), consistent with a transudate, fitting his heart failure.$r$, 1),
-('d0000000-0000-0000-0000-000000000007', 'B', 'Exudate', false,
- $r$Ruled out because none of the three Light's criteria thresholds are exceeded; all values are consistent with a transudate.$r$, 2),
-('d0000000-0000-0000-0000-000000000007', 'C', 'Cannot be determined without pleural fluid cholesterol', false,
- $r$Ruled out because Light's criteria (protein and LDH ratios) are sufficient to classify the effusion here.$r$, 3),
-('d0000000-0000-0000-0000-000000000007', 'D', 'Empyema', false,
- $r$Ruled out because there is no indication of infection, such as a low pH or frank pus, in the fluid results given.$r$, 4),
-('d0000000-0000-0000-0000-000000000007', 'E', 'Chylothorax', false,
- $r$Ruled out because there is no mention of a milky appearance or elevated pleural fluid triglycerides, which would suggest chylothorax.$r$, 5),
-
--- Q8 IPF
-('d0000000-0000-0000-0000-000000000008', 'A', 'Idiopathic pulmonary fibrosis', true,
- $r$Correct. Progressive dyspnoea and dry cough over months to years, bibasal fine crackles, clubbing, and a HRCT pattern of basal subpleural honeycombing are classic for IPF.$r$, 1),
-('d0000000-0000-0000-0000-000000000008', 'B', 'Sarcoidosis', false,
- $r$Ruled out because sarcoidosis typically shows bilateral hilar lymphadenopathy with upper-zone predominant changes, not basal honeycombing, and clubbing is uncommon.$r$, 2),
-('d0000000-0000-0000-0000-000000000008', 'C', 'Hypersensitivity pneumonitis', false,
- $r$Ruled out because this is typically associated with an identifiable antigen exposure and shows upper/mid-zone, ground-glass and mosaic attenuation changes, not basal honeycombing.$r$, 3),
-('d0000000-0000-0000-0000-000000000008', 'D', 'COPD', false,
- $r$Ruled out because COPD causes airflow obstruction with hyperinflation, not the restrictive, fibrotic HRCT pattern and fine crackles described.$r$, 4),
-('d0000000-0000-0000-0000-000000000008', 'E', 'Pulmonary oedema', false,
- $r$Ruled out because this is typically acute or subacute with signs of fluid overload, not a 12-month progressive course with honeycombing on HRCT.$r$, 5),
-
--- Q9 Sarcoidosis
-('d0000000-0000-0000-0000-000000000009', 'A', 'Sarcoidosis', true,
- $r$Correct. Bilateral hilar lymphadenopathy with erythema nodosum and a raised ACE level in a young woman of Afro-Caribbean descent is classic for sarcoidosis.$r$, 1),
-('d0000000-0000-0000-0000-000000000009', 'B', 'Tuberculosis', false,
- $r$Ruled out because TB hilar lymphadenopathy is typically unilateral and associated with systemic symptoms and a relevant exposure history, and does not classically cause erythema nodosum with a raised ACE.$r$, 2),
-('d0000000-0000-0000-0000-000000000009', 'C', 'Lymphoma', false,
- $r$Ruled out because lymphoma-associated lymphadenopathy is often asymmetric and associated with systemic B symptoms, not this combination of bilateral hilar nodes, erythema nodosum and raised ACE.$r$, 3),
-('d0000000-0000-0000-0000-000000000009', 'D', 'Bronchogenic carcinoma', false,
- $r$Ruled out because this is unlikely in a young patient without a smoking history described and does not explain the erythema nodosum or bilateral hilar changes.$r$, 4),
-('d0000000-0000-0000-0000-000000000009', 'E', 'Silicosis', false,
- $r$Ruled out because this requires a specific occupational dust exposure history, which is not described, and does not typically cause erythema nodosum.$r$, 5),
-
--- Q10 Bronchiectasis
-('d0000000-0000-0000-0000-000000000010', 'A', 'Bronchiectasis', true,
- $r$Correct. A lifelong history of chronic productive cough with copious purulent sputum, recurrent infections, and the HRCT signet ring sign are diagnostic of bronchiectasis.$r$, 1),
-('d0000000-0000-0000-0000-000000000010', 'B', 'Chronic bronchitis (COPD)', false,
- $r$Ruled out because this is typically associated with a significant smoking history and does not produce the specific HRCT signet ring sign of bronchial dilatation seen here.$r$, 2),
-('d0000000-0000-0000-0000-000000000010', 'C', 'Asthma', false,
- $r$Ruled out because asthma causes episodic wheeze and reversible airflow obstruction, not a lifelong history of copious purulent sputum or bronchial dilatation on HRCT.$r$, 3),
-('d0000000-0000-0000-0000-000000000010', 'D', 'Lung abscess', false,
- $r$Ruled out because this typically presents with a localised cavitating lesion, not diffuse bronchial dilatation with a chronic lifelong history.$r$, 4),
-('d0000000-0000-0000-0000-000000000010', 'E', 'Pulmonary tuberculosis', false,
- $r$Ruled out because although TB can lead to bronchiectasis as a complication, the vignette describes a primary lifelong pattern without a specific TB history.$r$, 5),
-
--- Q11 Lung cancer SIADH
-('d0000000-0000-0000-0000-000000000011', 'A', 'Ectopic ADH secretion from a small cell lung cancer causing SIADH', true,
- $r$Correct. Hyponatraemia with low plasma osmolality and inappropriately concentrated urine in a heavy smoker with a central lung mass is classic for SIADH from ectopic ADH secretion by a small cell lung cancer.$r$, 1),
-('d0000000-0000-0000-0000-000000000011', 'B', 'PTHrP secretion causing hypercalcaemia', false,
- $r$Ruled out because this vignette describes hyponatraemia, not hypercalcaemia; PTHrP-mediated hypercalcaemia is classically associated with squamous cell, not small cell, lung cancer.$r$, 2),
-('d0000000-0000-0000-0000-000000000011', 'C', $o$Ectopic ACTH secretion causing Cushing's syndrome$o$, false,
- $r$Ruled out because this would present with hypokalaemia, hypertension and Cushingoid features, not isolated hyponatraemia with concentrated urine.$r$, 3),
-('d0000000-0000-0000-0000-000000000011', 'D', 'Lambert-Eaton myasthenic syndrome', false,
- $r$Ruled out because this presents with proximal muscle weakness that improves with repeated use, not hyponatraemia and confusion.$r$, 4),
-('d0000000-0000-0000-0000-000000000011', 'E', 'Primary adrenal insufficiency', false,
- $r$Ruled out because although this can cause hyponatraemia, it is typically accompanied by hyperkalaemia and hypotension, and fits less well than SIADH in this paraneoplastic context.$r$, 5),
-
--- Q12 OSA
-('d0000000-0000-0000-0000-000000000012', 'A', 'Polysomnography (sleep study)', true,
- $r$Correct. Polysomnography, measuring apnoea-hypopnoea episodes during sleep, is the gold-standard investigation to confirm obstructive sleep apnoea suggested by this history.$r$, 1),
-('d0000000-0000-0000-0000-000000000012', 'B', 'Spirometry', false,
- $r$Ruled out because spirometry assesses airflow obstruction or restriction during wakefulness and does not diagnose sleep-related breathing disorders.$r$, 2),
-('d0000000-0000-0000-0000-000000000012', 'C', 'Chest X-ray', false,
- $r$Ruled out because this does not assess sleep-related breathing events and has no role in diagnosing OSA.$r$, 3),
-('d0000000-0000-0000-0000-000000000012', 'D', 'Arterial blood gas during the day', false,
- $r$Ruled out because a daytime ABG does not capture the nocturnal apnoeic episodes characteristic of OSA.$r$, 4),
-('d0000000-0000-0000-0000-000000000012', 'E', 'Overnight pulse oximetry alone as a definitive diagnostic test', false,
- $r$Ruled out because while overnight oximetry can support a diagnosis and is sometimes used as an initial screen, full polysomnography remains the gold-standard confirmatory test.$r$, 5),
-
--- Q13 Pulmonary hypertension
-('d0000000-0000-0000-0000-000000000013', 'A', 'Pulmonary arterial hypertension secondary to systemic sclerosis', true,
- $r$Correct. Progressive breathlessness with a loud P2, signs of right heart strain, and echocardiographic evidence of pulmonary hypertension in a patient with systemic sclerosis (a recognised association) is diagnostic.$r$, 1),
-('d0000000-0000-0000-0000-000000000013', 'B', 'Left ventricular failure', false,
- $r$Ruled out because this would show signs of left heart strain and typically pulmonary oedema, not isolated right heart strain with a loud P2.$r$, 2),
-('d0000000-0000-0000-0000-000000000013', 'C', 'Mitral stenosis', false,
- $r$Ruled out because this would produce a mid-diastolic murmur and left atrial enlargement; systemic sclerosis is a more directly recognised primary cause here.$r$, 3),
-('d0000000-0000-0000-0000-000000000013', 'D', 'Constrictive pericarditis', false,
- $r$Ruled out because this would show Kussmaul's sign and a pericardial knock, not the echocardiographic finding of raised pulmonary artery pressure with RVH described.$r$, 4),
-('d0000000-0000-0000-0000-000000000013', 'E', 'Anaemia', false,
- $r$Ruled out because while anaemia can cause breathlessness, it would not explain the loud P2 and echocardiographic right ventricular hypertrophy with raised pulmonary pressures.$r$, 5),
-
--- Q14 Hypersensitivity pneumonitis
-('d0000000-0000-0000-0000-000000000014', 'A', $o$Hypersensitivity pneumonitis (bird fancier's lung)$o$, true,
- $r$Correct. A recognised antigen exposure (pigeons), symptoms occurring hours after exposure, and HRCT showing upper-zone ground-glass and mosaic attenuation are classic for hypersensitivity pneumonitis.$r$, 1),
-('d0000000-0000-0000-0000-000000000014', 'B', 'Idiopathic pulmonary fibrosis', false,
- $r$Ruled out because IPF shows basal, subpleural honeycombing without ground-glass predominance and has no association with a specific antigen exposure or symptom timing.$r$, 2),
-('d0000000-0000-0000-0000-000000000014', 'C', 'Occupational asthma', false,
- $r$Ruled out because asthma causes episodic reversible wheeze, not the progressive fibrotic HRCT changes and weight loss described.$r$, 3),
-('d0000000-0000-0000-0000-000000000014', 'D', 'Sarcoidosis', false,
- $r$Ruled out because this typically shows bilateral hilar lymphadenopathy, not upper-zone ground-glass change linked temporally to a specific antigen exposure.$r$, 4),
-('d0000000-0000-0000-0000-000000000014', 'E', $o$Loffler's syndrome$o$, false,
- $r$Ruled out because this is a transient, self-limiting eosinophilic pneumonia typically related to parasitic larval migration, not a chronic progressive picture linked to bird exposure.$r$, 5)
-
+('f9000000-0000-0000-0000-000000000001', 'A', 'A respiratory rate of 32/min', false, 'Ruled out because a respiratory rate above 25/min is one of the defining criteria for acute severe (not specifically life-threatening) asthma; it does not by itself escalate the classification to life-threatening.', 1),
+('f9000000-0000-0000-0000-000000000001', 'B', 'A heart rate of 128 bpm', false, 'Ruled out because a heart rate above 110 bpm is a defining criterion for acute severe asthma; life-threatening asthma is instead marked by bradycardia, arrhythmia or hypotension, not simple tachycardia.', 2),
+('f9000000-0000-0000-0000-000000000001', 'C', 'Inability to complete full sentences', false, 'Ruled out because inability to complete sentences in one breath is a criterion for acute severe asthma, not specifically for the life-threatening category.', 3),
+('f9000000-0000-0000-0000-000000000001', 'D', 'A silent chest on auscultation', true, 'Correct. A silent chest indicates such severe airflow obstruction that insufficient air is moving to generate audible wheeze, a specific marker of life-threatening (not merely acute severe) asthma, alongside features such as a PEFR below 33%, SpO2 below 92%, exhaustion, cyanosis, hypotension, arrhythmia, or a normal/rising PaCO2.', 4),
+('f9000000-0000-0000-0000-000000000001', 'E', 'A PEFR of 38% predicted', false, $x$Ruled out because a PEFR of 33-50% predicted defines acute severe asthma; life-threatening asthma requires a PEFR below 33%, which this patient's 38% does not meet.$x$, 5),
+('f9000000-0000-0000-0000-000000000002', 'A', 'Continue high-flow 15L oxygen, as hypoxaemia is the priority', false, 'Ruled out because continuing uncontrolled high-flow oxygen in a patient with chronic hypercapnic respiratory failure risks further worsening his hypercapnia and acidosis; controlled, titrated oxygen is required instead.', 1),
+('f9000000-0000-0000-0000-000000000002', 'B', 'Stop all supplemental oxygen immediately', false, 'Ruled out because he remains significantly hypoxic-risk and requires oxygen, just delivered in a controlled, titrated manner rather than being withdrawn entirely.', 2),
+('f9000000-0000-0000-0000-000000000002', 'C', 'Increase oxygen further to achieve saturations above 98%', false, 'Ruled out because targeting saturations this high in a patient with chronic type 2 respiratory failure would further suppress his hypoxic drive and worsen hypercapnia and acidosis.', 3),
+('f9000000-0000-0000-0000-000000000002', 'D', 'No change is needed, as his PaO2 is currently adequate', false, 'Ruled out because although his PaO2 is currently high (reflecting over-oxygenation), the resulting severe hypercapnia and acidosis represent significant harm requiring immediate correction of the oxygen delivery.', 4),
+('f9000000-0000-0000-0000-000000000002', 'E', 'Reduce to controlled oxygen therapy (e.g. via Venturi mask) titrated to a target saturation of 88-92%', true, 'Correct. This blood gas shows severe acute-on-chronic hypercapnic respiratory failure with respiratory acidosis, precipitated by uncontrolled high-flow oxygen removing his hypoxic respiratory drive and worsening ventilation-perfusion mismatch; oxygen should be reduced to controlled, titrated delivery targeting 88-92% saturation, with urgent reassessment for non-invasive ventilation given the acidosis.', 5),
+('f9000000-0000-0000-0000-000000000003', 'A', 'Increase his inhaled corticosteroid to a very high dose immediately', false, 'Ruled out because standard stepwise management adds a LABA at this stage rather than jumping straight to a very high-dose inhaled corticosteroid, reserving further ICS dose escalation for later steps if control remains inadequate.', 1),
+('f9000000-0000-0000-0000-000000000003', 'B', 'Add a long-acting beta-2 agonist (LABA) to his inhaled corticosteroid', true, 'Correct. When asthma remains poorly controlled on a low-dose inhaled corticosteroid despite confirmed good adherence and technique, the standard next step is adding a long-acting beta-2 agonist (commonly as a combination inhaler), before considering further increases in inhaled corticosteroid dose or additional add-on therapies.', 2),
+('f9000000-0000-0000-0000-000000000003', 'C', 'Stop the inhaled corticosteroid and rely on salbutamol alone', false, 'Ruled out because this would remove essential anti-inflammatory background control, worsening rather than improving his asthma management.', 3),
+('f9000000-0000-0000-0000-000000000003', 'D', 'Start oral maintenance corticosteroids immediately', false, 'Ruled out because oral maintenance steroids are reserved for severe, refractory asthma failing multiple prior treatment steps, not as an early add-on for this level of inadequate control.', 4),
+('f9000000-0000-0000-0000-000000000003', 'E', 'No treatment change is needed, as his symptoms are within an acceptable range', false, 'Ruled out because daytime symptoms most days and twice-weekly nocturnal symptoms indicate poorly controlled asthma requiring treatment escalation, not an acceptable, unchanged level of control.', 5),
+('f9000000-0000-0000-0000-000000000004', 'A', 'Asthma', false, 'Ruled out because asthma typically shows significant reversibility of airflow obstruction with bronchodilator testing, unlike the fixed obstruction described here, and the strong smoking history and age of onset are more typical of COPD.', 1),
+('f9000000-0000-0000-0000-000000000004', 'B', 'Restrictive lung disease (e.g. pulmonary fibrosis)', false, 'Ruled out because restrictive disease shows a preserved or increased FEV1/FVC ratio with reduced FVC, not the reduced ratio (obstructive pattern) described here.', 2),
+('f9000000-0000-0000-0000-000000000004', 'C', 'Chronic obstructive pulmonary disease', true, 'Correct. A significant smoking history, chronic productive cough, progressive exertional breathlessness, and spirometry showing an obstructive pattern (FEV1/FVC ratio below 0.7) that is not substantially reversible with bronchodilators is characteristic of COPD.', 3),
+('f9000000-0000-0000-0000-000000000004', 'D', 'Bronchiectasis alone', false, 'Ruled out because although bronchiectasis can cause chronic productive cough, the specific spirometric obstructive pattern with a heavy smoking history is more characteristic of COPD; bronchiectasis would more classically be suspected with large-volume purulent sputum and confirmed on high-resolution CT.', 4),
+('f9000000-0000-0000-0000-000000000004', 'E', 'Normal age-related lung function decline', false, 'Ruled out because an FEV1/FVC ratio of 0.62 with symptoms represents pathological, not normal, obstructive airflow limitation.', 5),
+('f9000000-0000-0000-0000-000000000005', 'A', 'Add an inhaled corticosteroid to his dual bronchodilator therapy', true, 'Correct. In COPD patients with recurrent exacerbations despite optimal dual bronchodilator therapy, particularly with a raised blood eosinophil count (a marker predicting greater likely benefit), adding an inhaled corticosteroid is recommended to help reduce further exacerbation frequency.', 1),
+('f9000000-0000-0000-0000-000000000005', 'B', 'Add a third long-acting bronchodilator of the same class already used', false, 'Ruled out because adding a bronchodilator from the same class already in use does not provide additional benefit; the appropriate next step given recurrent exacerbations and a raised eosinophil count is adding an inhaled corticosteroid.', 2),
+('f9000000-0000-0000-0000-000000000005', 'C', 'Start long-term oral corticosteroids', false, 'Ruled out because long-term oral corticosteroids are not standard therapy for reducing COPD exacerbations and carry significant cumulative toxicity; inhaled corticosteroid addition is the appropriate step here.', 3),
+('f9000000-0000-0000-0000-000000000005', 'D', 'Stop all inhaled therapy and rely on rescue antibiotics for future exacerbations', false, 'Ruled out because this would remove effective maintenance therapy and increase, not reduce, future exacerbation risk.', 4),
+('f9000000-0000-0000-0000-000000000005', 'E', 'Refer for immediate lung volume reduction surgery', false, 'Ruled out because this is a specific intervention reserved for selected patients with particular patterns of emphysema, not the standard next pharmacological step for recurrent exacerbations.', 5),
+('f9000000-0000-0000-0000-000000000006', 'A', 'Bronchiectasis', true, $x$Correct. A long history of daily, copious purulent sputum production, recurrent chest infections since childhood, finger clubbing, and dilated, thick-walled bronchi with the 'signet ring' sign on HRCT together confirm bronchiectasis, a condition of permanent bronchial dilation from chronic inflammation and infection.$x$, 1),
+('f9000000-0000-0000-0000-000000000006', 'B', 'Chronic bronchitis (as part of COPD)', false, 'Ruled out because chronic bronchitis alone does not classically cause this degree of copious purulent sputum, clubbing, or the specific bronchial dilation and signet ring appearance on imaging seen in bronchiectasis.', 2),
+('f9000000-0000-0000-0000-000000000006', 'C', 'Cystic fibrosis presenting for the first time at this age', false, 'Ruled out because although CF can cause bronchiectasis, a first presentation at 34 without other typical CF features (e.g. pancreatic insufficiency, infertility issues) is less likely than a diagnosis of bronchiectasis itself as the primary finding, with an underlying cause (which may include CF) to be investigated.', 3),
+('f9000000-0000-0000-0000-000000000006', 'D', 'Pulmonary tuberculosis', false, 'Ruled out because although prior TB can cause bronchiectasis as a sequela, the chronic, lifelong pattern described here without a specific TB history points to bronchiectasis as the primary diagnosis requiring investigation for an underlying cause.', 4),
+('f9000000-0000-0000-0000-000000000006', 'E', 'Asthma', false, 'Ruled out because asthma causes episodic, reversible airflow obstruction, not the chronic purulent sputum production, clubbing and structural bronchial dilation described here.', 5),
+('f9000000-0000-0000-0000-000000000007', 'A', 'Simple asthma exacerbation from a viral trigger', false, 'Ruled out because the specific combination of brown mucus plugs, marked eosinophilia and strongly positive Aspergillus-specific findings points to ABPA rather than a straightforward viral-triggered exacerbation.', 1),
+('f9000000-0000-0000-0000-000000000007', 'B', 'Allergic bronchopulmonary aspergillosis', true, 'Correct. Worsening asthma control with brown mucus plug expectoration, marked peripheral eosinophilia, strongly positive Aspergillus skin testing and a markedly raised total IgE together are characteristic of allergic bronchopulmonary aspergillosis, a hypersensitivity reaction to colonising Aspergillus in the airways of susceptible asthmatic or cystic fibrosis patients, typically treated with corticosteroids and antifungal therapy.', 2),
+('f9000000-0000-0000-0000-000000000007', 'C', 'Invasive pulmonary aspergillosis', false, 'Ruled out because invasive aspergillosis occurs in significantly immunocompromised patients causing tissue-invasive infection, not this hypersensitivity pattern with eosinophilia and elevated IgE in an asthmatic patient.', 3),
+('f9000000-0000-0000-0000-000000000007', 'D', 'Simple aspergilloma (fungal ball)', false, 'Ruled out because an aspergilloma is a fungal ball typically colonising a pre-existing lung cavity, causing haemoptysis, not this hypersensitivity picture with eosinophilia and worsening asthma control.', 4),
+('f9000000-0000-0000-0000-000000000007', 'E', 'Community-acquired pneumonia', false, 'Ruled out because the specific immunological findings (eosinophilia, positive Aspergillus skin test, raised IgE) are not features of typical bacterial pneumonia.', 5),
+('f9000000-0000-0000-0000-000000000008', 'A', 'No specific investigation is needed, as trigger identification has no bearing on management', false, 'Ruled out because confirming specific allergic triggers can meaningfully inform practical avoidance advice and overall asthma management, making this a relevant and useful step, not one without bearing on care.', 1),
+('f9000000-0000-0000-0000-000000000008', 'B', 'Immediate desensitisation immunotherapy without any prior confirmatory testing', false, 'Ruled out because allergen-specific immunotherapy, where used, is generally considered after confirmatory testing and is not the first-line initial approach; confirming sensitisation and providing avoidance advice comes first.', 2),
+('f9000000-0000-0000-0000-000000000008', 'C', 'Stop all his current asthma medication and rely on trigger avoidance alone', false, 'Ruled out because trigger avoidance is an adjunct to, not a replacement for, standard inhaled asthma pharmacotherapy.', 3),
+('f9000000-0000-0000-0000-000000000008', 'D', 'Allergen-specific testing (e.g. skin prick testing or specific IgE) to confirm sensitisation, alongside trigger avoidance advice', true, 'Correct. A clear history of symptom worsening with specific exposures (cats, pollen) suggests allergic (atopic) asthma; allergen-specific testing helps confirm sensitisation to guide targeted avoidance advice, alongside standard inhaled asthma therapy, as part of a comprehensive management approach.', 4),
+('f9000000-0000-0000-0000-000000000008', 'E', 'Reassure him that pattern is coincidental and requires no further action', false, 'Ruled out because a clear, consistent pattern of trigger-related symptom worsening is a meaningful clinical clue worth confirming through testing, not something to dismiss as coincidental.', 5),
+('f9000000-0000-0000-0000-000000000009', 'A', 'A CURB-65 score of 1, suitable for outpatient management', false, 'Ruled out because he meets multiple severity criteria (confusion, raised urea, tachypnoea, hypotension), not just one, giving a much higher score than would be consistent with outpatient management.', 1),
+('f9000000-0000-0000-0000-000000000009', 'B', 'A CURB-65 score of 4, indicating this is safe for outpatient antibiotic treatment', false, 'Ruled out because a score of 4 indicates severe pneumonia with a substantial mortality risk, requiring hospital admission and consideration of critical care, not outpatient management.', 2),
+('f9000000-0000-0000-0000-000000000009', 'C', 'CURB-65 is not applicable in patients with baseline cognitive impairment', false, 'Ruled out because CURB-65 assesses new confusion (acute change from baseline), which is applicable and relevant even in patients with some baseline cognitive impairment, as described by his family here.', 3),
+('f9000000-0000-0000-0000-000000000009', 'D', 'A CURB-65 score of 2, suitable for a short hospital observation stay only', false, 'Ruled out because he meets more than two of the scoring criteria, giving a higher, more severe score requiring more than brief observation.', 4),
+('f9000000-0000-0000-0000-000000000009', 'E', 'A CURB-65 score of 4, indicating severe pneumonia requiring hospital admission and consideration of critical care assessment', true, 'Correct. He scores one point each for new confusion, urea above 7 mmol/L, respiratory rate 30/min or above, and blood pressure below 90 systolic or 60 diastolic (age alone does not score a point in CURB-65, only age 65 or above alongside the other criteria is implied by the name) -- giving a score of 4, indicating severe pneumonia with high mortality risk, warranting hospital admission and consideration of critical care input.', 5),
+('f9000000-0000-0000-0000-000000000010', 'A', 'Streptococcus pneumoniae', false, 'Ruled out because typical pneumococcal pneumonia does not classically cause this specific combination of hyponatraemia, deranged liver function, gastrointestinal symptoms and confusion, and would not be confirmed by a Legionella-specific urinary antigen test.', 1),
+('f9000000-0000-0000-0000-000000000010', 'B', 'Mycoplasma pneumoniae', false, 'Ruled out because although Mycoplasma is also an atypical pathogen, the specific travel/hotel exposure history and positive Legionella urinary antigen test point specifically to Legionella as the causative organism here.', 2),
+('f9000000-0000-0000-0000-000000000010', 'C', 'Legionella pneumophila', true, $x$Correct. Fever, dry cough, confusion, gastrointestinal symptoms (diarrhoea), hyponatraemia, deranged liver function and a positive urinary antigen test, in a patient with recent travel and hotel/water-source exposure, is characteristic of Legionella pneumonia (Legionnaires' disease), an atypical pneumonia associated with contaminated water systems such as air conditioning or hotel plumbing.$x$, 3),
+('f9000000-0000-0000-0000-000000000010', 'D', 'Chlamydophila psittaci', false, 'Ruled out because psittacosis is classically associated with bird exposure, not hotel/travel water-source exposure, and would not be confirmed by a Legionella urinary antigen test.', 4),
+('f9000000-0000-0000-0000-000000000010', 'E', 'Influenza virus', false, 'Ruled out because influenza does not typically cause this specific combination of hyponatraemia and deranged liver function, and the positive Legionella urinary antigen test specifically confirms this organism.', 5),
+('f9000000-0000-0000-0000-000000000011', 'A', 'Pneumocystis jirovecii pneumonia', true, 'Correct. A subacute dry cough and breathlessness with bilateral perihilar interstitial infiltrates and marked exertional desaturation, in a patient with advanced HIV (CD4 below 200), is classic for Pneumocystis jirovecii pneumonia, an AIDS-defining opportunistic infection requiring urgent treatment (typically high-dose co-trimoxazole).', 1),
+('f9000000-0000-0000-0000-000000000011', 'B', 'Bacterial community-acquired pneumonia', false, 'Ruled out because typical bacterial pneumonia usually causes a more acute presentation with focal consolidation, not this subacute, bilateral interstitial pattern with marked exertional desaturation.', 2),
+('f9000000-0000-0000-0000-000000000011', 'C', 'Pulmonary tuberculosis', false, 'Ruled out because although TB remains an important differential in HIV, the specific pattern of marked exertional desaturation with bilateral perihilar interstitial infiltrates (without cavitation or apical predominance described) is more typical of PCP.', 3),
+('f9000000-0000-0000-0000-000000000011', 'D', 'Pulmonary oedema from heart failure', false, 'Ruled out because there is no cardiac history or examination findings suggestive of heart failure, and the clinical context (advanced HIV) points to an opportunistic infection.', 4),
+('f9000000-0000-0000-0000-000000000011', 'E', 'Simple viral upper respiratory tract infection', false, 'Ruled out because a simple viral URTI would not cause this degree of marked exertional desaturation or the bilateral interstitial pattern on imaging.', 5),
+('f9000000-0000-0000-0000-000000000012', 'A', 'Blood cultures alone', false, 'Ruled out because blood cultures are not the primary diagnostic test for pulmonary tuberculosis; sputum-based testing is the standard initial investigation for this presentation.', 1),
+('f9000000-0000-0000-0000-000000000012', 'B', 'Urinary antigen testing', false, 'Ruled out because urinary antigen testing is used for organisms such as Legionella and Streptococcus pneumoniae, not for diagnosing tuberculosis.', 2),
+('f9000000-0000-0000-0000-000000000012', 'C', 'Skin prick allergy testing', false, 'Ruled out because this has no role in diagnosing suspected active pulmonary tuberculosis; sputum-based microbiological testing is required.', 3),
+('f9000000-0000-0000-0000-000000000012', 'D', 'Sputum samples for acid-fast bacilli microscopy, culture and nucleic acid amplification testing', true, 'Correct. A subacute presentation with cough, haemoptysis, night sweats, weight loss, a high-risk epidemiological background, and a cavitating upper lobe lesion on chest X-ray is highly suggestive of pulmonary tuberculosis; sputum samples for acid-fast bacilli (Ziehl-Neelsen) microscopy, mycobacterial culture (the diagnostic gold standard, though slow), and nucleic acid amplification testing (for rapid results and rifampicin resistance screening) are the key initial investigations.', 4),
+('f9000000-0000-0000-0000-000000000012', 'E', 'Reassurance and outpatient review in six weeks with no immediate investigation', false, 'Ruled out because this presentation requires prompt investigation given the risk of ongoing transmission and significant individual morbidity if tuberculosis is confirmed and left untreated.', 5),
+('f9000000-0000-0000-0000-000000000013', 'A', 'Streptococcus pneumoniae', false, 'Ruled out because typical pneumococcal pneumonia usually causes a more acute, severe presentation with findings more proportionate to the radiographic changes, and is not associated with cold agglutinins.', 1),
+('f9000000-0000-0000-0000-000000000013', 'B', 'Mycoplasma pneumoniae', true, $x$Correct. A relatively mild, subacute presentation ('walking pneumonia') in a young, previously fit patient, with a chest X-ray appearance disproportionately more striking than the clinical examination findings, together with positive cold agglutinins and associated haemolytic anaemia, is characteristic of Mycoplasma pneumoniae infection.$x$, 2),
+('f9000000-0000-0000-0000-000000000013', 'C', 'Staphylococcus aureus', false, 'Ruled out because Staphylococcus pneumonia typically causes a more severe, often cavitating pneumonia, particularly post-influenza, not this mild, atypical presentation with cold agglutinins.', 3),
+('f9000000-0000-0000-0000-000000000013', 'D', 'Legionella pneumophila', false, 'Ruled out because Legionella typically causes a more severe illness with extra-pulmonary features (hyponatraemia, deranged liver function, confusion), not this milder presentation with cold agglutinin-associated haemolysis.', 4),
+('f9000000-0000-0000-0000-000000000013', 'E', 'Pseudomonas aeruginosa', false, 'Ruled out because Pseudomonas pneumonia typically occurs in patients with specific risk factors (bronchiectasis, prior antibiotic exposure, hospitalisation), not this community-acquired, mild, atypical presentation in a previously fit young man.', 5),
+('f9000000-0000-0000-0000-000000000014', 'A', 'Standard first-line amoxicillin will be adequate, as it covers all common respiratory pathogens including Pseudomonas', false, 'Ruled out because amoxicillin does not have activity against Pseudomonas aeruginosa; a specific antipseudomonal agent is required.', 1),
+('f9000000-0000-0000-0000-000000000014', 'B', 'No antibiotic treatment is needed, as Pseudomonas colonisation does not require treatment', false, 'Ruled out because in the context of an infective exacerbation with this organism isolated, treatment with an appropriate antipseudomonal antibiotic is indicated, rather than withholding treatment.', 2),
+('f9000000-0000-0000-0000-000000000014', 'C', 'He requires an antibiotic with specific antipseudomonal activity, as standard first-line agents for community-acquired exacerbations are typically inadequate', true, 'Correct. Pseudomonas aeruginosa is not covered by standard first-line antibiotics used for typical community-acquired respiratory exacerbations; recent hospitalisation is a recognised risk factor for Pseudomonas colonisation/infection, and antibiotic choice must be adjusted to include specific antipseudomonal cover (e.g. piperacillin-tazobactam or a fluoroquinolone with antipseudomonal activity, guided by local policy and sensitivities).', 3),
+('f9000000-0000-0000-0000-000000000014', 'D', 'This organism has no particular treatment implications compared with typical exacerbation pathogens', false, 'Ruled out because Pseudomonas specifically requires a different, targeted antibiotic approach compared with the standard agents used for typical community-acquired exacerbation pathogens.', 4),
+('f9000000-0000-0000-0000-000000000014', 'E', 'Only antiviral treatment is required, as Pseudomonas is a viral pathogen', false, 'Ruled out because Pseudomonas aeruginosa is a bacterium, not a virus, and requires appropriate antibacterial (antipseudomonal) treatment.', 5),
+('f9000000-0000-0000-0000-000000000015', 'A', 'Simple community-acquired pneumococcal pneumonia', false, 'Ruled out because typical pneumococcal pneumonia does not classically cause foul-smelling sputum or cavitation with an air-fluid level; this pattern is specific to anaerobic lung abscess.', 1),
+('f9000000-0000-0000-0000-000000000015', 'B', 'Pulmonary tuberculosis', false, 'Ruled out because although TB can cavitate, it classically affects the upper lobes and would not typically cause foul-smelling sputum; the dependent lower lobe location and clear aspiration risk factor point to an aspiration-related abscess instead.', 2),
+('f9000000-0000-0000-0000-000000000015', 'C', 'Pulmonary embolism with infarction', false, 'Ruled out because PE with infarction does not typically cause foul-smelling purulent sputum or this specific cavitating, air-fluid level pattern; the clinical picture described is infective, not thromboembolic.', 3),
+('f9000000-0000-0000-0000-000000000015', 'D', 'Lung cancer with post-obstructive pneumonia', false, 'Ruled out because although this is a differential for a cavitating lesion, the clear precipitating history (reduced consciousness from alcohol, classic aspiration risk) and foul-smelling sputum point specifically to an aspiration-related anaerobic lung abscess.', 4),
+('f9000000-0000-0000-0000-000000000015', 'E', 'Lung abscess secondary to aspiration of oropharyngeal anaerobic organisms during a period of reduced consciousness', true, 'Correct. Foul-smelling purulent sputum (suggesting anaerobic infection), a cavitating lesion with an air-fluid level in a dependent lung segment, and a preceding episode of reduced consciousness (a classic risk factor for aspiration) together are characteristic of a lung abscess resulting from aspiration of oropharyngeal anaerobic organisms.', 5),
+('f9000000-0000-0000-0000-000000000016', 'A', 'D-dimer testing as the first-line investigation', false, 'Ruled out because D-dimer testing is used to help rule out PE in patients with a low clinical probability; in high clinical probability patients such as this, a positive or negative D-dimer does not usefully change management, and direct imaging (CTPA) is required instead.', 1),
+('f9000000-0000-0000-0000-000000000016', 'B', 'Chest X-ray alone, with no further imaging', false, 'Ruled out because chest X-ray is often normal in PE and cannot confirm or exclude the diagnosis; CTPA is required for definitive investigation in this high-probability patient.', 2),
+('f9000000-0000-0000-0000-000000000016', 'C', 'CT pulmonary angiogram', true, 'Correct. In a patient with a high clinical probability Wells score for PE, CT pulmonary angiogram is the appropriate immediate definitive investigation (rather than starting with a D-dimer, which is not useful for excluding PE in high-probability patients), while treatment-dose anticoagulation should be started immediately if the scan cannot be performed without delay.', 3),
+('f9000000-0000-0000-0000-000000000016', 'D', 'Doppler ultrasound of the leg alone, without chest imaging', false, 'Ruled out because although leg Doppler can confirm DVT, it does not confirm or exclude PE itself; CTPA remains the appropriate investigation to directly assess the pulmonary vasculature given her respiratory symptoms and high clinical probability.', 4),
+('f9000000-0000-0000-0000-000000000016', 'E', 'Ventilation-perfusion (V/Q) scan as first-line in this context', false, 'Ruled out because CTPA is generally preferred as first-line imaging for suspected PE in most patients; V/Q scanning is typically reserved for specific circumstances (e.g. renal impairment, contrast allergy, pregnancy in some protocols) rather than being first-line here.', 5),
+('f9000000-0000-0000-0000-000000000017', 'A', 'Standard treatment-dose low molecular weight heparin alone, without thrombolysis', false, 'Ruled out because standard anticoagulation alone is inadequate for haemodynamically unstable (massive) PE, which carries a high mortality risk without more aggressive clot-reducing treatment such as thrombolysis.', 1),
+('f9000000-0000-0000-0000-000000000017', 'B', 'Systemic thrombolysis (e.g. alteplase), unless there is a strong contraindication', true, 'Correct. A confirmed pulmonary embolism with haemodynamic instability (hypotension, right ventricular strain) defines massive (high-risk) PE; systemic thrombolysis is indicated to rapidly reduce clot burden and improve right ventricular function and survival, unless a strong contraindication (e.g. active bleeding, recent haemorrhagic stroke) is present.', 2),
+('f9000000-0000-0000-0000-000000000017', 'C', 'Immediate discharge with outpatient anticoagulation', false, 'Ruled out because haemodynamic instability from a confirmed massive PE is a life-threatening emergency requiring urgent inpatient treatment, not outpatient management.', 3),
+('f9000000-0000-0000-0000-000000000017', 'D', 'Insertion of an inferior vena cava filter as the primary treatment, without thrombolysis', false, 'Ruled out because IVC filters are used in specific situations (e.g. contraindication to anticoagulation, or recurrent PE despite adequate anticoagulation), not as the primary treatment for haemodynamically unstable massive PE, where thrombolysis is the priority.', 4),
+('f9000000-0000-0000-0000-000000000017', 'E', 'Observation alone with no active treatment change', false, 'Ruled out because new haemodynamic instability in a patient with confirmed PE requires urgent escalation to thrombolysis (in the absence of contraindication), not simple observation.', 5),
+('f9000000-0000-0000-0000-000000000018', 'A', 'Consider screening for an underlying malignancy and thrombophilia where clinically appropriate, and plan for extended (rather than time-limited) anticoagulation', true, 'Correct. Unprovoked venous thromboembolism carries an associated risk of an underlying occult malignancy (prompting age-appropriate cancer screening and clinical assessment for red-flag features) and, in selected patients, consideration of thrombophilia testing; given the lack of an identifiable provoking factor and associated risk of recurrence, extended (rather than a standard fixed 3-month) anticoagulation duration is generally considered, following individualised risk-benefit assessment.', 1),
+('f9000000-0000-0000-0000-000000000018', 'B', 'No further investigation is needed, and a standard 3-month course of anticoagulation is always sufficient regardless of context', false, 'Ruled out because unprovoked PE specifically warrants consideration of further assessment (for occult malignancy) and often a longer or indefinite anticoagulation duration, given the different recurrence risk profile compared with provoked PE with a clear reversible trigger.', 2),
+('f9000000-0000-0000-0000-000000000018', 'C', 'Immediate assumption of an inherited thrombophilia requiring lifelong anticoagulation in all cases without further assessment', false, 'Ruled out because thrombophilia testing and its implications require individualised, careful interpretation, not an automatic assumption or blanket lifelong anticoagulation recommendation without proper assessment.', 3),
+('f9000000-0000-0000-0000-000000000018', 'D', 'Anticoagulation should be stopped immediately, as unprovoked PE does not require treatment', false, 'Ruled out because PE, whether provoked or unprovoked, requires anticoagulation treatment; unprovoked PE specifically raises the question of extended, not no, anticoagulation.', 4),
+('f9000000-0000-0000-0000-000000000018', 'E', 'No distinction in management exists between provoked and unprovoked PE', false, 'Ruled out because the provoked/unprovoked distinction meaningfully affects both the assessment for underlying causes and the anticoagulation duration decision, making this a clinically important distinction, not one without practical implications.', 5),
+('f9000000-0000-0000-0000-000000000019', 'A', 'Left ventricular heart failure', false, 'Ruled out because left heart function is specifically noted to be normal, and the echocardiographic findings described (raised right-sided pressures, right ventricular hypertrophy) reflect right-sided, not left-sided, heart pathology.', 1),
+('f9000000-0000-0000-0000-000000000019', 'B', 'Simple deconditioning', false, 'Ruled out because deconditioning would not explain the specific echocardiographic findings of raised right ventricular pressure and hypertrophy, which indicate a genuine pathological process.', 2),
+('f9000000-0000-0000-0000-000000000019', 'C', 'Chronic obstructive pulmonary disease', false, 'Ruled out because standard spirometry is described as not identifying a cause, making primary COPD less likely as the explanation, though COPD can itself be a cause of secondary pulmonary hypertension in other contexts; here, the workup points to pulmonary hypertension as the primary finding requiring its own further classification.', 3),
+('f9000000-0000-0000-0000-000000000019', 'D', 'Pulmonary hypertension', true, 'Correct. Progressive exertional breathlessness with echocardiographic evidence of raised right ventricular systolic pressure and right ventricular hypertrophy, in the absence of significant left heart or primary lung parenchymal disease, is characteristic of pulmonary hypertension, requiring further specialist investigation (including right heart catheterisation) to confirm and classify the underlying cause.', 4),
+('f9000000-0000-0000-0000-000000000019', 'E', 'Anaemia', false, 'Ruled out because anaemia can contribute to breathlessness but would not specifically cause raised right ventricular systolic pressure and hypertrophy on echocardiography.', 5),
+('f9000000-0000-0000-0000-000000000020', 'A', 'Recurrent acute pulmonary embolism', false, 'Ruled out because the presentation here is one of gradual, progressive breathlessness over a year (rather than a new acute event), with V/Q findings reflecting chronic, established perfusion defects rather than a new acute embolic event.', 1),
+('f9000000-0000-0000-0000-000000000020', 'B', 'Idiopathic pulmonary arterial hypertension unrelated to her prior PE', false, 'Ruled out because her clear preceding history of confirmed PE and the specific V/Q scan pattern (mismatched perfusion defects) point to a thromboembolic, not idiopathic, cause of her pulmonary hypertension.', 2),
+('f9000000-0000-0000-0000-000000000020', 'C', 'Simple deconditioning following her prior PE', false, 'Ruled out because the objective findings (raised pulmonary artery pressure, mismatched perfusion defects) indicate a specific pathological process, not simply deconditioning.', 3),
+('f9000000-0000-0000-0000-000000000020', 'D', 'Normal, expected long-term outcome after a treated pulmonary embolism', false, 'Ruled out because progressive breathlessness with these specific objective findings represents a recognised complication (CTEPH), not a normal or expected outcome following standard PE treatment.', 4),
+('f9000000-0000-0000-0000-000000000020', 'E', 'Chronic thromboembolic pulmonary hypertension', true, 'Correct. Progressive breathlessness developing months to years after an episode of acute PE, with raised pulmonary artery pressure on echocardiography and multiple mismatched perfusion defects on V/Q scanning, is characteristic of chronic thromboembolic pulmonary hypertension, resulting from incomplete resolution of thromboembolic material causing chronic pulmonary vascular obstruction and remodelling; this is potentially treatable with pulmonary endarterectomy in eligible patients.', 5),
+('f9000000-0000-0000-0000-000000000021', 'A', 'Indefinite, lifelong anticoagulation regardless of the provoking factor', false, 'Ruled out because indefinite anticoagulation is more typically considered for unprovoked VTE or ongoing persistent risk factors, not for a clearly provoked PE with a resolved transient risk factor such as recent major surgery.', 1),
+('f9000000-0000-0000-0000-000000000021', 'B', 'No anticoagulation is needed, as the risk factor has now resolved', false, 'Ruled out because a confirmed PE always requires treatment-dose anticoagulation for an appropriate duration, regardless of whether the provoking factor has since resolved.', 2),
+('f9000000-0000-0000-0000-000000000021', 'C', 'A single dose of anticoagulation only, with no ongoing treatment', false, 'Ruled out because PE treatment requires a sustained course of anticoagulation (typically at least 3 months for provoked PE), not a single dose.', 3),
+('f9000000-0000-0000-0000-000000000021', 'D', 'A standard 3-month course of anticoagulation', true, 'Correct. For a first PE clearly provoked by a major transient risk factor (such as recent major surgery) that has now resolved, a standard 3-month course of anticoagulation is generally appropriate, reflecting the lower recurrence risk once the provoking factor has resolved, compared with unprovoked VTE.', 4),
+('f9000000-0000-0000-0000-000000000021', 'E', 'A 12-month minimum course regardless of the clinical context', false, 'Ruled out because a 3-month course is standard for clearly provoked PE with a resolved transient risk factor; a fixed 12-month minimum is not the standard approach for this scenario.', 5),
+('f9000000-0000-0000-0000-000000000022', 'A', 'PE can be considered excluded, given the negative Doppler ultrasound', false, 'Ruled out because a negative leg Doppler does not reliably exclude PE, particularly if the embolic source has already moved to the lungs or was never in the veins imaged; further chest imaging is required given ongoing clinical suspicion.', 1),
+('f9000000-0000-0000-0000-000000000022', 'B', 'No further imaging should ever be performed in pregnancy due to radiation risk', false, 'Ruled out because appropriately justified imaging (CTPA or V/Q scan) can and should be performed in pregnancy when clinically indicated, using techniques that minimise radiation exposure to both mother and fetus, rather than avoiding necessary diagnostic imaging altogether.', 2),
+('f9000000-0000-0000-0000-000000000022', 'C', 'Proceed to definitive chest imaging (CT pulmonary angiogram or V/Q scan, per local protocol) despite the negative leg Doppler', true, 'Correct. A negative leg Doppler does not exclude PE, as the embolic source may not always be detectable, or the clot may have already embolised; given ongoing clinical suspicion in pregnancy, definitive chest imaging (CTPA or V/Q scan, chosen based on local protocol and individual patient factors, both carrying a low but non-zero radiation exposure with appropriate precautions) should proceed rather than concluding PE is excluded based on the leg Doppler alone.', 3),
+('f9000000-0000-0000-0000-000000000022', 'D', 'Empirical anticoagulation should be started with no further investigation undertaken at any point', false, 'Ruled out because although anticoagulation may be started empirically while awaiting definitive imaging in some circumstances, appropriate imaging should still be pursued to confirm or exclude the diagnosis, rather than treating indefinitely without ever confirming the diagnosis.', 4),
+('f9000000-0000-0000-0000-000000000022', 'E', 'D-dimer testing should be relied upon as the definitive test in pregnancy', false, 'Ruled out because D-dimer is physiologically raised in normal pregnancy, making it an unreliable test for excluding PE in this population; definitive imaging is required instead.', 5),
+('f9000000-0000-0000-0000-000000000023', 'A', 'Hypersensitivity pneumonitis', false, 'Ruled out because hypersensitivity pneumonitis typically shows a more mid-to-upper zone distribution with ground-glass change and mosaic attenuation, often with a history of a specific inhaled antigen exposure, unlike the classic basal UIP pattern and lack of exposure history described here.', 1),
+('f9000000-0000-0000-0000-000000000023', 'B', 'Sarcoidosis', false, 'Ruled out because sarcoidosis classically causes bilateral hilar lymphadenopathy with a more mid-to-upper zone distribution of parenchymal change, not this basal-predominant honeycombing pattern.', 2),
+('f9000000-0000-0000-0000-000000000023', 'C', 'Congestive heart failure', false, 'Ruled out because heart failure causes pulmonary oedema with a different radiographic pattern (Kerley B lines, perihilar shadowing, effusions), not the specific fibrotic honeycombing pattern described, and would not typically cause finger clubbing.', 3),
+('f9000000-0000-0000-0000-000000000023', 'D', 'Chronic asthma', false, 'Ruled out because asthma does not cause finger clubbing, fine end-inspiratory crackles, or this fibrotic HRCT pattern; it causes reversible airway obstruction, a fundamentally different disease process.', 4),
+('f9000000-0000-0000-0000-000000000023', 'E', 'Idiopathic pulmonary fibrosis', true, 'Correct. A gradual, progressive dry cough and breathlessness over more than a year, with bibasal fine end-inspiratory crackles, finger clubbing, and a classic usual interstitial pneumonia (UIP) pattern on HRCT (subpleural, basal-predominant reticulation with honeycombing, no significant ground-glass change) is characteristic of idiopathic pulmonary fibrosis.', 5),
+('f9000000-0000-0000-0000-000000000024', 'A', 'Pulmonary tuberculosis', false, 'Ruled out because although TB can cause hilar lymphadenopathy, it does not classically cause this specific combination with erythema nodosum, raised ACE and hypercalcaemia in this demographic/context; sarcoidosis is the more classic unifying diagnosis here.', 1),
+('f9000000-0000-0000-0000-000000000024', 'B', 'Sarcoidosis', true, 'Correct. Bilateral hilar lymphadenopathy on chest X-ray, erythema nodosum (tender shin nodules), a raised serum ACE level, and hypercalcaemia (from macrophage-mediated extra-renal vitamin D activation within granulomas) together are characteristic of sarcoidosis, a multisystem granulomatous disease.', 2),
+('f9000000-0000-0000-0000-000000000024', 'C', 'Lymphoma', false, 'Ruled out because although lymphoma can cause lymphadenopathy, the specific combination with erythema nodosum, raised ACE and hypercalcaemia is characteristic of sarcoidosis rather than a lymphoproliferative malignancy.', 3),
+('f9000000-0000-0000-0000-000000000024', 'D', 'Idiopathic pulmonary fibrosis', false, 'Ruled out because IPF causes basal fibrotic change in an older population, not bilateral hilar lymphadenopathy with erythema nodosum and hypercalcaemia in a young woman.', 4),
+('f9000000-0000-0000-0000-000000000024', 'E', 'Silicosis', false, 'Ruled out because silicosis requires a specific occupational dust exposure history, which is not described here, and the overall clinical picture (erythema nodosum, raised ACE, hypercalcaemia) is classic for sarcoidosis.', 5),
+('f9000000-0000-0000-0000-000000000025', 'A', 'Silicosis', true, 'Correct. A prolonged occupational history of silica dust exposure (foundry work), with upper zone-predominant small rounded nodular opacities and eggshell calcification of hilar lymph nodes on chest X-ray, is characteristic of silicosis, a fibrotic occupational lung disease from chronic inhalation of crystalline silica dust.', 1),
+('f9000000-0000-0000-0000-000000000025', 'B', 'Asbestosis', false, 'Ruled out because asbestosis typically causes lower zone-predominant fibrosis with pleural plaques, not this upper zone nodular pattern with eggshell lymph node calcification, and is linked to asbestos rather than silica dust exposure.', 2),
+('f9000000-0000-0000-0000-000000000025', 'C', $x$Coal worker's pneumoconiosis$x$, false, 'Ruled out because although CWP can cause a similar nodular pattern, the specific occupational history described (foundry work, associated with silica exposure) and eggshell calcification pattern are more specifically characteristic of silicosis.', 3),
+('f9000000-0000-0000-0000-000000000025', 'D', 'Idiopathic pulmonary fibrosis', false, 'Ruled out because IPF causes basal-predominant fibrosis without the specific occupational exposure history, nodular upper zone pattern, or eggshell lymph node calcification described here.', 4),
+('f9000000-0000-0000-0000-000000000025', 'E', 'Hypersensitivity pneumonitis', false, 'Ruled out because hypersensitivity pneumonitis relates to organic antigen exposure (e.g. mouldy hay, bird droppings), not mineral dust exposure, and does not cause eggshell lymph node calcification.', 5),
+('f9000000-0000-0000-0000-000000000026', 'A', 'Idiopathic pulmonary fibrosis', false, 'Ruled out because IPF causes a basal-predominant, progressive fibrotic pattern without this clear relationship to specific antigen exposure and symptomatic improvement with avoidance.', 1),
+('f9000000-0000-0000-0000-000000000026', 'B', $x$Hypersensitivity pneumonitis (bird fancier's lung)$x$, true, 'Correct. Recurrent, delayed-onset respiratory symptoms following specific antigen exposure (bird droppings/proteins), improving with avoidance, and a mid-to-upper zone ground-glass/mosaic HRCT pattern during symptomatic episodes, is characteristic of hypersensitivity pneumonitis, an immune-mediated reaction to inhaled organic antigens, in this case from pigeon exposure.', 2),
+('f9000000-0000-0000-0000-000000000026', 'C', 'Asthma', false, 'Ruled out because although exposure-related, asthma causes reversible bronchospasm with wheeze, not this specific pattern of diffuse ground-glass change on HRCT reflecting an immune-mediated alveolitis.', 3),
+('f9000000-0000-0000-0000-000000000026', 'D', 'Community-acquired pneumonia', false, 'Ruled out because the recurrent, exposure-related pattern with improvement on avoidance is not consistent with a single infective pneumonia episode.', 4),
+('f9000000-0000-0000-0000-000000000026', 'E', 'Sarcoidosis', false, 'Ruled out because sarcoidosis does not show this clear relationship to specific antigen exposure and avoidance-related symptom improvement, and typically causes bilateral hilar lymphadenopathy rather than this ground-glass/mosaic pattern.', 5),
+('f9000000-0000-0000-0000-000000000027', 'A', 'Idiopathic pulmonary fibrosis, unrelated to her systemic sclerosis', false, 'Ruled out because in a patient with established systemic sclerosis, new interstitial lung disease is attributed to the underlying connective tissue disease rather than being classified as idiopathic, which specifically requires exclusion of an identifiable underlying cause.', 1),
+('f9000000-0000-0000-0000-000000000027', 'B', 'Pulmonary arterial hypertension alone, without parenchymal lung disease', false, 'Ruled out because although systemic sclerosis is also associated with pulmonary arterial hypertension, the HRCT findings described (ground-glass change, reticulation) reflect parenchymal interstitial lung disease, not isolated pulmonary vascular disease.', 2),
+('f9000000-0000-0000-0000-000000000027', 'C', 'Simple deconditioning related to her chronic illness', false, 'Ruled out because the specific HRCT findings indicate an active parenchymal disease process, not simply deconditioning.', 3),
+('f9000000-0000-0000-0000-000000000027', 'D', 'Interstitial lung disease secondary to systemic sclerosis', true, 'Correct. Progressive breathlessness and dry cough with basal ground-glass change and fine reticulation on HRCT, in a patient with established diffuse cutaneous systemic sclerosis, is characteristic of connective tissue disease-associated interstitial lung disease, a recognised and important pulmonary complication of systemic sclerosis requiring monitoring and, where progressive, immunosuppressive or antifibrotic treatment.', 4),
+('f9000000-0000-0000-0000-000000000027', 'E', 'Community-acquired pneumonia', false, 'Ruled out because the chronic, progressive course over a year, rather than an acute infective presentation, together with her underlying systemic sclerosis, points to connective tissue disease-associated interstitial lung disease.', 5),
+('f9000000-0000-0000-0000-000000000028', 'A', 'Simple community-acquired pneumonia', false, 'Ruled out because infection has specifically been excluded on further assessment, and the clear temporal relationship to long-term amiodarone use points to a drug-induced cause instead.', 1),
+('f9000000-0000-0000-0000-000000000028', 'B', 'Heart failure with pulmonary oedema', false, 'Ruled out because heart failure has specifically been excluded on further assessment, and the HRCT pattern described (patchy consolidation and ground-glass change) alongside the amiodarone exposure points to drug-induced pulmonary toxicity.', 2),
+('f9000000-0000-0000-0000-000000000028', 'C', 'Idiopathic pulmonary fibrosis unrelated to his medication', false, 'Ruled out because the clear temporal relationship to amiodarone therapy, a well-recognised cause of pulmonary toxicity, makes a drug-induced cause more likely than a coincidental new diagnosis of IPF.', 3),
+('f9000000-0000-0000-0000-000000000028', 'D', 'Normal expected effect of long-term amiodarone requiring no action', false, 'Ruled out because amiodarone-induced pulmonary toxicity is a recognised, potentially serious adverse effect requiring active management (typically drug discontinuation and consideration of steroids), not something to be regarded as an expected, inconsequential effect.', 4),
+('f9000000-0000-0000-0000-000000000028', 'E', 'Amiodarone-induced pulmonary toxicity', true, 'Correct. New dry cough and breathlessness developing during long-term amiodarone therapy, with bilateral patchy consolidation and ground-glass change on HRCT, after infection and heart failure have been excluded, is characteristic of amiodarone-induced pulmonary toxicity, a recognised drug-induced interstitial lung disease requiring drug discontinuation and consideration of corticosteroid treatment.', 5),
+('f9000000-0000-0000-0000-000000000029', 'A', 'Long-term high-dose oral corticosteroids as monotherapy', false, 'Ruled out because corticosteroid monotherapy is not the standard disease-modifying treatment for IPF specifically (unlike some other interstitial lung diseases) and has not demonstrated the same benefit as antifibrotic therapy in this condition.', 1),
+('f9000000-0000-0000-0000-000000000029', 'B', 'Broad-spectrum antibiotics as disease-modifying therapy', false, 'Ruled out because antibiotics have no established disease-modifying role in IPF; they would only be relevant if a specific infective complication were present.', 2),
+('f9000000-0000-0000-0000-000000000029', 'C', 'An antifibrotic agent (e.g. pirfenidone or nintedanib)', true, 'Correct. Antifibrotic agents (pirfenidone or nintedanib) have been shown to slow the rate of decline in lung function in idiopathic pulmonary fibrosis and are the standard disease-modifying pharmacological treatment option to discuss with appropriately selected patients, alongside supportive measures such as pulmonary rehabilitation and oxygen therapy where needed.', 3),
+('f9000000-0000-0000-0000-000000000029', 'D', 'No pharmacological treatment options exist for IPF', false, 'Ruled out because antifibrotic therapy is a recognised, evidence-based disease-modifying treatment option for IPF, contradicting this statement.', 4),
+('f9000000-0000-0000-0000-000000000029', 'E', 'Immediate lung transplantation as the only available treatment option', false, 'Ruled out because although lung transplantation is considered in selected, appropriately staged patients with progressive disease, antifibrotic pharmacological therapy is an earlier-stage treatment option to discuss, not the only available approach.', 5),
+('f9000000-0000-0000-0000-000000000030', 'A', 'Conservative management with observation, given his stability and moderate-sized pneumothorax without high-risk features', true, 'Correct. A primary spontaneous pneumothorax in a young, otherwise well patient, with stable observations and no high-risk features (significant breathlessness, haemodynamic compromise, bilateral pneumothorax, underlying lung disease), can be managed conservatively with observation and outpatient follow-up per current guidance, reserving intervention (needle aspiration or chest drain) for larger or symptomatic cases or if conservative management fails.', 1),
+('f9000000-0000-0000-0000-000000000030', 'B', 'Immediate large-bore chest drain insertion in all cases regardless of size or symptoms', false, 'Ruled out because current management of primary spontaneous pneumothorax favours a more conservative, symptom- and size-guided stepwise approach rather than immediate invasive drainage in every case, particularly in stable patients.', 2),
+('f9000000-0000-0000-0000-000000000030', 'C', 'Immediate needle decompression as for tension pneumothorax', false, 'Ruled out because there are no features of tension pneumothorax here (no mediastinal shift, stable observations); needle decompression is reserved for that specific emergency, not this stable, primary spontaneous pneumothorax.', 3),
+('f9000000-0000-0000-0000-000000000030', 'D', 'Discharge with no follow-up arranged', false, 'Ruled out because even with conservative management, appropriate follow-up (clinical review, repeat imaging) is required to confirm resolution and monitor for any deterioration.', 4),
+('f9000000-0000-0000-0000-000000000030', 'E', 'Immediate surgical pleurodesis', false, 'Ruled out because surgical pleurodesis is reserved for recurrent pneumothoraces or specific persistent/complicated cases, not as first-line management for a first, stable primary spontaneous pneumothorax.', 5),
+('f9000000-0000-0000-0000-000000000031', 'A', 'Urgent chest X-ray to confirm the diagnosis before any intervention', false, 'Ruled out because tension pneumothorax is a clinical diagnosis requiring immediate treatment; waiting for imaging confirmation in this life-threatening emergency risks fatal deterioration.', 1),
+('f9000000-0000-0000-0000-000000000031', 'B', 'Immediate intubation and ventilation as the first step, before decompression', false, 'Ruled out because positive pressure ventilation before decompressing the tension pneumothorax can rapidly worsen the tension physiology; needle decompression must occur first (or ideally simultaneously with airway management, but must not be delayed for intubation).', 2),
+('f9000000-0000-0000-0000-000000000031', 'C', 'Simple observation, as this may resolve spontaneously', false, 'Ruled out because tension pneumothorax is a rapidly progressive, life-threatening emergency that will not resolve spontaneously and requires immediate decompression.', 3),
+('f9000000-0000-0000-0000-000000000031', 'D', 'Immediate needle decompression of the left chest, without waiting for chest X-ray confirmation', true, 'Correct. Tracheal deviation, absent breath sounds, hyper-resonance, haemodynamic compromise and distended neck veins define tension pneumothorax, an immediately life-threatening clinical diagnosis; needle decompression (followed by formal chest drain insertion) must be performed immediately on clinical grounds, without waiting for imaging confirmation, given the rapid risk of cardiac arrest from impaired venous return.', 4),
+('f9000000-0000-0000-0000-000000000031', 'E', 'High-flow oxygen alone, with no other intervention', false, 'Ruled out because although oxygen supports the patient, it does not address the underlying tension physiology; immediate needle decompression is required to relieve the pressure and restore venous return.', 5),
+('f9000000-0000-0000-0000-000000000032', 'A', 'An exudate, based on the pleural:serum protein ratio', false, $x$Ruled out because the calculated ratio (0.32) falls well below the 0.5 threshold that would classify the fluid as an exudate under Light's criteria.$x$, 1),
+('f9000000-0000-0000-0000-000000000032', 'B', 'A transudate', true, $x$Correct. This fluid meets none of Light's criteria for an exudate (pleural:serum protein ratio 22/68 = 0.32, below 0.5; pleural:serum LDH ratio 110/220 = 0.5, below 0.6; pleural LDH 110, below two-thirds of the upper limit of normal serum LDH of approximately 133), making it a transudate, consistent with a cardiac (heart failure) cause.$x$, 2),
+('f9000000-0000-0000-0000-000000000032', 'C', 'An exudate, based on the pleural:serum LDH ratio', false, 'Ruled out because the calculated ratio (0.5) falls below the 0.6 threshold required to classify the fluid as an exudate under this criterion.', 3),
+('f9000000-0000-0000-0000-000000000032', 'D', $x$Light's criteria cannot be applied in patients with heart failure$x$, false, $x$Ruled out because Light's criteria can and should be applied regardless of the suspected underlying cause; they are specifically useful for distinguishing transudates from exudates across all clinical contexts, including heart failure.$x$, 4),
+('f9000000-0000-0000-0000-000000000032', 'E', $x$An exudate, as all three Light's criteria are met$x$, false, $x$Ruled out because none of the three individual Light's criteria are met by the values given, meaning the fluid classifies as a transudate, not an exudate.$x$, 5),
+('f9000000-0000-0000-0000-000000000033', 'A', 'Consider definitive management with either talc pleurodesis or an indwelling pleural catheter, guided by patient factors and preference', true, 'Correct. For recurrent, symptomatic malignant pleural effusion, definitive management options include talc pleurodesis (chemical fusion of the pleural layers to prevent fluid reaccumulation) or insertion of an indwelling pleural catheter (allowing intermittent drainage at home), with the choice guided by factors such as lung re-expansion potential, expected prognosis, and patient preference regarding ongoing care.', 1),
+('f9000000-0000-0000-0000-000000000033', 'B', 'Repeated simple therapeutic aspiration indefinitely, as the only management approach', false, 'Ruled out because although simple aspiration provides temporary symptomatic relief, it does not prevent recurrence, and definitive management (pleurodesis or indwelling catheter) is preferred for recurrent, symptomatic malignant effusions to reduce the burden of repeated procedures.', 2),
+('f9000000-0000-0000-0000-000000000033', 'C', 'No specific pleural intervention is available for malignant effusions', false, 'Ruled out because effective definitive management options (pleurodesis, indwelling pleural catheter) specifically exist for malignant pleural effusion, directly contradicting this statement.', 3),
+('f9000000-0000-0000-0000-000000000033', 'D', 'Immediate pleurectomy (surgical removal of the pleura) as first-line management in all cases', false, 'Ruled out because pleurectomy is a more invasive surgical option reserved for select cases, not the standard first-line definitive management approach for most patients with malignant pleural effusion.', 4),
+('f9000000-0000-0000-0000-000000000033', 'E', 'Systemic chemotherapy alone, with no local pleural intervention required', false, 'Ruled out because although systemic anticancer treatment addresses the underlying malignancy, local pleural intervention (pleurodesis or indwelling catheter) is typically still needed to specifically manage recurrent, symptomatic fluid accumulation.', 5),
+('f9000000-0000-0000-0000-000000000034', 'A', 'Continue antibiotics alone, with no drainage procedure', false, 'Ruled out because antibiotics alone are typically insufficient to resolve an established empyema; adequate drainage via chest drain is required for effective source control.', 1),
+('f9000000-0000-0000-0000-000000000034', 'B', 'Simple therapeutic aspiration alone, with no chest drain', false, 'Ruled out because a single aspiration is generally inadequate for definitive management of an empyema, which typically re-accumulates and requires a chest drain for more complete, ongoing drainage.', 2),
+('f9000000-0000-0000-0000-000000000034', 'C', 'Chest drain insertion for definitive drainage, alongside continued antibiotics', true, 'Correct. Frank pus on aspiration confirms an empyema, and a pleural fluid pH below 7.2 with low glucose in the context of pneumonia indicates a complicated parapneumonic effusion/empyema; chest drain insertion for adequate drainage is required alongside continued appropriate antibiotics, as antibiotics alone are typically insufficient to resolve an established empyema.', 3),
+('f9000000-0000-0000-0000-000000000034', 'D', 'Stop antibiotics, as the fever must be non-infective in origin', false, 'Ruled out because the clinical and pleural fluid findings (frank pus, low pH, low glucose) confirm an ongoing infective process (empyema) requiring continued antibiotics alongside drainage, not cessation of treatment.', 4),
+('f9000000-0000-0000-0000-000000000034', 'E', 'No specific intervention needed, as this will resolve with time', false, 'Ruled out because an established empyema requires active drainage and continued antibiotics; it will not reliably resolve with observation alone and risks significant ongoing morbidity if untreated.', 5),
+('f9000000-0000-0000-0000-000000000035', 'A', 'Malignant mesothelioma requiring urgent oncological referral', false, 'Ruled out because the well-demarcated, bilateral, benign appearance of pleural plaques with normal spirometry and no symptoms is not consistent with mesothelioma, which would typically show more irregular, often unilateral pleural thickening with effusion and symptoms.', 1),
+('f9000000-0000-0000-0000-000000000035', 'B', 'Active tuberculous pleural disease requiring antituberculous treatment', false, 'Ruled out because the described appearance and exposure history are classic for benign asbestos-related pleural plaques, not tuberculous pleural disease, and no treatment is indicated for asymptomatic plaques.', 2),
+('f9000000-0000-0000-0000-000000000035', 'C', 'No relevance to his long-term health, requiring no further discussion', false, 'Ruled out because although the plaques themselves are benign and require no treatment, the underlying asbestos exposure they reflect carries long-term implications (increased mesothelioma and lung cancer risk) worth discussing with the patient.', 3),
+('f9000000-0000-0000-0000-000000000035', 'D', 'Immediate surgical removal of the plaques', false, 'Ruled out because benign pleural plaques do not require surgical removal; they are asymptomatic markers of past exposure, not a condition requiring intervention.', 4),
+('f9000000-0000-0000-0000-000000000035', 'E', 'Benign pleural plaques related to his asbestos exposure, requiring no specific treatment but relevant to ongoing surveillance discussion given his exposure history', true, 'Correct. Bilateral, well-demarcated, sometimes calcified pleural plaques are a benign marker of past asbestos exposure, not themselves a malignant or symptomatic condition, and require no specific treatment; however, the underlying asbestos exposure is relevant to counselling regarding increased long-term risk of mesothelioma and lung cancer, informing symptom-awareness advice and consideration of any relevant occupational health surveillance.', 5),
+('f9000000-0000-0000-0000-000000000036', 'A', 'Conservative management alone, as with his first episode', false, 'Ruled out because recurrence significantly increases the likelihood of further episodes, making this the point at which definitive, recurrence-preventing intervention should be considered, rather than continuing with conservative management alone.', 1),
+('f9000000-0000-0000-0000-000000000036', 'B', 'No specific action is needed, as recurrence is not clinically significant', false, 'Ruled out because recurrent pneumothorax carries ongoing risk and impact on the patient (further episodes, potential complications, impact on activities such as flying or diving), making active consideration of definitive management clinically appropriate.', 2),
+('f9000000-0000-0000-0000-000000000036', 'C', 'Immediate lung transplantation', false, 'Ruled out because this is a vastly disproportionate intervention for recurrent primary spontaneous pneumothorax; VATS pleurodesis or pleurectomy is the appropriate definitive procedure to consider.', 3),
+('f9000000-0000-0000-0000-000000000036', 'D', 'Referral for consideration of a definitive procedure to prevent further recurrence (e.g. video-assisted thoracoscopic surgery with pleurodesis or pleurectomy)', true, 'Correct. A recurrent ipsilateral spontaneous pneumothorax (a second episode on the same side) is an indication to consider a definitive procedure aimed at preventing further recurrence, typically video-assisted thoracoscopic surgery (VATS) with pleurodesis or pleurectomy, given the significantly increased likelihood of further recurrence after a second episode.', 4),
+('f9000000-0000-0000-0000-000000000036', 'E', 'Lifelong chest drain insertion as a permanent solution', false, 'Ruled out because a permanent indwelling chest drain is not standard management for recurrent primary spontaneous pneumothorax; a definitive surgical procedure aimed at preventing further recurrence is the appropriate approach.', 5),
+('f9000000-0000-0000-0000-000000000037', 'A', 'Hyponatraemia due to ectopic ADH secretion (SIADH)', false, 'Ruled out because SIADH is classically associated with small cell lung cancer, not squamous cell carcinoma.', 1),
+('f9000000-0000-0000-0000-000000000037', 'B', 'Hypercalcaemia due to secretion of parathyroid hormone-related protein (PTHrP)', true, 'Correct. Squamous cell lung carcinoma is classically associated with humoral hypercalcaemia of malignancy, mediated by tumour secretion of PTHrP, which mimics PTH action on bone and kidney to raise serum calcium, distinct from hypercalcaemia caused by direct bone metastasis.', 2),
+('f9000000-0000-0000-0000-000000000037', 'C', $x$Cushing's syndrome due to ectopic ACTH secretion$x$, false, $x$Ruled out because ectopic ACTH secretion causing Cushing's syndrome is classically associated with small cell lung cancer, not squamous cell carcinoma.$x$, 3),
+('f9000000-0000-0000-0000-000000000037', 'D', 'Lambert-Eaton myasthenic syndrome', false, 'Ruled out because LEMS is a paraneoplastic neurological syndrome classically associated with small cell lung cancer, not squamous cell carcinoma.', 4),
+('f9000000-0000-0000-0000-000000000037', 'E', 'Polycythaemia due to ectopic erythropoietin secretion', false, 'Ruled out because ectopic erythropoietin-driven polycythaemia is classically associated with renal cell carcinoma and certain other tumours, not squamous cell lung carcinoma specifically.', 5),
+('f9000000-0000-0000-0000-000000000038', 'A', 'Primary adrenal insufficiency', false, 'Ruled out because adrenal function is specifically stated to be normal, excluding this as the cause of his hyponatraemia.', 1),
+('f9000000-0000-0000-0000-000000000038', 'B', 'Excessive intravenous fluid administration causing dilutional hyponatraemia', false, 'Ruled out because the urine is inappropriately concentrated (not dilute, as would be expected with simple fluid overload/dilution), pointing to SIADH rather than iatrogenic fluid excess.', 2),
+('f9000000-0000-0000-0000-000000000038', 'C', 'Ectopic secretion of antidiuretic hormone by the tumour, causing SIADH', true, 'Correct. Euvolaemic hyponatraemia with inappropriately concentrated urine, in a patient with small cell lung cancer (a classic cause of ectopic ADH secretion from its neuroendocrine cell origin), with normal renal, adrenal and thyroid function excluding other causes, confirms SIADH as a paraneoplastic complication.', 3),
+('f9000000-0000-0000-0000-000000000038', 'D', 'Hypothyroidism', false, 'Ruled out because thyroid function is specifically stated to be normal, excluding this as the cause.', 4),
+('f9000000-0000-0000-0000-000000000038', 'E', 'Chemotherapy-induced renal salt wasting', false, 'Ruled out because renal function is specifically stated to be normal, and the clinical/biochemical pattern (euvolaemia, concentrated urine) is characteristic of SIADH rather than a renal salt-wasting process.', 5),
+('f9000000-0000-0000-0000-000000000039', 'A', 'Simple cervical radiculopathy unrelated to malignancy', false, 'Ruled out because radiculopathy alone would not explain the Horner syndrome (ptosis, miosis, anhidrosis), and the combination with a known apical lung mass points specifically to Pancoast tumour invasion.', 1),
+('f9000000-0000-0000-0000-000000000039', 'B', 'Brachial plexus injury from trauma', false, 'Ruled out because there is no trauma history described, and the combination of findings with a known apical lung mass is specifically characteristic of Pancoast tumour invasion, not traumatic plexus injury.', 2),
+('f9000000-0000-0000-0000-000000000039', 'C', 'Simple shoulder osteoarthritis', false, 'Ruled out because osteoarthritis would not cause Horner syndrome or this specific pattern of arm pain radiating down the inner arm, and does not explain the apical lung mass.', 3),
+('f9000000-0000-0000-0000-000000000039', 'D', 'Stroke affecting the brainstem', false, 'Ruled out because although brainstem stroke can cause Horner syndrome, it would not explain the arm pain and apical lung mass together; the clinical picture here is specifically explained by local tumour invasion from a Pancoast tumour.', 4),
+('f9000000-0000-0000-0000-000000000039', 'E', 'Pancoast tumour with associated Horner syndrome', true, 'Correct. An apical lung tumour (Pancoast tumour) can invade the adjacent sympathetic chain, causing Horner syndrome (ptosis, miosis, anhidrosis), and the brachial plexus (particularly the lower trunk, C8-T1), causing severe arm/shoulder pain radiating down the inner arm -- together forming the classic presentation of a Pancoast tumour with local invasion.', 5),
+('f9000000-0000-0000-0000-000000000040', 'A', $x$Further characterisation with CT chest, with risk assessment based on nodule size, morphology and the patient's risk factors, to guide further management (surveillance versus biopsy/further imaging)$x$, true, 'Correct. An incidentally found solitary pulmonary nodule requires further characterisation, typically starting with CT chest to assess size, morphology (e.g. spiculated versus smooth margins) and growth on any prior imaging, combined with patient risk factors (smoking history, age), to stratify risk and guide the appropriate next step -- ranging from interval surveillance imaging for low-risk nodules to further investigation (PET-CT, biopsy) for higher-risk features.', 1),
+('f9000000-0000-0000-0000-000000000040', 'B', 'No further action is needed, as incidental nodules are always benign', false, 'Ruled out because incidental pulmonary nodules require risk-based assessment, as a proportion (particularly in higher-risk patients such as this significant smoker) represent early malignancy; they should not be dismissed without appropriate evaluation.', 2),
+('f9000000-0000-0000-0000-000000000040', 'C', 'Immediate surgical resection of the nodule without further characterisation', false, 'Ruled out because immediate surgery without first characterising the nodule and stratifying risk is not the appropriate initial approach; many nodules, particularly smaller or lower-risk ones, are managed with surveillance imaging rather than immediate surgery.', 3),
+('f9000000-0000-0000-0000-000000000040', 'D', 'Immediate chemotherapy, assuming malignancy without any tissue diagnosis', false, 'Ruled out because treatment should never be started based on an assumption of malignancy without appropriate risk stratification and, where indicated, tissue diagnosis.', 4),
+('f9000000-0000-0000-0000-000000000040', 'E', 'Sputum cytology alone, with no imaging follow-up', false, 'Ruled out because sputum cytology has low sensitivity for peripheral nodules and is not the standard initial approach; CT-based characterisation and risk stratification is the appropriate first step.', 5),
+('f9000000-0000-0000-0000-000000000041', 'A', 'It has no bearing on her treatment options and only affects prognosis reporting', false, 'Ruled out because EGFR mutation status directly and meaningfully influences treatment selection, specifically identifying candidacy for targeted TKI therapy, not merely serving as a prognostic label.', 1),
+('f9000000-0000-0000-0000-000000000041', 'B', 'It means chemotherapy is now contraindicated and cannot be used', false, 'Ruled out because chemotherapy may still be used in various contexts (e.g. after TKI resistance develops, or in combination in some regimens); the EGFR mutation specifically opens up an additional, often preferred initial targeted therapy option, rather than eliminating chemotherapy entirely from the treatment pathway.', 2),
+('f9000000-0000-0000-0000-000000000041', 'C', 'It indicates she should proceed directly to palliative care with no active treatment', false, 'Ruled out because identifying a targetable mutation specifically opens up an effective, active treatment option (TKI therapy), the opposite of indicating a move to palliative care alone.', 3),
+('f9000000-0000-0000-0000-000000000041', 'D', 'It identifies her as a potential candidate for targeted therapy with an EGFR tyrosine kinase inhibitor', true, 'Correct. Identification of an EGFR mutation in non-small-cell lung cancer identifies patients who may benefit from targeted therapy with an EGFR tyrosine kinase inhibitor (e.g. osimertinib), which specifically targets the mutated receptor driving tumour growth, often providing better outcomes and a more favourable side-effect profile than standard chemotherapy in this specific molecular subgroup.', 4),
+('f9000000-0000-0000-0000-000000000041', 'E', 'It has no relevance to non-small-cell lung cancer and only applies to other cancer types', false, 'Ruled out because EGFR mutation testing is specifically and routinely performed in non-small-cell lung cancer to guide treatment selection, directly relevant to this cancer type.', 5),
+('f9000000-0000-0000-0000-000000000042', 'A', 'Lambert-Eaton myasthenic syndrome', true, 'Correct. Proximal limb weakness, autonomic symptoms (dry mouth, erectile dysfunction), and post-tetanic potentiation of reflexes (initially reduced, improving transiently after sustained contraction), in a patient with small cell lung cancer, is characteristic of Lambert-Eaton myasthenic syndrome, a paraneoplastic disorder caused by antibodies against presynaptic voltage-gated calcium channels impairing acetylcholine release.', 1),
+('f9000000-0000-0000-0000-000000000042', 'B', 'Myasthenia gravis', false, 'Ruled out because myasthenia gravis causes fatigable weakness that worsens (not improves) with sustained activity, the opposite pattern to the post-tetanic potentiation described here, and typically causes prominent ocular/bulbar rather than proximal limb-predominant weakness.', 2),
+('f9000000-0000-0000-0000-000000000042', 'C', 'Guillain-Barre syndrome', false, 'Ruled out because GBS causes an acute, typically post-infectious, progressive ascending weakness, not this gradual, paraneoplastic pattern with the specific reflex facilitation described.', 3),
+('f9000000-0000-0000-0000-000000000042', 'D', 'Simple disuse muscle weakness from reduced activity', false, 'Ruled out because the specific reflex pattern (post-tetanic potentiation) and autonomic symptoms are not explained by simple disuse weakness, and point to a specific paraneoplastic neuromuscular junction disorder.', 4),
+('f9000000-0000-0000-0000-000000000042', 'E', 'Motor neuron disease', false, 'Ruled out because MND causes a mix of upper and lower motor neuron signs without autonomic involvement or the characteristic reflex facilitation seen in LEMS.', 5),
+('f9000000-0000-0000-0000-000000000043', 'A', 'To definitively diagnose the histological subtype of the cancer', false, 'Ruled out because histological subtype is determined by tissue biopsy and pathological examination, not by staging imaging, which instead assesses the anatomical extent of already-diagnosed disease.', 1),
+('f9000000-0000-0000-0000-000000000043', 'B', 'To determine the extent of disease (tumour size/local invasion, nodal involvement, and presence of distant metastases) and guide appropriate treatment planning', true, 'Correct. Staging investigations assess the TNM classification -- tumour size and local invasion, regional lymph node involvement, and distant metastases -- providing essential information to guide treatment planning (e.g. whether curative-intent surgery or radiotherapy is appropriate, versus systemic treatment for more advanced/metastatic disease) and informing prognosis.', 2),
+('f9000000-0000-0000-0000-000000000043', 'C', 'To assess for unrelated, coincidental medical conditions only', false, 'Ruled out because although incidental findings can occur, the primary purpose of this specific staging workup is to assess the extent of the known lung cancer, not to screen broadly for unrelated conditions.', 3),
+('f9000000-0000-0000-0000-000000000043', 'D', 'To determine eligibility for lung transplantation', false, 'Ruled out because lung cancer staging is not related to lung transplantation assessment; it specifically guides cancer treatment planning based on disease extent.', 4),
+('f9000000-0000-0000-0000-000000000043', 'E', 'Staging has no bearing on treatment choice and is performed only for research purposes', false, 'Ruled out because staging directly and fundamentally determines treatment approach (e.g. surgical resectability, appropriateness of curative versus palliative-intent treatment), making it central to clinical decision-making, not merely a research exercise.', 5),
+('f9000000-0000-0000-0000-000000000044', 'A', 'Central sleep apnoea', false, 'Ruled out because central sleep apnoea results from a lack of respiratory effort (rather than upper airway obstruction against ongoing effort), and the clinical picture here -- obesity, loud snoring, choking arousals -- is classic for the obstructive, not central, pattern.', 1),
+('f9000000-0000-0000-0000-000000000044', 'B', 'Simple primary snoring without sleep apnoea', false, 'Ruled out because the markedly raised apnoea-hypopnoea index on formal polysomnography confirms true sleep apnoea, not simple snoring without significant airway obstruction or desaturation events.', 2),
+('f9000000-0000-0000-0000-000000000044', 'C', 'Obstructive sleep apnoea', true, 'Correct. Loud snoring, witnessed apnoeic episodes with choking/gasping arousals, excessive daytime sleepiness (including near-miss driving incidents), obesity, and a markedly raised apnoea-hypopnoea index on polysomnography together confirm severe obstructive sleep apnoea, caused by repeated upper airway collapse during sleep.', 3),
+('f9000000-0000-0000-0000-000000000044', 'D', 'Narcolepsy', false, 'Ruled out because narcolepsy is a primary hypersomnolence disorder not caused by nocturnal upper airway obstruction, and would not show this pattern of apnoeic episodes and raised AHI on polysomnography.', 4),
+('f9000000-0000-0000-0000-000000000044', 'E', 'Insomnia', false, 'Ruled out because insomnia refers to difficulty initiating or maintaining sleep, not the pattern of nocturnal breathing obstruction and daytime hypersomnolence secondary to it described here.', 5),
+('f9000000-0000-0000-0000-000000000045', 'A', 'Immediate surgical intervention (e.g. uvulopalatopharyngoplasty) as first-line treatment', false, 'Ruled out because surgical options are generally reserved for patients who cannot tolerate or adequately benefit from CPAP, or for specific anatomical indications, not as routine first-line treatment for OSA.', 1),
+('f9000000-0000-0000-0000-000000000045', 'B', 'Sedative medication to improve sleep quality', false, 'Ruled out because sedatives can worsen upper airway muscle tone and potentially worsen OSA severity, making them inappropriate and potentially harmful in this context.', 2),
+('f9000000-0000-0000-0000-000000000045', 'C', 'No treatment is needed, as OSA does not require intervention', false, 'Ruled out because significant OSA with daytime symptoms carries meaningful health risks (cardiovascular, accident risk from sleepiness) and requires active treatment, not being left untreated.', 3),
+('f9000000-0000-0000-0000-000000000045', 'D', 'Long-term home oxygen therapy alone, without addressing the airway obstruction', false, 'Ruled out because oxygen alone does not address the underlying mechanical airway obstruction driving OSA; CPAP, which directly treats the obstructive mechanism, is the appropriate first-line therapy.', 4),
+('f9000000-0000-0000-0000-000000000045', 'E', 'Continuous positive airway pressure (CPAP) therapy', true, 'Correct. CPAP therapy, delivering continuous positive pressure via a mask to splint the upper airway open during sleep, is the first-line treatment for moderate-to-severe obstructive sleep apnoea, effectively reducing apnoeic events and improving daytime symptoms, alongside general lifestyle advice including weight loss where relevant.', 5),
+('f9000000-0000-0000-0000-000000000046', 'A', 'Domiciliary (home) non-invasive ventilation', true, 'Correct. In selected patients with severe COPD and persistent daytime hypercapnia despite optimised standard therapy, domiciliary non-invasive ventilation can be considered to support ventilation, reduce hypercapnia, and potentially reduce the frequency of hospital admissions with acute hypercapnic exacerbations.', 1),
+('f9000000-0000-0000-0000-000000000046', 'B', 'Long-term high-dose oral corticosteroids as the primary additional treatment', false, 'Ruled out because long-term oral corticosteroids are not the standard approach for managing chronic hypercapnia in COPD and carry significant cumulative toxicity; domiciliary NIV is the more appropriate consideration for this specific problem.', 2),
+('f9000000-0000-0000-0000-000000000046', 'C', 'Immediate initiation of invasive mechanical ventilation via tracheostomy', false, 'Ruled out because invasive ventilation via tracheostomy is a much more significant, generally later-stage intervention; non-invasive ventilation is the appropriate first consideration for chronic hypercapnic respiratory failure in this context.', 3),
+('f9000000-0000-0000-0000-000000000046', 'D', 'Simply increasing his inhaled bronchodilator doses beyond standard recommendations', false, 'Ruled out because exceeding standard recommended bronchodilator dosing is not an appropriate or evidence-based approach to managing chronic hypercapnia; ventilatory support (NIV) is the specific intervention indicated here.', 4),
+('f9000000-0000-0000-0000-000000000046', 'E', 'No additional treatment is available for chronic hypercapnia in COPD', false, 'Ruled out because domiciliary NIV is a recognised, evidence-based additional treatment option for appropriately selected patients with this specific problem, directly contradicting this statement.', 5),
+('f9000000-0000-0000-0000-000000000047', 'A', 'Simple obstructive sleep apnoea without daytime hypoventilation', false, 'Ruled out because simple OSA, while often coexisting, does not typically cause daytime (awake) hypercapnia; the presence of daytime hypercapnia specifically defines the additional diagnosis of obesity hypoventilation syndrome.', 1),
+('f9000000-0000-0000-0000-000000000047', 'B', 'Obesity hypoventilation syndrome', true, 'Correct. Daytime hypercapnia and hypoxaemia in a patient with severe obesity, in the absence of another clear cause for chronic hypoventilation, and often coexisting with obstructive sleep apnoea, defines obesity hypoventilation syndrome (historically termed Pickwickian syndrome), resulting from a combination of increased work of breathing, reduced chest wall compliance, and blunted central respiratory drive related to severe obesity.', 2),
+('f9000000-0000-0000-0000-000000000047', 'C', 'Primary pulmonary fibrosis', false, 'Ruled out because there is no described restrictive lung disease pattern or fibrotic changes; the clinical context (severe obesity, coexisting OSA) points to obesity hypoventilation syndrome instead.', 3),
+('f9000000-0000-0000-0000-000000000047', 'D', 'Chronic obstructive pulmonary disease', false, 'Ruled out because there is no smoking history or obstructive spirometry pattern described; the clinical picture (severe obesity, coexisting OSA, daytime hypercapnia) is characteristic of obesity hypoventilation syndrome.', 4),
+('f9000000-0000-0000-0000-000000000047', 'E', 'Simple heart failure alone, unrelated to his weight', false, 'Ruled out because although ankle swelling can occur in heart failure, the combination of severe obesity, daytime hypercapnia/hypoxaemia and coexisting severe OSA is specifically characteristic of obesity hypoventilation syndrome, which can itself contribute to right heart strain/failure (cor pulmonale) as a complication.', 5),
+('f9000000-0000-0000-0000-000000000048', 'A', 'Obstructive sleep apnoea', false, 'Ruled out because obstructive sleep apnoea causes discrete apnoeic events from upper airway collapse against ongoing respiratory effort, not this specific cyclical crescendo-decrescendo pattern, which reflects a central (brain-driven) mechanism instead.', 1),
+('f9000000-0000-0000-0000-000000000048', 'B', 'Simple snoring without any pathological significance', false, 'Ruled out because the described cyclical pattern with apnoeic pauses represents a recognised pathological breathing pattern (Cheyne-Stokes respiration), not simple, non-pathological snoring.', 2),
+('f9000000-0000-0000-0000-000000000048', 'C', 'Narcolepsy with associated sleep paralysis', false, 'Ruled out because narcolepsy relates to abnormal regulation of sleep-wake states and REM sleep intrusion, not this specific cyclical breathing pattern related to heart failure physiology.', 3),
+('f9000000-0000-0000-0000-000000000048', 'D', 'Cheyne-Stokes respiration, a form of central sleep apnoea associated with heart failure', true, 'Correct. A cyclical crescendo-decrescendo breathing pattern with intervening apnoeic pauses, described in a patient with heart failure with reduced ejection fraction, is characteristic of Cheyne-Stokes respiration, a specific form of central sleep apnoea related to delayed circulatory feedback and altered chemoreceptor sensitivity in heart failure, distinct from the upper airway obstruction seen in obstructive sleep apnoea.', 4),
+('f9000000-0000-0000-0000-000000000048', 'E', 'Normal, healthy sleep breathing pattern requiring no further consideration', false, 'Ruled out because Cheyne-Stokes respiration is a recognised, clinically significant finding associated with heart failure severity, not a normal breathing pattern to be disregarded.', 5),
+('f9000000-0000-0000-0000-000000000049', 'A', 'Epilepsy with atonic seizures', false, 'Ruled out because atonic seizures typically involve loss of consciousness, unlike the preserved consciousness during cataplexy episodes described here, and epilepsy does not explain the combination with hypnagogic hallucinations and excessive daytime sleepiness in this specific pattern.', 1),
+('f9000000-0000-0000-0000-000000000049', 'B', 'Simple syncope (vasovagal episodes)', false, 'Ruled out because syncope involves transient loss of consciousness typically preceded by a prodrome (light-headedness, pallor), not this pattern of retained consciousness with emotion-triggered tone loss and the additional hypnagogic hallucination and hypersomnolence features.', 2),
+('f9000000-0000-0000-0000-000000000049', 'C', 'Narcolepsy (with cataplexy)', true, 'Correct. Excessive daytime sleepiness combined with cataplexy (sudden loss of muscle tone triggered by strong emotion, with preserved consciousness) and hypnagogic hallucinations (vivid hallucinations occurring at sleep onset) together form a classic symptom complex for narcolepsy, a primary disorder of sleep-wake regulation related to loss of hypothalamic orexin/hypocretin-producing neurons.', 3),
+('f9000000-0000-0000-0000-000000000049', 'D', 'Obstructive sleep apnoea', false, 'Ruled out because OSA causes excessive daytime sleepiness from disrupted nocturnal sleep due to airway obstruction, but does not cause cataplexy or hypnagogic hallucinations, which are specific to narcolepsy.', 4),
+('f9000000-0000-0000-0000-000000000049', 'E', 'Conversion disorder (functional neurological symptom disorder)', false, 'Ruled out because the classic, specific triad described (cataplexy triggered by emotion, hypnagogic hallucinations, excessive daytime sleepiness) is a recognised, organic neurological symptom complex (narcolepsy), not a functional presentation.', 5),
+('f9000000-0000-0000-0000-000000000050', 'A', 'No specific driving restrictions apply to OSA, and he can continue driving as normal', false, 'Ruled out because OSA with significant daytime sleepiness carries a genuine road safety risk, and specific notification and, until controlled, driving restrictions do apply, particularly for vocational licence holders.', 1),
+('f9000000-0000-0000-0000-000000000050', 'B', 'He must permanently surrender his driving licence with no possibility of resuming driving in future', false, 'Ruled out because with adequate treatment (e.g. effective CPAP use) and confirmation of symptom control, many patients with OSA are able to resume driving; a permanent, irreversible ban is not the standard approach once the condition is appropriately managed.', 2),
+('f9000000-0000-0000-0000-000000000050', 'C', 'Only Group 1 (standard) licence holders need to inform the licensing authority, not Group 2 drivers', false, 'Ruled out because Group 2 (vocational) licence holders are subject to stricter, not more lenient, medical standards regarding conditions like OSA, given the greater potential consequences of a road traffic incident involving larger vehicles.', 3),
+('f9000000-0000-0000-0000-000000000050', 'D', 'He should continue driving but simply take more frequent breaks, with no need to inform any authority', false, 'Ruled out because a formal duty to notify the relevant driving licensing authority exists for this diagnosis, particularly relevant to his vocational licence, rather than this being addressed solely through informal self-management such as taking breaks.', 4),
+('f9000000-0000-0000-0000-000000000050', 'E', 'He must inform the relevant driving licensing authority and, particularly given his Group 2 (vocational) licence, should not drive until his symptoms are adequately controlled and this has been confirmed', true, 'Correct. Excessive daytime sleepiness from OSA carries a specific driving safety risk, and patients with this diagnosis, particularly those holding a Group 2 (vocational, e.g. lorry/bus) licence, which carries stricter medical standards, must inform the relevant licensing authority; driving should be avoided until symptoms are adequately controlled (e.g. with effective CPAP treatment) and this has been appropriately confirmed, given the significant road safety implications of uncontrolled daytime sleepiness in a professional driver.', 5)
 on conflict (question_id, label) do nothing;
 
--- ---------------------------------------------------------------------------
--- Discriminators
--- ---------------------------------------------------------------------------
-
 insert into question_discriminators (question_id, discriminator_text, sort_order) values
-
-('d0000000-0000-0000-0000-000000000001', 'A silent chest reflects such severe bronchoconstriction that air movement is inaudible, a hallmark life-threatening sign.', 1),
-('d0000000-0000-0000-0000-000000000001', 'A normal or rising PaCO2 in a tachypnoeic asthmatic indicates respiratory muscle fatigue and impending respiratory failure, not reassuring normalisation.', 2),
-('d0000000-0000-0000-0000-000000000001', 'Severe asthma features (RR 25+, HR 110+, PEFR 33-50%) sit on a lower rung of severity than the specific life-threatening criteria.', 3),
-
-('d0000000-0000-0000-0000-000000000002', 'High-flow oxygen in COPD can worsen hypercapnia via loss of hypoxic drive and V/Q mismatch, particularly in chronic CO2 retainers.', 1),
-('d0000000-0000-0000-0000-000000000002', 'A target SpO2 of 88-92% balances adequate oxygenation against the risk of worsening hypercapnic respiratory failure.', 2),
-('d0000000-0000-0000-0000-000000000002', 'Reassessing ABG after adjusting oxygen delivery, before escalating to NIV or intubation, is the correct stepwise approach.', 3),
-
-('d0000000-0000-0000-0000-000000000003', 'CURB-65 scores one point each for Confusion, Urea >7 mmol/L, Respiratory rate 30+, Blood pressure below threshold, and age 65+.', 1),
-('d0000000-0000-0000-0000-000000000003', 'A score of 3 or more indicates severe pneumonia with high mortality risk, warranting consideration of critical care input.', 2),
-('d0000000-0000-0000-0000-000000000003', 'Accurately calculating each component, rather than estimating severity by gestalt, is essential to appropriately triaging pneumonia.', 3),
-
-('d0000000-0000-0000-0000-000000000004', 'A recent travel or hotel stay is a classic epidemiological clue for Legionella, spread via contaminated water or air conditioning systems.', 1),
-('d0000000-0000-0000-0000-000000000004', 'Hyponatraemia and deranged liver function tests, alongside confusion and GI symptoms, are relatively specific systemic features of Legionella among atypical pathogens.', 2),
-('d0000000-0000-0000-0000-000000000004', 'The combination of extrapulmonary features with pneumonia is characteristic of atypical pathogens like Legionella, unlike typical lobar pneumococcal pneumonia.', 3),
-
-('d0000000-0000-0000-0000-000000000005', 'D-dimer is only useful to help exclude PE in patients with a low pre-test clinical probability.', 1),
-('d0000000-0000-0000-0000-000000000005', 'CTPA is the first-line definitive imaging investigation for suspected PE in most patients.', 2),
-('d0000000-0000-0000-0000-000000000005', 'Recognised risk factors (the combined pill, prolonged immobility from a long flight) support a high clinical probability assessment.', 3),
-
-('d0000000-0000-0000-0000-000000000006', 'Tracheal deviation away from the affected side with absent breath sounds and hyper-resonance is the classic clinical triad of tension pneumothorax.', 1),
-('d0000000-0000-0000-0000-000000000006', 'Tension pneumothorax is a clinical diagnosis treated immediately, without waiting for confirmatory imaging.', 2),
-('d0000000-0000-0000-0000-000000000006', 'Haemodynamic compromise reflects impaired venous return from mediastinal shift, the life-threatening mechanism requiring urgent decompression.', 3),
-
-('d0000000-0000-0000-0000-000000000007', $d$Light's criteria classify an effusion as an exudate if any one of the three protein/LDH ratio thresholds is exceeded; none are met here.$d$, 1),
-('d0000000-0000-0000-0000-000000000007', 'A transudate in the context of heart failure reflects raised hydrostatic pressure rather than pleural or systemic inflammatory disease.', 2),
-('d0000000-0000-0000-0000-000000000007', $d$Applying all three of Light's criteria systematically, rather than relying on protein alone, avoids misclassification.$d$, 3),
-
-('d0000000-0000-0000-0000-000000000008', 'Bibasal fine end-inspiratory crackles with clubbing is a classic examination finding in pulmonary fibrosis.', 1),
-('d0000000-0000-0000-0000-000000000008', 'A HRCT pattern of subpleural, basal honeycombing (usual interstitial pneumonia pattern) is characteristic of IPF.', 2),
-('d0000000-0000-0000-0000-000000000008', 'An insidious, progressive course over months to years without an identifiable exposure points to an idiopathic rather than secondary cause of fibrosis.', 3),
-
-('d0000000-0000-0000-0000-000000000009', 'Bilateral, rather than unilateral, hilar lymphadenopathy is a hallmark radiological feature of sarcoidosis.', 1),
-('d0000000-0000-0000-0000-000000000009', 'Erythema nodosum alongside bilateral hilar lymphadenopathy forms part of the classic acute sarcoidosis presentation.', 2),
-('d0000000-0000-0000-0000-000000000009', 'Afro-Caribbean ethnicity is a recognised risk factor for a higher incidence and more severe sarcoidosis.', 3),
-
-('d0000000-0000-0000-0000-000000000010', 'Copious purulent sputum production with recurrent infections over a lifelong course is characteristic of bronchiectasis.', 1),
-('d0000000-0000-0000-0000-000000000010', $d$The HRCT "signet ring" sign, a dilated bronchus larger than its adjacent pulmonary artery, is a specific radiological marker of bronchiectasis.$d$, 2),
-('d0000000-0000-0000-0000-000000000010', 'Identifying an underlying cause, such as cystic fibrosis or primary ciliary dyskinesia, is an important next step once the structural diagnosis is made.', 3),
-
-('d0000000-0000-0000-0000-000000000011', 'Hyponatraemia with low plasma osmolality and inappropriately concentrated urine is diagnostic of SIADH.', 1),
-('d0000000-0000-0000-0000-000000000011', 'Small cell lung cancer is the classic cause of ectopic ADH secretion among paraneoplastic lung cancer syndromes.', 2),
-('d0000000-0000-0000-0000-000000000011', 'Squamous cell (not small cell) lung cancer is more classically associated with PTHrP-mediated hypercalcaemia, an important distinguishing pairing.', 3),
-
-('d0000000-0000-0000-0000-000000000012', 'Polysomnography directly measures apnoea and hypopnoea episodes during sleep, the gold-standard for diagnosing OSA.', 1),
-('d0000000-0000-0000-0000-000000000012', 'Excessive daytime sleepiness combined with witnessed apnoeic episodes is the classic clinical picture prompting investigation.', 2),
-('d0000000-0000-0000-0000-000000000012', 'Obesity is a major recognised risk factor for OSA due to upper airway soft tissue narrowing.', 3),
-
-('d0000000-0000-0000-0000-000000000013', 'A loud P2 reflects raised pressure closing the pulmonic valve, a key clinical sign of pulmonary hypertension.', 1),
-('d0000000-0000-0000-0000-000000000013', 'Systemic sclerosis is a well-recognised cause of pulmonary arterial hypertension, an important disease association to know.', 2),
-('d0000000-0000-0000-0000-000000000013', 'Right ventricular hypertrophy and strain reflect the right heart''s response to chronically elevated pulmonary pressures.', 3),
-
-('d0000000-0000-0000-0000-000000000014', 'Symptom onset several hours after a recognised antigen exposure is characteristic of hypersensitivity pneumonitis.', 1),
-('d0000000-0000-0000-0000-000000000014', 'Upper/mid-zone ground-glass change and mosaic attenuation on HRCT, rather than basal honeycombing, points away from IPF towards an inhalational cause.', 2),
-('d0000000-0000-0000-0000-000000000014', 'Identifying and avoiding the causative antigen is central to management.', 3);
+('f9000000-0000-0000-0000-000000000001', 'A silent chest, exhaustion, cyanosis, hypotension, arrhythmia, or a normal/rising PaCO2 (reflecting failing respiratory effort) define life-threatening asthma, distinct from the acute severe category.', 1),
+('f9000000-0000-0000-0000-000000000001', 'PEFR below 33% predicted (not 38%) is the specific threshold separating life-threatening from acute severe asthma.', 2),
+('f9000000-0000-0000-0000-000000000001', 'Recognising life-threatening features prompts immediate escalation (senior/ICU involvement, consideration of IV therapies) beyond standard acute severe asthma management.', 3),
+('f9000000-0000-0000-0000-000000000002', 'Patients with chronic type 2 respiratory failure (as in severe COPD) can rely on hypoxic, rather than hypercapnic, respiratory drive; uncontrolled high-flow oxygen removes this drive, worsening hypoventilation and hypercapnia.', 1),
+('f9000000-0000-0000-0000-000000000002', $x$A PaO2 of 19.8 kPa reflects significant over-oxygenation, a recognised iatrogenic contributor to this patient's severe acidosis alongside his underlying exacerbation.$x$, 2),
+('f9000000-0000-0000-0000-000000000002', 'Given the significant acidosis (pH 7.21) persisting despite standard treatment, urgent consideration of non-invasive ventilation is required alongside oxygen correction.', 3),
+('f9000000-0000-0000-0000-000000000003', 'Confirming good inhaler technique and adherence before escalating treatment is an essential step, as apparent treatment failure often reflects a modifiable technique or adherence issue rather than true inadequate response.', 1),
+('f9000000-0000-0000-0000-000000000003', 'Adding a LABA is the standard next step after low-dose inhaled corticosteroid monotherapy proves insufficient, reflecting the stepwise approach to asthma pharmacotherapy.', 2),
+('f9000000-0000-0000-0000-000000000003', 'Symptom frequency (daytime most days, nocturnal waking) is used to objectively classify control level and guide treatment stepping decisions.', 3),
+('f9000000-0000-0000-0000-000000000004', 'A fixed (not significantly reversible) obstructive spirometric pattern (FEV1/FVC below 0.7) distinguishes COPD from asthma, which typically shows significant bronchodilator reversibility.', 1),
+('f9000000-0000-0000-0000-000000000004', 'A substantial smoking history is the dominant risk factor for COPD, providing important contextual support for the diagnosis.', 2),
+('f9000000-0000-0000-0000-000000000004', 'Chronic productive cough with progressive, rather than episodic, breathlessness reflects the typical natural history of COPD as opposed to the variable, episodic pattern of asthma.', 3),
+('f9000000-0000-0000-0000-000000000005', 'Recurrent exacerbations despite optimal dual bronchodilator therapy is the key trigger for considering inhaled corticosteroid addition in COPD management.', 1),
+('f9000000-0000-0000-0000-000000000005', 'A raised blood eosinophil count is used as a biomarker predicting a greater likelihood of benefit from inhaled corticosteroid addition in reducing future exacerbations.', 2),
+('f9000000-0000-0000-0000-000000000005', 'This stepwise approach (bronchodilators first, then triple therapy with inhaled corticosteroid addition in appropriate patients) reflects current COPD pharmacological management principles.', 3),
+('f9000000-0000-0000-0000-000000000006', 'Chronic, copious purulent sputum production is a hallmark clinical feature distinguishing bronchiectasis from other chronic airway diseases.', 1),
+('f9000000-0000-0000-0000-000000000006', $x$The 'signet ring' sign on HRCT (a dilated bronchus appearing larger than its adjacent pulmonary artery, resembling a ring with a signet) is a classic radiological finding confirming bronchial dilation.$x$, 2),
+('f9000000-0000-0000-0000-000000000006', 'Finger clubbing, while not universal, is a recognised associated finding in bronchiectasis, distinguishing it from simple chronic bronchitis, which does not typically cause clubbing.', 3),
+('f9000000-0000-0000-0000-000000000007', 'Brown mucus plug expectoration is a classically described, relatively specific symptom of allergic bronchopulmonary aspergillosis.', 1),
+('f9000000-0000-0000-0000-000000000007', 'Marked peripheral eosinophilia combined with a markedly raised total IgE and positive Aspergillus-specific testing together support the diagnosis of this hypersensitivity reaction.', 2),
+('f9000000-0000-0000-0000-000000000007', 'ABPA occurs in patients with an underlying predisposition (classically asthma or cystic fibrosis), reflecting an exaggerated immune response to airway-colonising Aspergillus rather than invasive fungal infection.', 3),
+('f9000000-0000-0000-0000-000000000008', 'A clear history linking specific exposures to symptom onset and resolution is suggestive of allergic (atopic) asthma, distinguishing it from non-allergic asthma phenotypes.', 1),
+('f9000000-0000-0000-0000-000000000008', 'Allergen-specific testing (skin prick or specific IgE) provides objective confirmation of sensitisation, supporting targeted, practical avoidance advice.', 2),
+('f9000000-0000-0000-0000-000000000008', 'Trigger avoidance is used alongside, not instead of, standard pharmacological asthma management, reflecting a comprehensive approach to symptom control.', 3),
+('f9000000-0000-0000-0000-000000000009', 'CURB-65 scores one point each for new Confusion, Urea >7mmol/L, Respiratory rate ≥30/min, Blood pressure (systolic <90 or diastolic ≤60), and age ≥65, providing a structured severity and mortality risk assessment.', 1),
+('f9000000-0000-0000-0000-000000000009', 'A score of 3 or more indicates severe pneumonia, associated with significant mortality risk and the need for hospital admission with consideration of critical care involvement.', 2),
+('f9000000-0000-0000-0000-000000000009', $x$New confusion, rather than pre-existing cognitive impairment, is the relevant scoring criterion, requiring careful history-taking (often from family/carers) to establish the patient's true baseline.$x$, 3),
+('f9000000-0000-0000-0000-000000000010', 'Travel history with exposure to potentially contaminated water systems (air conditioning, hotel plumbing, hot tubs) is a classic epidemiological clue for Legionella infection.', 1),
+('f9000000-0000-0000-0000-000000000010', 'Extra-pulmonary features (gastrointestinal symptoms, confusion, hyponatraemia, deranged liver function) alongside pneumonia are characteristic of Legionella, distinguishing it from typical bacterial pneumonia.', 2),
+('f9000000-0000-0000-0000-000000000010', $x$Urinary antigen testing provides a rapid, specific diagnostic method for Legionella pneumophila serogroup 1, the most common cause of Legionnaires' disease.$x$, 3),
+('f9000000-0000-0000-0000-000000000011', 'A CD4 count below 200 cells/microlitre defines the threshold at which PCP risk rises significantly.', 1),
+('f9000000-0000-0000-0000-000000000011', 'Marked oxygen desaturation on exertion, disproportionate to resting symptoms, is a characteristic and diagnostically useful feature of PCP.', 2),
+('f9000000-0000-0000-0000-000000000011', 'Bilateral, perihilar, interstitial infiltrates on chest X-ray (rather than focal lobar consolidation) are typical of PCP, distinguishing it from typical bacterial pneumonia.', 3),
+('f9000000-0000-0000-0000-000000000012', 'Cavitating upper lobe disease on chest X-ray is a classic radiographic pattern for post-primary (reactivation) pulmonary tuberculosis.', 1),
+('f9000000-0000-0000-0000-000000000012', 'A high-risk epidemiological background (birth in or recent travel from a high-TB-burden country) raises pre-test probability and supports prompt, targeted investigation.', 2),
+('f9000000-0000-0000-0000-000000000012', 'Sputum-based testing (microscopy, culture, and nucleic acid amplification) allows both diagnosis and assessment of infectiousness/resistance, guiding both treatment and infection control (isolation) decisions.', 3),
+('f9000000-0000-0000-0000-000000000013', $x$A clinical picture milder than the radiographic findings would suggest ('walking pneumonia') is a classically described feature of Mycoplasma pneumoniae infection.$x$, 1),
+('f9000000-0000-0000-0000-000000000013', 'Cold agglutinins, causing IgM-mediated haemolysis, are a specific and relatively common extra-pulmonary association of Mycoplasma infection.', 2),
+('f9000000-0000-0000-0000-000000000013', 'Younger, previously fit patients and outbreaks in closed communities (schools, military barracks) are epidemiologically typical of Mycoplasma pneumoniae.', 3),
+('f9000000-0000-0000-0000-000000000014', 'Recent hospitalisation, frequent antibiotic exposure, and severe underlying lung disease (e.g. bronchiectasis, severe COPD) are recognised risk factors for Pseudomonas aeruginosa respiratory infection.', 1),
+('f9000000-0000-0000-0000-000000000014', 'Pseudomonas aeruginosa has intrinsic resistance to many standard first-line respiratory antibiotics, making specific antipseudomonal agent selection essential once this organism is identified or strongly suspected.', 2),
+('f9000000-0000-0000-0000-000000000014', 'Local antimicrobial policies typically provide specific guidance for antipseudomonal antibiotic choice, reflecting local resistance patterns and stewardship principles.', 3),
+('f9000000-0000-0000-0000-000000000015', 'Foul-smelling sputum is a relatively specific clinical clue for anaerobic infection, as seen in aspiration-related lung abscess.', 1),
+('f9000000-0000-0000-0000-000000000015', 'A dependent lung segment (typically the posterior segment of the right upper lobe or the apical segment of a lower lobe, depending on position during the aspiration event) is the classic anatomical location for aspiration-related lung abscess.', 2),
+('f9000000-0000-0000-0000-000000000015', 'A clear precipitating risk factor for aspiration (reduced consciousness from alcohol, sedation, or neurological impairment) is an important contextual clue supporting this diagnosis and mechanism.', 3),
+('f9000000-0000-0000-0000-000000000016', 'A high clinical probability Wells score means D-dimer testing is not useful for ruling out PE, as a negative result would not be sufficiently reassuring; direct imaging is required.', 1),
+('f9000000-0000-0000-0000-000000000016', 'Risk factors present here (combined oral contraceptive use, prolonged immobility from a long-haul flight) support the clinical suspicion of venous thromboembolism.', 2),
+('f9000000-0000-0000-0000-000000000016', 'If CTPA cannot be performed immediately, treatment-dose anticoagulation should be started without waiting for the scan, given the high pre-test probability and risk of clinical deterioration.', 3),
+('f9000000-0000-0000-0000-000000000017', 'Haemodynamic instability (hypotension, signs of right ventricular strain/failure) defines massive (high-risk) PE, distinguishing it from submassive or low-risk PE, and changes the management approach significantly.', 1),
+('f9000000-0000-0000-0000-000000000017', 'Thrombolysis carries a significant bleeding risk, making careful assessment for contraindications essential even in this emergency context, but its benefit in massive PE with instability generally outweighs this risk.', 2),
+('f9000000-0000-0000-0000-000000000017', 'Right ventricular strain reflects acute pressure overload from the large clot burden obstructing pulmonary blood flow, the mechanism underlying the haemodynamic compromise in massive PE.', 3),
+('f9000000-0000-0000-0000-000000000018', 'Unprovoked VTE (without an identifiable precipitating factor such as surgery, immobility, or hormonal therapy) carries a higher risk of recurrence than provoked VTE, informing the anticoagulation duration decision.', 1),
+('f9000000-0000-0000-0000-000000000018', 'A recognised, though modest, association between unprovoked VTE and occult malignancy prompts consideration of age-appropriate cancer screening and careful clinical assessment for suggestive features.', 2),
+('f9000000-0000-0000-0000-000000000018', $x$Anticoagulation duration decisions balance ongoing recurrence risk against cumulative bleeding risk, individualised to each patient's specific circumstances rather than applying a uniform fixed duration to all VTE presentations.$x$, 3),
+('f9000000-0000-0000-0000-000000000019', 'Echocardiographic findings of raised right ventricular systolic pressure and right ventricular hypertrophy, with normal left heart function, point towards a primary right-sided/pulmonary vascular process.', 1),
+('f9000000-0000-0000-0000-000000000019', 'Progressive, otherwise unexplained exertional breathlessness over a prolonged period is a classic, often initially non-specific presentation of pulmonary hypertension, contributing to frequently delayed diagnosis.', 2),
+('f9000000-0000-0000-0000-000000000019', 'Right heart catheterisation is the gold-standard investigation to confirm pulmonary hypertension and help classify its underlying cause (e.g. pulmonary arterial hypertension, chronic thromboembolic disease, secondary to lung or left heart disease).', 3),
+('f9000000-0000-0000-0000-000000000020', 'A history of prior acute PE, with symptoms developing progressively over months to years rather than acutely, is the classic pattern for chronic thromboembolic pulmonary hypertension.', 1),
+('f9000000-0000-0000-0000-000000000020', 'V/Q scanning showing multiple mismatched perfusion defects (in contrast to a normal V/Q scan, which would make CTEPH very unlikely) is a key investigation in the diagnostic pathway.', 2),
+('f9000000-0000-0000-0000-000000000020', 'CTEPH is one of the few potentially curable causes of pulmonary hypertension, as eligible patients may benefit from pulmonary endarterectomy surgery to remove the chronic thromboembolic material.', 3),
+('f9000000-0000-0000-0000-000000000021', 'A clearly identified, transient, resolved provoking factor (such as recent major surgery) is associated with a lower VTE recurrence risk once anticoagulation is stopped, supporting a standard, time-limited treatment course.', 1),
+('f9000000-0000-0000-0000-000000000021', 'This contrasts with unprovoked VTE or VTE with persistent risk factors (e.g. active malignancy), where extended or indefinite anticoagulation is more often considered.', 2),
+('f9000000-0000-0000-0000-000000000021', 'Individualised assessment of bleeding risk alongside recurrence risk informs the final anticoagulation duration decision for each patient.', 3),
+('f9000000-0000-0000-0000-000000000022', 'A negative leg Doppler does not exclude PE, as it only assesses for DVT in the imaged veins and does not directly assess the pulmonary vasculature.', 1),
+('f9000000-0000-0000-0000-000000000022', $x$D-dimer's physiological rise during normal pregnancy substantially limits its usefulness for excluding PE in this population, unlike in non-pregnant patients.$x$, 2),
+('f9000000-0000-0000-0000-000000000022', 'Diagnostic imaging in suspected PE during pregnancy should not be withheld when clinically indicated; modern protocols aim to minimise radiation exposure while still obtaining the necessary diagnostic information, as untreated PE poses a significant risk to both mother and fetus.', 3),
+('f9000000-0000-0000-0000-000000000023', $x$The 'usual interstitial pneumonia' (UIP) pattern on HRCT -- subpleural, basal-predominant reticulation with honeycombing and minimal ground-glass change -- is characteristic of idiopathic pulmonary fibrosis and carries important prognostic and diagnostic significance.$x$, 1),
+('f9000000-0000-0000-0000-000000000023', 'Finger clubbing, though non-specific, is a recognised associated finding in IPF, distinguishing it from many other causes of chronic cough and breathlessness.', 2),
+('f9000000-0000-0000-0000-000000000023', 'The absence of an identifiable cause (occupational/environmental exposure, connective tissue disease, drug-induced) after appropriate assessment supports a diagnosis of idiopathic (rather than secondary) pulmonary fibrosis.', 3),
+('f9000000-0000-0000-0000-000000000024', 'Bilateral hilar lymphadenopathy, often with minimal or absent parenchymal infiltrate at this stage, is a classic radiographic finding in sarcoidosis (Stage I disease).', 1),
+('f9000000-0000-0000-0000-000000000024', 'Erythema nodosum, particularly when accompanying bilateral hilar lymphadenopathy, fever and arthralgia, forms part of the classic acute presentation known as Lofgren syndrome, generally carrying a good prognosis.', 2),
+('f9000000-0000-0000-0000-000000000024', 'Hypercalcaemia in sarcoidosis results from unregulated extra-renal conversion of vitamin D to its active form by macrophages within granulomas, a mechanism distinct from primary hyperparathyroidism.', 3),
+('f9000000-0000-0000-0000-000000000025', 'A prolonged occupational history of silica dust exposure (mining, quarrying, foundry work, sandblasting) is essential context supporting a diagnosis of silicosis.', 1),
+('f9000000-0000-0000-0000-000000000025', 'Eggshell calcification of hilar lymph nodes is a specific, though not universal, radiographic finding strongly associated with silicosis.', 2),
+('f9000000-0000-0000-0000-000000000025', 'Silicosis also carries an increased risk of tuberculosis and, in some classification systems, is associated with an increased risk of certain autoimmune conditions and lung cancer, relevant to ongoing patient counselling and surveillance.', 3),
+('f9000000-0000-0000-0000-000000000026', 'A clear temporal relationship between specific antigen exposure (here, pigeon droppings/proteins) and symptom onset, with improvement on avoidance, is the key diagnostic clue for hypersensitivity pneumonitis.', 1),
+('f9000000-0000-0000-0000-000000000026', 'Ground-glass change with mosaic attenuation, particularly in a mid-to-upper zone distribution, is a characteristic HRCT pattern during active hypersensitivity pneumonitis, distinguishing it from the basal fibrotic pattern of IPF.', 2),
+('f9000000-0000-0000-0000-000000000026', 'Ongoing antigen avoidance is central to management, as continued exposure risks progression to chronic, irreversible pulmonary fibrosis.', 3),
+('f9000000-0000-0000-0000-000000000027', 'Interstitial lung disease is a well-recognised, clinically significant pulmonary manifestation of systemic sclerosis, contributing substantially to morbidity and mortality in this condition.', 1),
+('f9000000-0000-0000-0000-000000000027', 'Regular pulmonary function testing and HRCT monitoring are recommended in systemic sclerosis patients specifically to detect and track this complication over time.', 2),
+('f9000000-0000-0000-0000-000000000027', 'Distinguishing connective tissue disease-associated interstitial lung disease from idiopathic pulmonary fibrosis is important, as it influences both treatment approach (often including immunosuppression) and overall prognosis.', 3),
+('f9000000-0000-0000-0000-000000000028', 'A clear temporal relationship between starting or continuing amiodarone and developing new respiratory symptoms, after excluding infection and heart failure, supports a drug-induced cause.', 1),
+('f9000000-0000-0000-0000-000000000028', $x$Amiodarone's long half-life means pulmonary toxicity can develop even after the drug is stopped, and recovery can be slow, relevant to ongoing monitoring after discontinuation.$x$, 2),
+('f9000000-0000-0000-0000-000000000028', 'Baseline and periodic monitoring (including chest X-ray and pulmonary function tests) is often recommended for patients on long-term amiodarone therapy, given this recognised toxicity risk.', 3),
+('f9000000-0000-0000-0000-000000000029', 'Antifibrotic agents (pirfenidone, nintedanib) represent a genuine advance in IPF management, specifically slowing disease progression rather than simply managing symptoms.', 1),
+('f9000000-0000-0000-0000-000000000029', 'Early diagnosis and treatment initiation is important, as antifibrotic therapy aims to slow further decline rather than reverse existing lung damage.', 2),
+('f9000000-0000-0000-0000-000000000029', 'A multidisciplinary approach, including pulmonary rehabilitation, oxygen therapy where indicated, and consideration of lung transplantation referral in eligible patients with progressive disease, complements pharmacological antifibrotic treatment.', 3),
+('f9000000-0000-0000-0000-000000000030', 'Clinical stability (no significant breathlessness, no haemodynamic compromise) and absence of high-risk features guide the choice of a conservative, rather than immediately interventional, initial approach in primary spontaneous pneumothorax.', 1),
+('f9000000-0000-0000-0000-000000000030', 'A tall, thin, young male body habitus is a classic epidemiological risk profile for primary spontaneous pneumothorax, related to subpleural bleb rupture.', 2),
+('f9000000-0000-0000-0000-000000000030', 'Distinguishing simple pneumothorax from tension pneumothorax (marked by mediastinal shift and haemodynamic compromise) is essential, as management differs dramatically -- observation/staged intervention versus immediate needle decompression.', 3),
+('f9000000-0000-0000-0000-000000000031', 'Tension pneumothorax is a clinical diagnosis (tracheal deviation, absent breath sounds, hyper-resonance, haemodynamic compromise, distended neck veins) requiring immediate treatment, not confirmation by imaging, given the rapidly fatal natural history if untreated.', 1),
+('f9000000-0000-0000-0000-000000000031', 'The underlying mechanism is a one-way valve effect allowing air into the pleural space with each breath but preventing its escape, progressively increasing intrathoracic pressure, compressing the mediastinum and great vessels, and impairing venous return to the heart.', 2),
+('f9000000-0000-0000-0000-000000000031', 'Needle decompression provides immediate, temporary relief and must be followed promptly by formal chest drain insertion for definitive management.', 3),
+('f9000000-0000-0000-0000-000000000032', $x$Light's criteria classify pleural fluid as an exudate if any one of the following is met: pleural:serum protein ratio >0.5, pleural:serum LDH ratio >0.6, or pleural LDH more than two-thirds the upper limit of normal serum LDH; failing all three criteria classifies the fluid as a transudate.$x$, 1),
+('f9000000-0000-0000-0000-000000000032', 'Transudative effusions typically reflect a systemic process altering hydrostatic or oncotic pressure (e.g. heart failure, cirrhosis, nephrotic syndrome), rather than a localised pleural pathology.', 2),
+('f9000000-0000-0000-0000-000000000032', 'Correctly classifying the effusion guides further investigation, as exudates warrant a broader search for local pleural, infective or malignant causes, whereas a transudate consistent with the clinical context (as here) may not require extensive further pleural-specific workup.', 3),
+('f9000000-0000-0000-0000-000000000033', 'Malignant pleural effusion is defined by malignant cells confirmed on pleural fluid cytology (or pleural biopsy), distinguishing it from a paramalignant effusion caused indirectly by the malignancy without direct pleural involvement.', 1),
+('f9000000-0000-0000-0000-000000000033', 'Talc pleurodesis requires adequate lung re-expansion after drainage to be effective, whereas an indwelling pleural catheter can be used even with trapped lung (incomplete re-expansion), influencing which option is more appropriate for an individual patient.', 2),
+('f9000000-0000-0000-0000-000000000033', 'Patient preference regarding hospital admission (for pleurodesis) versus home-based intermittent drainage (with an indwelling catheter) is an important, patient-centred factor in this decision, alongside clinical factors.', 3),
+('f9000000-0000-0000-0000-000000000034', 'A pleural fluid pH below 7.2, along with low glucose and frank pus, defines a complicated parapneumonic effusion/empyema, distinguishing it from an uncomplicated parapneumonic effusion that may resolve with antibiotics alone.', 1),
+('f9000000-0000-0000-0000-000000000034', 'Frank pus on aspiration is diagnostic of empyema regardless of other biochemical parameters, mandating drainage.', 2),
+('f9000000-0000-0000-0000-000000000034', 'Chest drain insertion provides essential source control for empyema, working alongside (not instead of) appropriate antibiotic therapy targeting the underlying infection.', 3),
+('f9000000-0000-0000-0000-000000000035', 'Pleural plaques are a benign marker of asbestos exposure and do not themselves undergo malignant transformation, distinguishing them from mesothelioma, which is a separate, more serious complication of asbestos exposure.', 1),
+('f9000000-0000-0000-0000-000000000035', 'A well-demarcated, often bilateral appearance, sometimes with calcification, is typical of benign plaques, contrasting with the more irregular, circumferential pleural thickening seen in mesothelioma.', 2),
+('f9000000-0000-0000-0000-000000000035', 'Identifying pleural plaques provides an opportunity to counsel the patient about their asbestos exposure history and the associated long-term increased risk of other asbestos-related conditions, supporting informed symptom awareness going forward.', 3),
+('f9000000-0000-0000-0000-000000000036', 'A second ipsilateral spontaneous pneumothorax substantially raises the probability of further recurrence, shifting the risk-benefit balance towards definitive surgical management.', 1),
+('f9000000-0000-0000-0000-000000000036', 'VATS pleurodesis/pleurectomy aims to create adhesion between the visceral and parietal pleura (or remove the pleura), preventing the potential space in which a further pneumothorax could recur.', 2),
+('f9000000-0000-0000-0000-000000000036', 'Patient-specific factors (occupation, such as pilots or divers, where recurrence risk has particular safety implications) can also influence the threshold and timing for considering definitive intervention, even after a first episode in some cases.', 3),
+('f9000000-0000-0000-0000-000000000037', $x$Squamous cell lung carcinoma's classic paraneoplastic association is humoral hypercalcaemia via PTHrP, distinguishing it from the several paraneoplastic syndromes classically linked to small cell lung cancer instead.$x$, 1),
+('f9000000-0000-0000-0000-000000000037', $x$PTHrP mimics PTH's action at the PTH receptor, causing increased bone resorption and renal calcium reabsorption, while appropriately suppressing endogenous PTH via negative feedback.$x$, 2),
+('f9000000-0000-0000-0000-000000000037', 'Recognising which paraneoplastic syndrome is classically linked to which histological subtype is a frequently tested distinction in respiratory/oncology teaching.', 3),
+('f9000000-0000-0000-0000-000000000038', $x$Small cell lung cancer's neuroendocrine cell origin explains its capacity for ectopic ADH secretion, making SIADH one of its classic paraneoplastic associations.$x$, 1),
+('f9000000-0000-0000-0000-000000000038', 'Euvolaemic hyponatraemia with inappropriately concentrated urine (rather than the maximally dilute urine expected with simple fluid excess) is the biochemical hallmark of SIADH.', 2),
+('f9000000-0000-0000-0000-000000000038', 'Excluding other causes of hyponatraemia (adrenal insufficiency, hypothyroidism, diuretic use, renal disease) is an essential step before confirming a paraneoplastic SIADH diagnosis.', 3),
+('f9000000-0000-0000-0000-000000000039', 'A Pancoast (superior sulcus) tumour arises at the lung apex, placing it in direct anatomical proximity to the sympathetic chain and brachial plexus, explaining its characteristic local invasion pattern.', 1),
+('f9000000-0000-0000-0000-000000000039', 'Horner syndrome (ptosis, miosis, anhidrosis) reflects sympathetic chain involvement, while severe arm/shoulder pain in a C8-T1 distribution reflects brachial plexus (lower trunk) invasion.', 2),
+('f9000000-0000-0000-0000-000000000039', 'Recognising this combination of findings in the context of an apical lung mass is important, as it indicates local invasion affecting staging and treatment planning, even in the absence of distant metastatic disease.', 3),
+('f9000000-0000-0000-0000-000000000040', 'Nodule characteristics (size, growth rate on serial imaging, morphology such as spiculation or irregular margins) are key factors in risk-stratifying a solitary pulmonary nodule.', 1),
+('f9000000-0000-0000-0000-000000000040', 'Patient-specific risk factors (smoking history, age, family history) are incorporated alongside nodule characteristics to guide the intensity of further investigation.', 2),
+('f9000000-0000-0000-0000-000000000040', 'Management ranges from simple interval surveillance imaging for low-risk nodules to PET-CT and/or biopsy for those with higher-risk features, reflecting a risk-adapted rather than one-size-fits-all approach.', 3),
+('f9000000-0000-0000-0000-000000000041', 'Molecular/genomic profiling of non-small-cell lung cancer (testing for EGFR, ALK, ROS1 and other targetable alterations) has become a standard part of modern lung cancer management, guiding personalised treatment selection.', 1),
+('f9000000-0000-0000-0000-000000000041', 'EGFR tyrosine kinase inhibitors specifically target the abnormal receptor signalling driving tumour growth in EGFR-mutated tumours, often with better tolerability than traditional cytotoxic chemotherapy.', 2),
+('f9000000-0000-0000-0000-000000000041', 'This reflects the broader shift towards precision oncology, where tumour molecular characteristics, not just histological subtype and stage, increasingly guide treatment decisions.', 3),
+('f9000000-0000-0000-0000-000000000042', 'Post-tetanic potentiation -- an initially reduced reflex/power that transiently improves after sustained contraction -- is a specific clinical and electrophysiological hallmark of Lambert-Eaton myasthenic syndrome.', 1),
+('f9000000-0000-0000-0000-000000000042', 'Autonomic symptoms (dry mouth, constipation, erectile dysfunction) frequently accompany LEMS, distinguishing it from myasthenia gravis.', 2),
+('f9000000-0000-0000-0000-000000000042', 'The strong association with small cell lung cancer means a new LEMS diagnosis should prompt thorough investigation for an underlying malignancy if not already known, and conversely, small cell lung cancer patients developing this pattern should be assessed for LEMS.', 3),
+('f9000000-0000-0000-0000-000000000043', 'The TNM staging system (Tumour size/invasion, Node involvement, Metastasis presence) provides a structured framework for describing disease extent, directly informing treatment planning across cancer types, including lung cancer.', 1),
+('f9000000-0000-0000-0000-000000000043', 'PET-CT adds functional (metabolic activity) information to the anatomical detail from CT, helping identify nodal involvement or distant metastases that might not be apparent on CT alone.', 2),
+('f9000000-0000-0000-0000-000000000043', 'Accurate staging is essential for determining whether a patient is a candidate for potentially curative treatment (surgery, radical radiotherapy) versus a systemic/palliative approach for more advanced disease.', 3),
+('f9000000-0000-0000-0000-000000000044', 'The apnoea-hypopnoea index (AHI), measured on polysomnography, quantifies the number of apnoea/hypopnoea events per hour of sleep and is used both to confirm the diagnosis and grade severity.', 1),
+('f9000000-0000-0000-0000-000000000044', 'Obesity is a major risk factor for OSA, contributing to upper airway narrowing and collapsibility during sleep.', 2),
+('f9000000-0000-0000-0000-000000000044', 'Excessive daytime sleepiness with safety-critical consequences (such as near-miss driving incidents) is an important feature to elicit, both for diagnostic purposes and because it carries specific driving-safety and occupational implications requiring appropriate advice and, where relevant, notification.', 3),
+('f9000000-0000-0000-0000-000000000045', 'CPAP works by providing continuous positive airway pressure that mechanically splints the upper airway open, directly addressing the obstructive mechanism underlying OSA.', 1),
+('f9000000-0000-0000-0000-000000000045', 'Adherence to CPAP therapy is important for its effectiveness, and ongoing support/troubleshooting (mask fit, pressure settings) is often needed to optimise long-term use.', 2),
+('f9000000-0000-0000-0000-000000000045', 'Weight loss and other lifestyle measures (avoiding alcohol/sedatives before bed, sleeping position advice) are supportive adjuncts alongside CPAP, particularly relevant given the strong association between obesity and OSA.', 3),
+('f9000000-0000-0000-0000-000000000046', 'Persistent daytime hypercapnia despite optimised standard COPD therapy is a specific indication to consider domiciliary NIV, distinguishing this patient group from those with COPD but normal or only mildly elevated CO2.', 1),
+('f9000000-0000-0000-0000-000000000046', 'Domiciliary NIV aims to reduce chronic CO2 retention and its associated symptoms, and in some patients has been shown to reduce hospital readmissions for acute hypercapnic exacerbations.', 2),
+('f9000000-0000-0000-0000-000000000046', 'Careful patient selection and specialist respiratory input are important, as domiciliary NIV requires patient tolerance of the equipment and is not appropriate for all patients with COPD, only those meeting specific criteria such as significant persistent hypercapnia.', 3),
+('f9000000-0000-0000-0000-000000000047', 'The defining feature of obesity hypoventilation syndrome is daytime (awake) hypercapnia in a patient with severe obesity, distinguishing it from simple OSA, where hypoventilation is typically confined to sleep.', 1),
+('f9000000-0000-0000-0000-000000000047', 'Obesity hypoventilation syndrome frequently coexists with obstructive sleep apnoea, though it represents a distinct additional diagnosis requiring its own recognition and management (often including NIV) beyond OSA treatment alone.', 2),
+('f9000000-0000-0000-0000-000000000047', $x$Untreated obesity hypoventilation syndrome carries risk of complications including pulmonary hypertension and cor pulmonale (right heart failure), relevant to this patient's ankle swelling and requiring prompt recognition and treatment.$x$, 3),
+('f9000000-0000-0000-0000-000000000048', 'Cheyne-Stokes respiration is a form of central (not obstructive) sleep apnoea, characterised by a cyclical crescendo-decrescendo breathing pattern with central apnoeic pauses, reflecting delayed feedback in the respiratory control system.', 1),
+('f9000000-0000-0000-0000-000000000048', 'This pattern is specifically associated with heart failure (particularly with reduced ejection fraction), related to prolonged circulation time and altered chemoreceptor sensitivity to CO2 in this condition.', 2),
+('f9000000-0000-0000-0000-000000000048', 'Recognising Cheyne-Stokes respiration in a heart failure patient can be a marker of disease severity and may prompt optimisation of heart failure treatment, alongside consideration of specific sleep-related interventions in selected cases.', 3),
+('f9000000-0000-0000-0000-000000000049', 'Cataplexy -- sudden, brief loss of muscle tone specifically triggered by strong emotion (often laughter), with preserved consciousness throughout -- is a highly specific symptom for narcolepsy.', 1),
+('f9000000-0000-0000-0000-000000000049', 'Hypnagogic hallucinations (vivid, sometimes frightening hallucinations occurring at sleep onset) and excessive daytime sleepiness complete the classic narcolepsy symptom complex alongside cataplexy.', 2),
+('f9000000-0000-0000-0000-000000000049', 'Narcolepsy is associated with loss of orexin/hypocretin-producing neurons in the hypothalamus, reflecting a specific neurobiological basis for this disorder of sleep-wake and REM sleep regulation.', 3),
+('f9000000-0000-0000-0000-000000000050', 'Excessive daytime sleepiness from OSA is specifically relevant to driving safety, given the risk of falling asleep at the wheel, making this an important practical consideration in managing newly diagnosed patients.', 1),
+('f9000000-0000-0000-0000-000000000050', 'Group 2 (vocational) licence holders are subject to stricter medical standards than Group 1 (standard) licence holders, reflecting the greater potential consequences of an incident involving larger vehicles.', 2),
+('f9000000-0000-0000-0000-000000000050', 'Once symptoms are adequately controlled (e.g. through effective CPAP therapy) and this is appropriately confirmed, many patients are able to safely resume driving, reflecting a condition-specific, reversible restriction rather than a permanent ban.', 3);

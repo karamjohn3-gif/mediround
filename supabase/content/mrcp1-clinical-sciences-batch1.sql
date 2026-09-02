@@ -1,24 +1,28 @@
--- MRCP Part 1 -- Clinical sciences batch 1 (50 questions), the first batch
--- for this topic (0 questions previously). Clinical sciences is MRCP1's
--- basic-science topic, historically split into 7 sub-areas that are now
--- consolidated into a single topic in this app: cell/molecular/membrane
--- biology (7 questions), clinical anatomy (7), clinical biochemistry and
--- metabolism (7), clinical physiology (8), genetics (7), immunology (7),
--- and statistics/epidemiology/evidence-based medicine (7) -- 50 total.
--- Most questions are framed with a brief clinical correlate rather than
--- pure abstract recall, per the brief for this batch; several (Q4, Q19,
--- Q25, Q31, Q41, Q43, Q49) are deliberately built as multi-step chained
--- reasoning questions (advanced tier).
+-- MRCP Part 1 -- Clinical sciences batch 1 (50 questions).
 --
--- STATUS: status='published' -- per explicit instruction from the person
--- who commissioned this batch, these questions are inserted directly as
--- published (no draft-then-review step for this batch). This content has
--- NOT been individually reviewed by a clinician or MRCP-specific medical
--- educator; it has been checked by the writing model against standard
--- reference material (Kumar & Clark's Clinical Medicine, Guyton and Hall's
--- Textbook of Medical Physiology, standard immunology/genetics textbooks,
--- and standard MRCP1-level statistics/EBM teaching) to a solid standard,
--- but has not been checked by a human with relevant clinical expertise.
+-- Written but never loaded against the live database under its original
+-- topic scheme (single flat "Clinical sciences" topic). By the time it was
+-- loaded, MRCP1 topics had been split from one flat topic per specialty
+-- into proper sub-topics (see migration 0008_mrcp1_subtopics.sql). This
+-- file's topic_id values were updated to match that split rather than the
+-- original flat topic, which no longer exists: cell/molecular/membrane
+-- biology (7 questions), clinical anatomy (7), clinical biochemistry (7),
+-- clinical physiology (8), genetics (7), immunology (7), and statistics &
+-- epidemiology (7) -- 50 total, each now its own sub-topic under Clinical
+-- sciences. Most questions are framed with a brief clinical correlate
+-- rather than pure abstract recall, per the brief for this batch; several
+-- (Q4, Q19, Q25, Q31, Q41, Q43, Q49) are deliberately built as multi-step
+-- chained reasoning questions (advanced tier).
+--
+-- STATUS: status='draft' -- loaded as draft pending review, overriding the
+-- original brief for this batch (which called for publishing directly).
+-- This content has NOT been individually reviewed by a clinician or
+-- MRCP-specific medical educator; it has been checked by the writing model
+-- against standard reference material (Kumar & Clark's Clinical Medicine,
+-- Guyton and Hall's Textbook of Medical Physiology, standard
+-- immunology/genetics textbooks, and standard MRCP1-level statistics/EBM
+-- teaching) to a solid standard, but has not been checked by a human with
+-- relevant clinical expertise. Review and publish via /admin.
 --
 -- Format follows mrcp1-cardiology-batch2.sql exactly: dollar-quoting
 -- conventions ($stem$/$q$/$t$ for stems and lead-ins containing apostrophes,
@@ -38,8 +42,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 1. Cell cycle checkpoint -> p53 -> Li-Fraumeni syndrome
 (
-  '70000000-0000-0000-0000-000000000001', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000001', 'mrcp1', '118c5a76-48cd-4261-870e-593e831e4065',
+  'draft', 'core',
   $stem$A 28-year-old woman is diagnosed with breast cancer. Her family history includes a sarcoma in her brother at age 22 and an adrenocortical carcinoma in her mother at age 35. Genetic testing reveals a germline mutation in a tumour suppressor gene that normally arrests the cell cycle at the G1/S checkpoint in response to DNA damage, allowing time for repair or triggering apoptosis if the damage is irreparable.$stem$,
   'Which gene is most likely mutated?',
   array['cell cycle checkpoint','p53','Li-Fraumeni syndrome']
@@ -47,8 +51,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 2. Apoptosis vs necrosis mechanism
 (
-  '70000000-0000-0000-0000-000000000002', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000002', 'mrcp1', '118c5a76-48cd-4261-870e-593e831e4065',
+  'draft', 'foundation',
   $stem$A cell undergoing a form of cell death shows cell shrinkage, chromatin condensation, DNA fragmentation into regular oligonucleosomal fragments, and formation of membrane-bound cytoplasmic bodies that are cleared by phagocytes without eliciting an inflammatory response.$stem$,
   'Which process does this describe?',
   array['apoptosis','necrosis','cell death mechanisms']
@@ -56,8 +60,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 3. GPCR signal transduction - beta-1 receptor / cAMP
 (
-  '70000000-0000-0000-0000-000000000003', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000003', 'mrcp1', '118c5a76-48cd-4261-870e-593e831e4065',
+  'draft', 'foundation',
   $stem$Noradrenaline binds to a cardiac cell-surface receptor coupled to a stimulatory G protein (Gs). This activates adenylate cyclase, raising intracellular cyclic AMP, which activates protein kinase A and ultimately increases the force and rate of cardiac contraction.$stem$,
   'Which second messenger system is being described?',
   array['GPCR signalling','cAMP','beta-1 adrenoceptor']
@@ -65,8 +69,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 4. Microtubule drug (vincristine) + CYP3A4 inhibitor interaction -> toxicity chain
 (
-  '70000000-0000-0000-0000-000000000004', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000004', 'mrcp1', '118c5a76-48cd-4261-870e-593e831e4065',
+  'draft', 'advanced',
   $stem$A 55-year-old man being treated for non-Hodgkin lymphoma with a vinca alkaloid that binds tubulin dimers and blocks their polymerisation into microtubules (arresting cells in metaphase) develops a systemic fungal infection and is started on itraconazole, a potent inhibitor of the hepatic cytochrome P450 enzyme responsible for metabolising this chemotherapy drug. Ten days later he develops severe, progressive peripheral sensorimotor neuropathy with foot drop and paralytic ileus, well beyond what he experienced on previous cycles at the same chemotherapy dose.$stem$,
   'What is the most likely explanation for his worsened toxicity?',
   array['vincristine','CYP3A4 interaction','microtubule inhibitor','chain reasoning']
@@ -74,8 +78,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 5. Cell junctions - desmosomes and pemphigus vulgaris
 (
-  '70000000-0000-0000-0000-000000000005', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000005', 'mrcp1', '118c5a76-48cd-4261-870e-593e831e4065',
+  'draft', 'core',
   $stem$A 52-year-old woman presents with flaccid skin blisters and oral erosions. Skin biopsy shows loss of cell-to-cell adhesion within the epidermis, with rounded, separated keratinocytes (acantholysis) just above the basal layer. Direct immunofluorescence shows IgG deposited between epidermal cells, targeting desmoglein, a component of a specific intercellular junction.$stem$,
   'Which cell junction type is targeted in this condition?',
   array['desmosome','pemphigus vulgaris','cell junctions']
@@ -83,8 +87,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 6. Mitochondrial disease - MELAS / maternal inheritance
 (
-  '70000000-0000-0000-0000-000000000006', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000006', 'mrcp1', '118c5a76-48cd-4261-870e-593e831e4065',
+  'draft', 'advanced',
   $stem$A 19-year-old man presents with recurrent stroke-like episodes affecting different arterial territories inconsistent with any single vascular distribution, along with proximal muscle weakness, lactic acidosis, and seizures. Muscle biopsy shows ragged red fibres on Gomori trichrome staining. His mother and maternal aunt have milder features including sensorineural deafness and diabetes, but his father is entirely unaffected.$stem$,
   'What is the most likely underlying mechanism and inheritance pattern?',
   array['mitochondrial disease','MELAS','maternal inheritance']
@@ -92,8 +96,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 7. Resting membrane potential and Na/K-ATPase
 (
-  '70000000-0000-0000-0000-000000000007', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000007', 'mrcp1', '118c5a76-48cd-4261-870e-593e831e4065',
+  'draft', 'foundation',
   $stem$A neuron at rest has a membrane potential of around -70 mV, maintained largely by a high resting permeability to potassium relative to sodium, and by an ATP-dependent pump that extrudes 3 sodium ions from the cell for every 2 potassium ions it imports, establishing the concentration gradients that the resting potential depends on.$stem$,
   'Which transporter is being described?',
   array['resting membrane potential','Na/K-ATPase','membrane physiology']
@@ -103,8 +107,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 8. Erb palsy (upper brachial plexus, C5-C6)
 (
-  '70000000-0000-0000-0000-000000000008', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000008', 'mrcp1', '9960f01c-fffd-4517-9d94-f51e306862bc',
+  'draft', 'core',
   $q$A newborn delivered after a difficult shoulder dystocia has an arm held in the "waiter's tip" position: adducted and internally rotated at the shoulder, with the elbow extended and the forearm pronated. The biceps reflex is absent on the affected side, but the grip reflex is intact.$q$,
   'Which nerve roots are most likely injured?',
   array['Erb palsy','brachial plexus','waiter''s tip position']
@@ -112,8 +116,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 9. Radial nerve palsy - wrist drop
 (
-  '70000000-0000-0000-0000-000000000009', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000009', 'mrcp1', '9960f01c-fffd-4517-9d94-f51e306862bc',
+  'draft', 'core',
   $stem$A 34-year-old man wakes after an evening of heavy alcohol intake, having fallen asleep with his arm draped over the back of a chair. He now has weakness of wrist and finger extension, with the wrist falling into flexion, and reduced sensation over the dorsum of the first web space. Triceps strength is preserved, and there is no winging of the scapula.$stem$,
   'Which nerve has most likely been compressed, and at what level does the preserved triceps strength localise the lesion to?',
   array['radial nerve','wrist drop','Saturday night palsy']
@@ -121,8 +125,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 10. Median nerve palsy - carpal tunnel syndrome
 (
-  '70000000-0000-0000-0000-000000000010', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000010', 'mrcp1', '9960f01c-fffd-4517-9d94-f51e306862bc',
+  'draft', 'foundation',
   $stem$A 50-year-old woman with hypothyroidism reports numbness and tingling in the thumb, index and middle fingers, worse at night, with weakness of thumb abduction and thenar wasting. Tapping over the flexor retinaculum reproduces her symptoms.$stem$,
   'Which nerve is most likely compressed, and at which site?',
   array['median nerve','carpal tunnel syndrome','thenar wasting']
@@ -130,8 +134,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 11. CN III palsy - posterior communicating artery aneurysm
 (
-  '70000000-0000-0000-0000-000000000011', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000011', 'mrcp1', '9960f01c-fffd-4517-9d94-f51e306862bc',
+  'draft', 'advanced',
   $stem$A 58-year-old woman develops sudden severe headache followed by a fixed, dilated left pupil, ptosis, and an eye deviated "down and out". Pupillary involvement is present from the onset, alongside the ophthalmoplegia.$stem$,
   'What is the most likely underlying cause, and why does pupillary involvement occur early in this scenario?',
   array['CN III palsy','posterior communicating artery aneurysm','pupil-involving']
@@ -139,8 +143,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 12. Circle of Willis - MCA stroke territory
 (
-  '70000000-0000-0000-0000-000000000012', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000012', 'mrcp1', '9960f01c-fffd-4517-9d94-f51e306862bc',
+  'draft', 'core',
   $stem$A 70-year-old right-handed man develops sudden right-sided weakness affecting the face and arm more than the leg, expressive dysphasia, and a right homonymous hemianopia. CT angiography shows occlusion of a vessel arising from the circle of Willis.$stem$,
   'Which artery is most likely occluded?',
   array['circle of Willis','MCA stroke','stroke territory']
@@ -148,8 +152,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 13. Recurrent laryngeal nerve injury - thyroidectomy
 (
-  '70000000-0000-0000-0000-000000000013', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000013', 'mrcp1', '9960f01c-fffd-4517-9d94-f51e306862bc',
+  'draft', 'foundation',
   $stem$A 45-year-old woman develops a hoarse, breathy voice the day after a total thyroidectomy. Laryngoscopy shows the left vocal cord fixed in a paramedian position.$stem$,
   'Which nerve has most likely been damaged during surgery?',
   array['recurrent laryngeal nerve','thyroidectomy','vocal cord palsy']
@@ -157,8 +161,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 14. Inguinal canal - indirect inguinal hernia
 (
-  '70000000-0000-0000-0000-000000000014', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000014', 'mrcp1', '9960f01c-fffd-4517-9d94-f51e306862bc',
+  'draft', 'advanced',
   $stem$A 60-year-old man has a groin swelling that reduces on lying down and reappears on standing and coughing. At surgery, the hernial sac is found to pass lateral to the inferior epigastric vessels, through the deep inguinal ring, along the inguinal canal, and can extend into the scrotum.$stem$,
   'Which type of inguinal hernia is this, and what anatomical relationship to the inferior epigastric vessels defines it?',
   array['indirect inguinal hernia','inferior epigastric vessels','inguinal canal']
@@ -168,8 +172,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 15. Anion gap metabolic acidosis calculation
 (
-  '70000000-0000-0000-0000-000000000015', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000015', 'mrcp1', '248a522d-b59b-4057-9a88-29ab8a443a5b',
+  'draft', 'core',
   $stem$A 24-year-old man with type 1 diabetes presents unwell. Venous bloods: sodium 138 mmol/L, potassium 5.2 mmol/L, chloride 96 mmol/L, bicarbonate 8 mmol/L.$stem$,
   'What is his anion gap (using Na - (Cl + HCO3)), and what does this indicate?',
   array['anion gap','diabetic ketoacidosis','acid-base']
@@ -177,8 +181,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 16. Statin mechanism - HMG-CoA reductase
 (
-  '70000000-0000-0000-0000-000000000016', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000016', 'mrcp1', '248a522d-b59b-4057-9a88-29ab8a443a5b',
+  'draft', 'foundation',
   $stem$A 58-year-old man with hypercholesterolaemia is started on atorvastatin, which competitively inhibits a rate-limiting hepatic enzyme in the cholesterol biosynthesis pathway, upregulating LDL receptor expression on hepatocytes and lowering circulating LDL cholesterol.$stem$,
   'Which enzyme is inhibited?',
   array['statin mechanism','HMG-CoA reductase','cholesterol synthesis']
@@ -186,8 +190,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 17. Phenylketonuria - enzyme defect
 (
-  '70000000-0000-0000-0000-000000000017', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000017', 'mrcp1', '248a522d-b59b-4057-9a88-29ab8a443a5b',
+  'draft', 'core',
   $stem$A neonate identified through routine heel-prick screening is found to have a markedly elevated plasma phenylalanine level. If untreated, accumulation of phenylalanine and its metabolites would be expected to cause severe intellectual disability, seizures, and a musty odour to the urine and sweat.$stem$,
   'Which enzyme is most likely deficient?',
   array['phenylketonuria','phenylalanine hydroxylase','inborn error of metabolism']
@@ -195,8 +199,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 18. Urea cycle defect - OTC deficiency / hyperammonaemia
 (
-  '70000000-0000-0000-0000-000000000018', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000018', 'mrcp1', '248a522d-b59b-4057-9a88-29ab8a443a5b',
+  'draft', 'advanced',
   $stem$A male neonate, well at birth, becomes lethargic and poorly feeding at 48 hours of age, then develops seizures and a reduced conscious level. Plasma ammonia is markedly elevated, with a respiratory alkalosis (ammonia directly stimulates the respiratory centre) and normal plasma glucose and lactate. A urea cycle enzyme deficiency is suspected, preventing incorporation of ammonia into urea for excretion.$stem$,
   'Which is the most common urea cycle enzyme deficiency, and what is its inheritance pattern?',
   array['urea cycle defect','ornithine transcarbamylase deficiency','hyperammonaemia']
@@ -204,8 +208,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 19. Enzyme kinetics - competitive inhibition (allopurinol + azathioprine chain)
 (
-  '70000000-0000-0000-0000-000000000019', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000019', 'mrcp1', '248a522d-b59b-4057-9a88-29ab8a443a5b',
+  'draft', 'advanced',
   $stem$A 60-year-old renal transplant recipient established on azathioprine for immunosuppression develops an acute gout flare and is started on allopurinol, which competitively inhibits the same enzyme that normally breaks down the active metabolite of azathioprine (6-mercaptopurine). Two weeks later he is found to have severe pancytopenia.$stem$,
   'Which enzyme is being competitively inhibited, and what is the mechanism linking this to his pancytopenia?',
   array['enzyme kinetics','competitive inhibition','xanthine oxidase','chain reasoning']
@@ -213,8 +217,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 20. Acute intermittent porphyria - enzyme defect and precipitants
 (
-  '70000000-0000-0000-0000-000000000020', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000020', 'mrcp1', '248a522d-b59b-4057-9a88-29ab8a443a5b',
+  'draft', 'foundation',
   $stem$A 30-year-old woman develops severe abdominal pain, vomiting, constipation, and confusion shortly after starting a new antibiotic. Urine passed during the episode darkens further on standing in light. She has had similar episodes triggered by fasting and alcohol in the past.$stem$,
   'Which enzyme is deficient in this condition?',
   array['acute intermittent porphyria','porphobilinogen deaminase','enzyme deficiency']
@@ -222,8 +226,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 21. Purine metabolism - Lesch-Nyhan syndrome
 (
-  '70000000-0000-0000-0000-000000000021', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000021', 'mrcp1', '248a522d-b59b-4057-9a88-29ab8a443a5b',
+  'draft', 'advanced',
   $stem$A 2-year-old boy presents with developmental delay, dystonia, and compulsive self-injurious biting of his lips and fingers. Blood tests show markedly elevated uric acid. He is subsequently found to have a deficiency of an enzyme in the purine salvage pathway, causing accumulation of purine precursors that are instead degraded to uric acid rather than being recycled.$stem$,
   'Which enzyme is deficient, and what is the inheritance pattern?',
   array['Lesch-Nyhan syndrome','HGPRT deficiency','purine salvage pathway']
@@ -233,8 +237,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 22. Cardiac cycle - isovolumetric contraction
 (
-  '70000000-0000-0000-0000-000000000022', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000022', 'mrcp1', '26fd0b64-3bd6-46f0-b481-0941e90e92ed',
+  'draft', 'core',
   $stem$During the cardiac cycle, a phase occurs in which both the mitral and aortic valves are closed, left ventricular volume remains constant, and intraventricular pressure rises steeply as the ventricle generates tension prior to the aortic valve opening.$stem$,
   'Which phase of the cardiac cycle is being described?',
   array['cardiac cycle','isovolumetric contraction','pressure-volume loop']
@@ -242,8 +246,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 23. Oxygen-haemoglobin dissociation curve - Bohr effect
 (
-  '70000000-0000-0000-0000-000000000023', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000023', 'mrcp1', '26fd0b64-3bd6-46f0-b481-0941e90e92ed',
+  'draft', 'foundation',
   $stem$During intense exercise, a patient's tissues become more acidotic, hypercapnic, and warmer than at rest. Haemoglobin releases oxygen to the tissues more readily under these conditions for a given partial pressure of oxygen.$stem$,
   'Which shift in the oxygen-haemoglobin dissociation curve does this describe, and what is this phenomenon called?',
   array['oxygen dissociation curve','Bohr effect','rightward shift']
@@ -251,8 +255,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 24. Renal countercurrent multiplication
 (
-  '70000000-0000-0000-0000-000000000024', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000024', 'mrcp1', '26fd0b64-3bd6-46f0-b481-0941e90e92ed',
+  'draft', 'advanced',
   $stem$A patient is given desmopressin. In the kidney, the loop of Henle actively transports sodium and chloride out of the thick ascending limb (which is impermeable to water), progressively increasing the osmolarity of the medullary interstitium from cortex to papilla. This gradient allows water to be reabsorbed from the collecting duct only when specific channels are inserted into its luminal membrane under hormonal control.$stem$,
   'Which hormone controls this channel insertion in the collecting duct, and what mechanism creates the medullary osmotic gradient it depends on?',
   array['countercurrent multiplication','ADH','loop of Henle']
@@ -260,8 +264,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 25. HPA axis suppression -> adrenal crisis on steroid withdrawal
 (
-  '70000000-0000-0000-0000-000000000025', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000025', 'mrcp1', '26fd0b64-3bd6-46f0-b481-0941e90e92ed',
+  'draft', 'advanced',
   $stem$A patient on long-term high-dose oral prednisolone has their dose abruptly stopped before a planned surgery. Chronic exogenous glucocorticoid exposure had suppressed hypothalamic CRH and pituitary ACTH release, leading to adrenal cortical atrophy. Following abrupt cessation, the adrenal glands cannot acutely increase endogenous cortisol production to meet the physiological demands of surgical stress.$stem$,
   'What is the mechanism underlying this risk, and what is the resulting clinical emergency called?',
   array['HPA axis','negative feedback','adrenal crisis']
@@ -269,8 +273,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 26. Autonomic receptors - beta-2 agonist effects
 (
-  '70000000-0000-0000-0000-000000000026', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000026', 'mrcp1', '26fd0b64-3bd6-46f0-b481-0941e90e92ed',
+  'draft', 'foundation',
   $stem$Salbutamol is given to a patient with an acute asthma exacerbation. It selectively stimulates a specific adrenergic receptor subtype on bronchial smooth muscle, causing smooth muscle relaxation and bronchodilation, but at higher doses also causes tremor and tachycardia through action on the same receptor subtype in skeletal muscle and the heart.$stem$,
   'Which receptor subtype is being targeted?',
   array['beta-2 adrenoceptor','autonomic pharmacology','salbutamol']
@@ -278,8 +282,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 27. Baroreceptor reflex
 (
-  '70000000-0000-0000-0000-000000000027', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000027', 'mrcp1', '26fd0b64-3bd6-46f0-b481-0941e90e92ed',
+  'draft', 'core',
   $stem$A healthy volunteer stands up suddenly from lying down. Stretch receptors in the carotid sinus and aortic arch sense a transient fall in arterial pressure, resulting in reduced afferent firing to the medullary cardiovascular centre, which produces reflex tachycardia and peripheral vasoconstriction to restore blood pressure within seconds.$stem$,
   'Which reflex arc is being described?',
   array['baroreceptor reflex','orthostatic response','autonomic physiology']
@@ -287,8 +291,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 28. Skeletal muscle excitation-contraction coupling - malignant hyperthermia
 (
-  '70000000-0000-0000-0000-000000000028', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000028', 'mrcp1', '26fd0b64-3bd6-46f0-b481-0941e90e92ed',
+  'draft', 'advanced',
   $stem$A patient undergoes general anaesthesia with a volatile agent and suxamethonium, and develops rigidity, hyperthermia, and a markedly raised creatine kinase. This is caused by a mutation in the ryanodine receptor, which normally releases calcium from the sarcoplasmic reticulum in response to depolarisation of the T-tubule, triggering calcium binding to troponin C and cross-bridge cycling between actin and myosin.$stem$,
   'What is the underlying condition, and which step in excitation-contraction coupling is disrupted?',
   array['malignant hyperthermia','ryanodine receptor','excitation-contraction coupling']
@@ -296,8 +300,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 29. Starling forces and oedema
 (
-  '70000000-0000-0000-0000-000000000029', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000029', 'mrcp1', '26fd0b64-3bd6-46f0-b481-0941e90e92ed',
+  'draft', 'core',
   $stem$A patient with nephrotic syndrome and a serum albumin of 15 g/L develops widespread peripheral oedema. Capillary hydrostatic pressure is not significantly elevated.$stem$,
   'Which change in Starling forces best explains the oedema in this patient?',
   array['Starling forces','oedema','hypoalbuminaemia']
@@ -307,8 +311,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 30. Autosomal dominant pedigree - Huntington disease
 (
-  '70000000-0000-0000-0000-000000000030', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000030', 'mrcp1', 'ff7409bf-effb-49e6-aded-aeae01b0c8bd',
+  'draft', 'foundation',
   $stem$A pedigree shows an inherited neurodegenerative condition affecting members of every generation, with both sexes equally affected, and appearing to pass directly from an affected parent to roughly half of their offspring, without skipping generations.$stem$,
   'Which inheritance pattern does this describe, and which condition is a classic example?',
   array['autosomal dominant inheritance','Huntington disease','pedigree analysis']
@@ -316,8 +320,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 31. Genetic anticipation - trinucleotide repeat expansion
 (
-  '70000000-0000-0000-0000-000000000031', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000031', 'mrcp1', 'ff7409bf-effb-49e6-aded-aeae01b0c8bd',
+  'draft', 'advanced',
   $stem$In a family affected by myotonic dystrophy, the grandfather developed mild cataracts and muscle stiffness in his sixties, his daughter developed clinically apparent myotonia and weakness in her thirties, and her son presented with severe congenital hypotonia in infancy. Molecular testing shows progressively larger trinucleotide repeat expansions in successive generations.$stem$,
   'What is this phenomenon called, and what is its molecular basis?',
   array['genetic anticipation','trinucleotide repeat expansion','myotonic dystrophy']
@@ -325,8 +329,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 32. Genomic imprinting - Prader-Willi vs Angelman syndrome
 (
-  '70000000-0000-0000-0000-000000000032', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000032', 'mrcp1', 'ff7409bf-effb-49e6-aded-aeae01b0c8bd',
+  'draft', 'advanced',
   $stem$Two children each have a deletion of the same region of chromosome 15q11-13. Child A, in whom the deletion occurred on the paternally inherited chromosome, has hyperphagia, obesity, hypotonia and mild intellectual disability. Child B, in whom the deletion occurred on the maternally inherited chromosome, has severe intellectual disability, ataxia, seizures and inappropriate laughter.$stem$,
   $q$What is the mechanism explaining why the same deletion produces two different phenotypes depending on parental origin, and what is Child B's diagnosis?$q$,
   array['genomic imprinting','Prader-Willi syndrome','Angelman syndrome']
@@ -334,8 +338,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 33. Chromosomal disorder - Turner syndrome
 (
-  '70000000-0000-0000-0000-000000000033', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000033', 'mrcp1', 'ff7409bf-effb-49e6-aded-aeae01b0c8bd',
+  'draft', 'foundation',
   $stem$A 15-year-old girl presents with short stature and primary amenorrhoea. Examination reveals a webbed neck, widely spaced nipples, and a wide carrying angle at the elbows. Karyotype shows a 45,X pattern.$stem$,
   'What is the diagnosis?',
   array['Turner syndrome','45X karyotype','chromosomal disorder']
@@ -343,8 +347,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 34. Recurrence risk calculation - autosomal recessive counselling
 (
-  '70000000-0000-0000-0000-000000000034', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000034', 'mrcp1', 'ff7409bf-effb-49e6-aded-aeae01b0c8bd',
+  'draft', 'core',
   $stem$A couple, both unaffected, have already had one child with cystic fibrosis, an autosomal recessive condition. They are expecting another child and seek genetic counselling.$stem$,
   'What is the probability that this next child will also be affected by cystic fibrosis?',
   array['recurrence risk','autosomal recessive inheritance','genetic counselling']
@@ -352,8 +356,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 35. X-linked recessive pedigree - Duchenne muscular dystrophy
 (
-  '70000000-0000-0000-0000-000000000035', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000035', 'mrcp1', 'ff7409bf-effb-49e6-aded-aeae01b0c8bd',
+  'draft', 'foundation',
   $stem$A pedigree shows a severe muscle-wasting condition affecting only males across several generations, transmitted through unaffected or mildly affected carrier females, with no instance of male-to-male transmission.$stem$,
   'Which inheritance pattern does this describe, and which condition is a classic example?',
   array['X-linked recessive inheritance','Duchenne muscular dystrophy','pedigree analysis']
@@ -361,8 +365,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 36. Penetrance vs expressivity
 (
-  '70000000-0000-0000-0000-000000000036', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000036', 'mrcp1', 'ff7409bf-effb-49e6-aded-aeae01b0c8bd',
+  'draft', 'core',
   $stem$In a family with neurofibromatosis type 1, all tested relatives carry the pathogenic NF1 mutation. One carrier has only a few cafe-au-lait macules and is otherwise entirely well; another carrier has numerous cutaneous neurofibromas, an optic glioma, and skeletal deformity. A third obligate carrier (confirmed by having an affected parent and an affected child) has no clinically detectable features at all on examination.$stem$,
   'Which two distinct genetic concepts are illustrated by, respectively, the variation in severity between the second carrier and the first, and the complete absence of features in the third carrier?',
   array['penetrance','expressivity','NF1']
@@ -372,8 +376,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 37. Type I hypersensitivity - anaphylaxis
 (
-  '70000000-0000-0000-0000-000000000037', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000037', 'mrcp1', '5844a2c1-d306-456b-8302-8dbc785f94fd',
+  'draft', 'foundation',
   $stem$A 24-year-old woman develops facial swelling, wheeze, and hypotension within minutes of eating peanuts. This is mediated by pre-formed IgE bound to mast cells and basophils, which cross-links on re-exposure to the allergen and triggers rapid degranulation with release of histamine and other mediators.$stem$,
   'Which type of hypersensitivity reaction does this describe?',
   array['type I hypersensitivity','anaphylaxis','IgE-mediated']
@@ -381,8 +385,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 38. Type II hypersensitivity - Goodpasture disease
 (
-  '70000000-0000-0000-0000-000000000038', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000038', 'mrcp1', '5844a2c1-d306-456b-8302-8dbc785f94fd',
+  'draft', 'core',
   $stem$A 45-year-old man presents with haemoptysis and rapidly progressive glomerulonephritis. Renal biopsy shows linear IgG deposition along the glomerular basement membrane, with circulating antibodies directed against type IV collagen in the basement membrane itself.$stem$,
   'Which type of hypersensitivity reaction underlies this condition?',
   array['type II hypersensitivity','Goodpasture disease','anti-GBM antibody']
@@ -390,8 +394,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 39. Type III hypersensitivity - serum sickness
 (
-  '70000000-0000-0000-0000-000000000039', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000039', 'mrcp1', '5844a2c1-d306-456b-8302-8dbc785f94fd',
+  'draft', 'core',
   $stem$A patient develops fever, urticarial rash, arthralgia, and glomerulonephritis one to two weeks after receiving a foreign antiserum. Immune complexes of antigen and antibody are deposited in vessel walls and glomeruli, activating complement and attracting neutrophils that cause local tissue damage.$stem$,
   'Which type of hypersensitivity reaction does this describe?',
   array['type III hypersensitivity','immune complex deposition','serum sickness']
@@ -399,8 +403,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 40. Type IV hypersensitivity - allergic contact dermatitis
 (
-  '70000000-0000-0000-0000-000000000040', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000040', 'mrcp1', '5844a2c1-d306-456b-8302-8dbc785f94fd',
+  'draft', 'core',
   $stem$A 40-year-old woman develops an itchy, eczematous rash confined to the skin under a pair of nickel earrings, appearing 2 days after wearing them and settling over the following week once they are removed. Patch testing later reproduces the same delayed reaction. No antibody is required for this reaction; it is instead mediated by sensitised T lymphocytes recruiting macrophages to the site over 48-72 hours.$stem$,
   'Which type of hypersensitivity reaction does this describe?',
   array['type IV hypersensitivity','contact dermatitis','T-cell mediated']
@@ -408,8 +412,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 41. Complement deficiency - C1 esterase inhibitor / hereditary angioedema
 (
-  '70000000-0000-0000-0000-000000000041', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000041', 'mrcp1', '5844a2c1-d306-456b-8302-8dbc785f94fd',
+  'draft', 'advanced',
   $stem$A 22-year-old woman has recurrent episodes of non-itchy, non-urticarial swelling of the face, lips and limbs, and once had life-threatening laryngeal swelling. Episodes are not associated with any identifiable allergen, do not respond to antihistamines or adrenaline, and her father had similar episodes. During an acute episode, complement studies show a low C4 level with a normal C3.$stem$,
   'Which underlying deficiency is most likely responsible, and by what mechanism does it cause angioedema without urticaria?',
   array['hereditary angioedema','C1 esterase inhibitor deficiency','complement deficiency']
@@ -417,8 +421,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 42. Primary immunodeficiency - Bruton X-linked agammaglobulinaemia
 (
-  '70000000-0000-0000-0000-000000000042', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000042', 'mrcp1', '5844a2c1-d306-456b-8302-8dbc785f94fd',
+  'draft', 'core',
   $stem$A 7-month-old boy has had three episodes of otitis media and one episode of pneumococcal pneumonia since he was 5 months old, having been well before then. Immunoglobulin levels show markedly low IgG, IgA and IgM. Flow cytometry shows an absence of circulating B lymphocytes, with normal T lymphocyte numbers. A mutation in a B-cell tyrosine kinase gene on the X chromosome is identified.$stem$,
   'What is the diagnosis, and why did symptoms only begin around 5-6 months of age?',
   array['Brutons X-linked agammaglobulinaemia','primary immunodeficiency','B cell defect']
@@ -426,8 +430,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 43. Transplant rejection - hyperacute rejection
 (
-  '70000000-0000-0000-0000-000000000043', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000043', 'mrcp1', '5844a2c1-d306-456b-8302-8dbc785f94fd',
+  'draft', 'advanced',
   $stem$A patient receives a kidney transplant. Within minutes of the vascular anastomosis being completed and blood flow restored, the graft becomes mottled and cyanotic, and produces no urine. Histology shows widespread thrombosis within the graft's small vessels.$stem$,
   'What is the mechanism responsible for this immediate graft failure?',
   array['hyperacute rejection','preformed antibodies','transplant immunology']
@@ -437,8 +441,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 44. Sensitivity/specificity/PPV/NPV calculation from a 2x2 table
 (
-  '70000000-0000-0000-0000-000000000044', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000044', 'mrcp1', '4bb12ed7-0347-4682-bf1e-c9af2445957e',
+  'draft', 'core',
   $stem$A new screening test for a disease is evaluated against a gold-standard diagnosis in 1000 patients. Of the 100 patients who truly have the disease, 90 test positive. Of the 900 patients who do not have the disease, 810 test negative.$stem$,
   'What is the sensitivity of this test?',
   array['sensitivity','specificity','2x2 table']
@@ -446,8 +450,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 45. Likelihood ratio interpretation
 (
-  '70000000-0000-0000-0000-000000000045', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000045', 'mrcp1', '4bb12ed7-0347-4682-bf1e-c9af2445957e',
+  'draft', 'foundation',
   $stem$A diagnostic test for a condition has a positive likelihood ratio (LR+) of 15.$stem$,
   'What does this value indicate about the test?',
   array['likelihood ratio','diagnostic test interpretation']
@@ -455,8 +459,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 46. Number needed to treat calculation
 (
-  '70000000-0000-0000-0000-000000000046', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000046', 'mrcp1', '4bb12ed7-0347-4682-bf1e-c9af2445957e',
+  'draft', 'core',
   $stem$A randomised controlled trial finds that over 5 years, 20% of patients on placebo have a stroke, compared with 15% of patients on a new antihypertensive drug.$stem$,
   'What is the number needed to treat (NNT) with this drug to prevent one stroke over 5 years?',
   array['number needed to treat','absolute risk reduction','NNT calculation']
@@ -464,8 +468,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 47. Relative risk vs odds ratio - case-control study
 (
-  '70000000-0000-0000-0000-000000000047', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000047', 'mrcp1', '4bb12ed7-0347-4682-bf1e-c9af2445957e',
+  'draft', 'core',
   $stem$Researchers wish to investigate a possible association between a rare occupational exposure and a rare form of cancer. They recruit patients already diagnosed with the cancer along with matched controls without it, and retrospectively determine each participant's prior exposure status.$stem$,
   'Which measure of association is appropriate for this study design, and why can relative risk not be calculated directly?',
   array['odds ratio','relative risk','case-control study']
@@ -473,8 +477,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 48. Confidence interval interpretation
 (
-  '70000000-0000-0000-0000-000000000048', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'foundation',
+  '70000000-0000-0000-0000-000000000048', 'mrcp1', '4bb12ed7-0347-4682-bf1e-c9af2445957e',
+  'draft', 'foundation',
   $stem$A trial reports that a new drug reduces the relative risk of a cardiovascular outcome, with a relative risk of 0.85 and a 95% confidence interval of 0.70 to 1.05, compared with placebo.$stem$,
   'What can be concluded from this result?',
   array['confidence interval','statistical significance','relative risk']
@@ -482,8 +486,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 49. Differential loss to follow-up -> attrition bias -> distrust of effect size
 (
-  '70000000-0000-0000-0000-000000000049', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'advanced',
+  '70000000-0000-0000-0000-000000000049', 'mrcp1', '4bb12ed7-0347-4682-bf1e-c9af2445957e',
+  'draft', 'advanced',
   $stem$A cohort study compares a new drug against standard care over 2 years. In the new drug arm, a substantially higher proportion of participants withdraw before the study ends, mostly because of side effects or perceived lack of benefit, and are excluded from the final analysis. The control arm has near-complete follow-up. The study reports a large, statistically significant benefit for the new drug.$stem$,
   'What type of bias does this design flaw introduce, and why should the reported effect size be treated with caution?',
   array['attrition bias','loss to follow-up','selection bias','chain reasoning']
@@ -491,8 +495,8 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 
 -- 50. Incidence vs prevalence calculation
 (
-  '70000000-0000-0000-0000-000000000050', 'mrcp1', '30000000-0000-0000-0000-000000000017',
-  'published', 'core',
+  '70000000-0000-0000-0000-000000000050', 'mrcp1', '4bb12ed7-0347-4682-bf1e-c9af2445957e',
+  'draft', 'core',
   $stem$In a stable population of 50,000 people, 2,000 people currently have a chronic disease. Over the following year, 400 new cases of the disease are diagnosed among the 48,000 people who did not previously have it.$stem$,
   'What is the incidence rate of the disease over this year, and how does this differ conceptually from its prevalence?',
   array['incidence','prevalence','epidemiology']

@@ -15,7 +15,6 @@
 -- "Ruled out because..." wrong-answer rationales tied to specifics in the
 -- stem, 2-3 discriminators per question. Correct-answer label balanced
 -- across A-E.
-
 insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, tags) values
 ('f6000000-0000-0000-0000-000000000001', 'mrcp1', '8263d166-b8f1-41d2-abb0-085b8b1ed5a6',
   'draft', 'core',
@@ -91,7 +90,7 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 ),
 ('f6000000-0000-0000-0000-000000000013', 'mrcp1', '8263d166-b8f1-41d2-abb0-085b8b1ed5a6',
   'draft', 'core',
-  'A 52-year-old woman with metastatic cancer and known brain metastases develops a new severe headache, vomiting and reduced consciousness. CT head shows significant midline shift from oedema surrounding the known metastases.',
+  'A 52-year-old woman with metastatic non-small-cell lung cancer and known brain metastases develops a new severe headache, vomiting and reduced consciousness. CT head shows significant midline shift from oedema surrounding the known metastases.',
   'What is the most appropriate immediate management?',
   array['raised intracranial pressure','brain metastases','dexamethasone']
 ),

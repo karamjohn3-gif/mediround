@@ -15,7 +15,6 @@
 -- "Ruled out because..." wrong-answer rationales tied to specifics in the
 -- stem, 2-3 discriminators per question. Correct-answer label balanced across
 -- A-E.
-
 insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, tags) values
 ('f0000000-0000-0000-0000-000000000001', 'mrcp1', 'fb615642-574d-47d5-9c8a-f0e9539aaee5',
   'draft', 'foundation',
@@ -97,7 +96,7 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 ),
 ('f0000000-0000-0000-0000-000000000014', 'mrcp1', '5e151d63-1e17-455b-8a43-b3dcacfbb112',
   'draft', 'core',
-  'A patient with type 1 diabetes is found unconscious at home by a family member, who is unable to rouse them. Capillary glucose is 2.0 mmol/L. There is no IV access available, and paramedics have not yet arrived.',
+  'A 24-year-old man with type 1 diabetes is found unconscious at home by a family member, who is unable to rouse him. Capillary glucose is 2.0 mmol/L. There is no IV access available, and paramedics have not yet arrived.',
   'What is the most appropriate immediate action for the family member to take?',
   array['severe hypoglycaemia','IM glucagon','unconscious patient']
 ),

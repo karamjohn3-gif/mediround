@@ -16,7 +16,6 @@
 -- "Ruled out because..." wrong-answer rationales tied to specifics in the
 -- stem, 2-3 discriminators per question. Correct-answer label balanced
 -- across A-E.
-
 insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, tags) values
 ('f1000000-0000-0000-0000-000000000001', 'mrcp1', 'dfd19686-0722-4055-bf6a-4ed7a82f25c2',
   'draft', 'core',
@@ -236,7 +235,7 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 ),
 ('f1000000-0000-0000-0000-000000000037', 'mrcp1', '65eb87b3-ebf6-4a6b-a31b-c6465882ec18',
   'draft', 'core',
-  'A healthcare worker sustains a needlestick injury from a used hollow-bore needle while caring for a patient of unknown bloodborne virus status.',
+  'A 29-year-old nurse sustains a needlestick injury from a used hollow-bore needle while taking blood from a patient of unknown bloodborne virus status on a general medical ward.',
   'What is the most appropriate immediate first step in management?',
   array['needlestick injury','occupational exposure','bloodborne virus']
 ),
@@ -314,7 +313,7 @@ insert into questions (id, exam, topic_id, status, difficulty, stem, lead_in, ta
 ),
 ('f1000000-0000-0000-0000-000000000050', 'mrcp1', '33fc24cd-e214-4911-8261-07a40175007f',
   'draft', 'foundation',
-  'A microbiology laboratory reports a urine culture growing E. coli that is sensitive to nitrofurantoin, trimethoprim, and co-amoxiclav, but resistant to amoxicillin.',
+  'A 68-year-old woman was started empirically on amoxicillin for a suspected urinary tract infection. Her midstream urine culture, sent before starting treatment, has now returned: E. coli sensitive to nitrofurantoin, trimethoprim and co-amoxiclav, but resistant to amoxicillin.',
   'What does this sensitivity pattern indicate about the most appropriate treatment choice?',
   array['antibiotic sensitivity testing','culture-guided therapy']
 )
